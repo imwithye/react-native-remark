@@ -7,6 +7,7 @@ import {
   Strong,
   Delete,
   Emphasis,
+  Heading,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -25,6 +26,7 @@ export interface Renderers {
   rootContent: RenderFunc<RootContent>;
   phrasingContent: RenderFunc<PhrasingContent>;
   paragraph: RenderFunc<Paragraph>;
+  heading: RenderFunc<Heading>;
   text: RenderFunc<Text>;
   strong: RenderFunc<Strong>;
   delete: RenderFunc<Delete>;
