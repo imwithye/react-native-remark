@@ -8,11 +8,11 @@ import { renderers } from "./renderers";
 const parser = unified().use(remarkParse).use(remarkGfm);
 
 export type MarkdownProps = {
-  children: string;
+  markdown: string;
 };
 
-export const Markdown = ({ children }: MarkdownProps) => {
-  const parent = parser.parse(children);
+export const Markdown = ({ markdown }: MarkdownProps) => {
+  const parent = parser.parse(markdown);
   return (
     <View>
       {parent.children.map((node, index) =>
