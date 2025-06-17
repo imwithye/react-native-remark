@@ -1,4 +1,4 @@
-import { Node, RootContent, PhrasingContent, Paragraph } from "mdast";
+import { Node, RootContent, PhrasingContent, Paragraph, Text } from "mdast";
 import { ReactNode } from "react";
 
 export type RendererArgs<This extends Node, Parent extends Node> = {
@@ -16,4 +16,5 @@ export interface Renderers {
   rootContent: RenderFunc<RootContent, Node>;
   phrasingContent: RenderFunc<PhrasingContent, Node>;
   paragraph: RenderFunc<Paragraph, Node>;
+  text: RenderFunc<Text, Node>;
 }
