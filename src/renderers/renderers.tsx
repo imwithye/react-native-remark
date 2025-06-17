@@ -32,21 +32,21 @@ export type RenderFunc<This extends Node> = (
 ) => ReactNode;
 
 export interface Renderers {
-  rootContent: RenderFunc<RootContent>;
   blockContent: RenderFunc<BlockContent>;
-  definitionContent: RenderFunc<DefinitionContent>;
   blockquote: RenderFunc<Blockquote>;
-  phrasingContent: RenderFunc<PhrasingContent>;
+  code: RenderFunc<Code>;
+  definitionContent: RenderFunc<DefinitionContent>;
+  delete: RenderFunc<Delete>;
+  emphasis: RenderFunc<Emphasis>;
+  heading: RenderFunc<Heading>;
+  inlineCode: RenderFunc<InlineCode>;
+  link: RenderFunc<Link>;
   list: RenderFunc<List>;
   listItem: RenderFunc<ListItem>;
   paragraph: RenderFunc<Paragraph>;
-  inlineCode: RenderFunc<InlineCode>;
-  link: RenderFunc<Link>;
-  heading: RenderFunc<Heading>;
-  text: RenderFunc<Text>;
+  phrasingContent: RenderFunc<PhrasingContent>;
+  rootContent: RenderFunc<RootContent>;
   strong: RenderFunc<Strong>;
-  delete: RenderFunc<Delete>;
-  emphasis: RenderFunc<Emphasis>;
+  text: RenderFunc<Text>;
   thematicBreak: RenderFunc<ThematicBreak>;
-  code: RenderFunc<Code>;
 }
