@@ -1,5 +1,6 @@
 import { blockContent } from "./blockContent";
 import { blockquote } from "./blockquote";
+import { breakRenderer } from "./break";
 import { code } from "./code";
 import { definitionContent } from "./definitionContent";
 import { deleteRenderer } from "./delete";
@@ -18,6 +19,7 @@ import { text } from "./text";
 import { thematicBreak } from "./thematicBreak";
 
 export const renderers: Renderers = {
+  break: breakRenderer,
   blockContent,
   blockquote,
   code,

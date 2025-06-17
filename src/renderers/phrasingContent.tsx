@@ -9,7 +9,7 @@ export const phrasingContent = ({
 }: RendererArgs<PhrasingContent>): ReactNode => {
   switch (node.type) {
     case "break":
-      return null;
+      return renderers.break({ node, renderers, ...args });
     case "delete":
       return renderers.delete({ node, renderers, ...args });
     case "emphasis":

@@ -17,6 +17,7 @@ import {
   ThematicBreak,
   Blockquote,
   Code,
+  Break,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -32,6 +33,7 @@ export type RenderFunc<This extends Node> = (
 ) => ReactNode;
 
 export interface Renderers {
+  break: RenderFunc<Break>;
   blockContent: RenderFunc<BlockContent>;
   blockquote: RenderFunc<Blockquote>;
   code: RenderFunc<Code>;

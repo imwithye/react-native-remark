@@ -11,7 +11,7 @@ export const rootContent = ({
     case "blockquote":
       return renderers.blockquote({ node, renderers, ...args });
     case "break":
-      return null;
+      return renderers.break({ node, renderers, ...args });
     case "code":
       return renderers.code({ node, renderers, ...args });
     case "definition":
