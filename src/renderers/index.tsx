@@ -1,3 +1,4 @@
+import { blockContent } from "./blockContent";
 import { deleteRenderer } from "./delete";
 import { emphasis } from "./emphasis";
 import { heading } from "./heading";
@@ -11,6 +12,7 @@ import { text } from "./text";
 
 export const renderers: Renderers = {
   rootContent,
+  blockContent,
   phrasingContent,
   paragraph,
   inlineCode,

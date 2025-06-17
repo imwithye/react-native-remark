@@ -9,6 +9,7 @@ import {
   Emphasis,
   Heading,
   InlineCode,
+  BlockContent,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -25,6 +26,7 @@ export type RenderFunc<This extends Node> = (
 
 export interface Renderers {
   rootContent: RenderFunc<RootContent>;
+  blockContent: RenderFunc<BlockContent>;
   phrasingContent: RenderFunc<PhrasingContent>;
   paragraph: RenderFunc<Paragraph>;
   inlineCode: RenderFunc<InlineCode>;
