@@ -14,7 +14,7 @@ export type MarkdownProps = {
 export const Markdown = ({ markdown }: MarkdownProps) => {
   const parent = parser.parse(markdown);
   return (
-    <View>
+    <View style={{ gap: 10 }}>
       {parent.children.map((node, index) =>
         renderers.rootContent({ node, index, renderers, parent }),
       )}

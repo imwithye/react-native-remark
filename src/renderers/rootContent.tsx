@@ -25,7 +25,7 @@ export const rootContent = ({
     case "footnoteReference":
       return null;
     case "heading":
-      return null;
+      return renderers.heading({ node, renderers, ...args });
     case "html":
       return null;
     case "image":
