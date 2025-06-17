@@ -21,7 +21,7 @@ import { text } from "./text";
 import { thematicBreak } from "./thematicBreak";
 import { yaml } from "./yaml";
 
-export const renderers: Renderers = {
+export const defaultRenderers: Renderers = {
   break: breakRenderer,
   blockContent,
   blockquote,

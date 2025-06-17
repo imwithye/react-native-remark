@@ -4,9 +4,10 @@ import remarkParse from "remark-parse";
 import { View } from "react-native";
 import { visit } from "unist-util-visit";
 
-import { renderers } from "./renderers";
+import { defaultRenderers } from "./renderers";
 import { Definition, Root } from "mdast";
 import { useMemo } from "react";
+import { Renderers, RendererArgs, RenderFunc } from "./renderers/renderers";
 
 const parser = unified().use(remarkParse).use(remarkGfm);
 
@@ -18,11 +19,18 @@ function extractDefinitions(tree: Root): Record<string, Definition> {
   return definitions;
 }
 
+export { Renderers, RendererArgs, RenderFunc };
+
 export type MarkdownProps = {
   markdown: string;
+  customRenderers?: Partial<Renderers>;
 };
 
-export const Markdown = ({ markdown }: MarkdownProps) => {
+export const Markdown = ({ markdown, customRenderers }: MarkdownProps) => {
+  const renderers = useMemo(
+    () => ({ ...defaultRenderers, ...customRenderers }),
+    [customRenderers],
+  );
   const tree = useMemo(() => parser.parse(markdown), [markdown]);
   const definitions = useMemo(() => extractDefinitions(tree), [tree]);
 
