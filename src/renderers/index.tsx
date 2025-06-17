@@ -18,6 +18,7 @@ import { rootContent } from "./rootContent";
 import { strong } from "./strong";
 import { text } from "./text";
 import { thematicBreak } from "./thematicBreak";
+import { yaml } from "./yaml";
 
 export const renderers: Renderers = {
   break: breakRenderer,
@@ -39,4 +40,5 @@ export const renderers: Renderers = {
   strong,
   text,
   thematicBreak,
+  yaml,
 };

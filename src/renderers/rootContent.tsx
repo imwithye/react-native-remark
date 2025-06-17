@@ -57,7 +57,7 @@ export const rootContent = ({
     case "thematicBreak":
       return renderers.thematicBreak({ node, renderers, ...args });
     case "yaml":
-      return null;
+      return renderers.yaml({ node, renderers, ...args });
     default:
       // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-case-declarations
       const _: never = node;

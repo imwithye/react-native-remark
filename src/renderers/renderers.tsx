@@ -19,6 +19,7 @@ import {
   Code,
   Break,
   Html,
+  Yaml,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -53,4 +54,5 @@ export interface Renderers {
   strong: RenderFunc<Strong>;
   text: RenderFunc<Text>;
   thematicBreak: RenderFunc<ThematicBreak>;
+  yaml: RenderFunc<Yaml>;
 }
