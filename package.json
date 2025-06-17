@@ -1,10 +1,11 @@
 {
   "name": "react-native-remark",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "Remark for React Native",
+  "main": "dist/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup"
   },
   "keywords": [
     "react-native",
@@ -12,5 +13,9 @@
     "markdown"
   ],
   "author": "Yiwei Gong",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  }
 }
