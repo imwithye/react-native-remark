@@ -1,26 +1,18 @@
 {
-    "compilerOptions": {
-      "target": "ES2016",
-      "module": "NodeNext",
-      "moduleResolution": "NodeNext",
-      "outDir": "dist",
-      "rootDir": "src",
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
-      "sourceMap": true,
-      "resolveJsonModule": true
-    },
-    "exclude": [
-      "node_modules",
-      "dist"
-    ],
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "include": [
-      "src/**/*",
-      "package.json"
-    ]
-  }
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "resolveJsonModule": true
+  },
+  "exclude": ["node_modules", "dist"],
+  "typeRoots": ["node_modules/@types"],
+  "include": ["src/**/*", "package.json"]
+}

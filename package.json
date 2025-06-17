@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "format": "prettier --write ."
   },
   "keywords": [
     "react-native",
@@ -15,6 +16,7 @@
   "author": "Yiwei Gong",
   "license": "MIT",
   "devDependencies": {
+    "prettier": "3.5.3",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3"
   }
