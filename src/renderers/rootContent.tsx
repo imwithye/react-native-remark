@@ -1,51 +1,53 @@
 import { RootContent } from "mdast";
 import { RendererArgs } from "./renderers";
 import { ReactNode } from "react";
+import { useMarkdownContext } from "../context";
 
 export const rootContent = ({
   node,
-  renderers,
   ...args
 }: RendererArgs<RootContent>): ReactNode => {
+  const { renderers } = useMarkdownContext();
+
   switch (node.type) {
     case "blockquote":
-      return renderers.blockquote({ node, renderers, ...args });
+      return renderers.blockquote({ node, ...args });
     case "break":
-      return renderers.break({ node, renderers, ...args });
+      return renderers.break({ node, ...args });
     case "code":
-      return renderers.code({ node, renderers, ...args });
+      return renderers.code({ node, ...args });
     case "definition":
       return null;
     case "delete":
-      return renderers.delete({ node, renderers, ...args });
+      return renderers.delete({ node, ...args });
     case "emphasis":
-      return renderers.emphasis({ node, renderers, ...args });
+      return renderers.emphasis({ node, ...args });
     case "footnoteDefinition":
       return null;
     case "footnoteReference":
       return null;
     case "heading":
-      return renderers.heading({ node, renderers, ...args });
+      return renderers.heading({ node, ...args });
     case "html":
-      return renderers.html({ node, renderers, ...args });
+      return renderers.html({ node, ...args });
     case "image":
-      return renderers.image({ node, renderers, ...args });
+      return renderers.image({ node, ...args });
     case "imageReference":
-      return renderers.imageReference({ node, renderers, ...args });
+      return renderers.imageReference({ node, ...args });
     case "inlineCode":
-      return renderers.inlineCode({ node, renderers, ...args });
+      return renderers.inlineCode({ node, ...args });
     case "link":
-      return renderers.link({ node, renderers, ...args });
+      return renderers.link({ node, ...args });
     case "linkReference":
-      return renderers.linkReference({ node, renderers, ...args });
+      return renderers.linkReference({ node, ...args });
     case "list":
-      return renderers.list({ node, renderers, ...args });
+      return renderers.list({ node, ...args });
     case "listItem":
-      return renderers.listItem({ node, renderers, ...args });
+      return renderers.listItem({ node, ...args });
     case "paragraph":
-      return renderers.paragraph({ node, renderers, ...args });
+      return renderers.paragraph({ node, ...args });
     case "strong":
-      return renderers.strong({ node, renderers, ...args });
+      return renderers.strong({ node, ...args });
     case "table":
       return null;
     case "tableCell":
@@ -53,11 +55,11 @@ export const rootContent = ({
     case "tableRow":
       return null;
     case "text":
-      return renderers.text({ node, renderers, ...args });
+      return renderers.text({ node, ...args });
     case "thematicBreak":
-      return renderers.thematicBreak({ node, renderers, ...args });
+      return renderers.thematicBreak({ node, ...args });
     case "yaml":
-      return renderers.yaml({ node, renderers, ...args });
+      return renderers.yaml({ node, ...args });
     default:
       // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-case-declarations
       const _: never = node;

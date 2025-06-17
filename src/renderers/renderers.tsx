@@ -21,7 +21,6 @@ import {
   Break,
   Html,
   Yaml,
-  Definition,
   ImageReference,
   LinkReference,
 } from "mdast";
@@ -29,8 +28,6 @@ import { ReactNode } from "react";
 
 export type RendererArgs<This extends Node> = {
   node: This;
-  renderers: Renderers;
-  definitions: Record<string, Definition>;
   parent?: Node;
   index?: number;
 };

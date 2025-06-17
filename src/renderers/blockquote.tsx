@@ -2,13 +2,14 @@ import { BlockContent, Blockquote, DefinitionContent } from "mdast";
 import { RendererArgs } from "./renderers";
 import { ReactNode } from "react";
 import { View } from "react-native";
+import { useMarkdownContext } from "../context";
 
 export const blockquote = ({
   node,
-  renderers,
-  definitions,
   index,
 }: RendererArgs<Blockquote>): ReactNode => {
+  const { renderers } = useMarkdownContext();
+
   return (
     <View
       key={index}
@@ -28,15 +29,11 @@ export const blockquote = ({
             node: child as BlockContent,
             index: idx,
             parent: node,
-            renderers,
-            definitions,
           }) ||
           renderers.definitionContent({
             node: child as DefinitionContent,
             index: idx,
             parent: node,
-            renderers,
-            definitions,
           }),
       )}
     </View>

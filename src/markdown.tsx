@@ -44,8 +44,6 @@ export const Markdown = ({ markdown, customRenderers }: MarkdownProps) => {
           renderers.rootContent({
             node,
             index,
-            renderers,
-            definitions,
             parent: tree,
           }),
         )}

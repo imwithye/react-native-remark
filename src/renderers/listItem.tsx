@@ -2,14 +2,15 @@ import { BlockContent, DefinitionContent, List, ListItem } from "mdast";
 import { RendererArgs } from "./renderers";
 import { ReactNode } from "react";
 import { Text, View } from "react-native";
+import { useMarkdownContext } from "../context";
 
 export const listItem = ({
   node,
-  renderers,
-  definitions,
   index,
   parent,
 }: RendererArgs<ListItem>): ReactNode => {
+  const { renderers } = useMarkdownContext();
+
   const list = parent?.type === "list" ? (parent as List) : null;
   const itemId = (list?.start ?? 1) + (index ?? 0);
   return (
@@ -26,15 +27,11 @@ export const listItem = ({
               node: child as BlockContent,
               index: idx,
               parent: node,
-              renderers,
-              definitions,
             }) ||
             renderers.definitionContent({
               node: child as DefinitionContent,
               index: idx,
               parent: node,
-              renderers,
-              definitions,
             }),
         )}
       </View>

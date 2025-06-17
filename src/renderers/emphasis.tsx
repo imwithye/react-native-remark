@@ -2,13 +2,14 @@ import { Emphasis } from "mdast";
 import { RendererArgs } from "./renderers";
 import { ReactNode } from "react";
 import { Text } from "react-native";
+import { useMarkdownContext } from "../context";
 
 export const emphasis = ({
   node,
-  renderers,
-  definitions,
   index,
 }: RendererArgs<Emphasis>): ReactNode => {
+  const { renderers } = useMarkdownContext();
+
   return (
     <Text key={index} style={{ fontStyle: "italic" }}>
       {node.children.map((child, idx) =>
@@ -16,8 +17,6 @@ export const emphasis = ({
           node: child,
           index: idx,
           parent: node,
-          renderers,
-          definitions,
         }),
       )}
     </Text>
