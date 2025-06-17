@@ -20,12 +20,14 @@ import {
   Break,
   Html,
   Yaml,
+  Definition,
 } from "mdast";
 import { ReactNode } from "react";
 
 export type RendererArgs<This extends Node> = {
   node: This;
   renderers: Renderers;
+  definitions: Map<string, Definition>;
   parent?: Node;
   index?: number;
 };

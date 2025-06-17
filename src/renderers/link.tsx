@@ -6,6 +6,7 @@ import { Text } from "react-native";
 export const link = ({
   node,
   renderers,
+  definitions,
   index,
 }: RendererArgs<Link>): ReactNode => {
   return (
@@ -16,6 +17,7 @@ export const link = ({
           index,
           parent: node,
           renderers,
+          definitions,
         }),
       )}
     </Text>

@@ -6,6 +6,7 @@ import { Text } from "react-native";
 export const heading = ({
   node,
   renderers,
+  definitions,
   index,
 }: RendererArgs<Heading>): ReactNode => {
   const depth = node.depth;
@@ -20,6 +21,7 @@ export const heading = ({
           index: idx,
           parent: node,
           renderers,
+          definitions,
         }),
       )}
     </Text>

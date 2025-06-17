@@ -5,8 +5,9 @@ import { Text, View } from "react-native";
 
 export const listItem = ({
   node,
-  index,
   renderers,
+  definitions,
+  index,
   parent,
 }: RendererArgs<ListItem>): ReactNode => {
   const list = parent?.type === "list" ? (parent as List) : null;
@@ -26,12 +27,14 @@ export const listItem = ({
               index: idx,
               parent: node,
               renderers,
+              definitions,
             }) ||
             renderers.definitionContent({
               node: child as DefinitionContent,
               index: idx,
               parent: node,
               renderers,
+              definitions,
             }),
         )}
       </View>

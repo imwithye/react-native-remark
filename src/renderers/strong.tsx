@@ -6,6 +6,7 @@ import { Text } from "react-native";
 export const strong = ({
   node,
   renderers,
+  definitions,
   index,
 }: RendererArgs<Strong>): ReactNode => {
   return (
@@ -16,6 +17,7 @@ export const strong = ({
           index: idx,
           parent: node,
           renderers,
+          definitions,
         }),
       )}
     </Text>

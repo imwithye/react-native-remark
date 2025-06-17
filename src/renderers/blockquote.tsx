@@ -6,6 +6,7 @@ import { View } from "react-native";
 export const blockquote = ({
   node,
   renderers,
+  definitions,
   index,
 }: RendererArgs<Blockquote>): ReactNode => {
   return (
@@ -28,12 +29,14 @@ export const blockquote = ({
             index: idx,
             parent: node,
             renderers,
+            definitions,
           }) ||
           renderers.definitionContent({
             node: child as DefinitionContent,
             index: idx,
             parent: node,
             renderers,
+            definitions,
           }),
       )}
     </View>

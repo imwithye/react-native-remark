@@ -6,6 +6,7 @@ import { Text } from "react-native";
 export const deleteRenderer = ({
   node,
   renderers,
+  definitions,
   index,
 }: RendererArgs<Delete>): ReactNode => {
   return (
@@ -16,6 +17,7 @@ export const deleteRenderer = ({
           index: idx,
           parent: node,
           renderers,
+          definitions,
         }),
       )}
     </Text>

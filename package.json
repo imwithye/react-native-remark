@@ -26,7 +26,8 @@
     "react-native": "^0.80.0",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
-    "unified": "^11.0.5"
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0"
   },
   "peerDependencies": {
     "react": ">=17.0.0",

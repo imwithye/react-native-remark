@@ -6,6 +6,7 @@ import { View } from "react-native";
 export const list = ({
   node,
   renderers,
+  definitions,
   index,
 }: RendererArgs<List>): ReactNode => {
   return (
@@ -16,6 +17,7 @@ export const list = ({
           index: idx,
           parent: node,
           renderers,
+          definitions,
         }),
       )}
     </View>

@@ -6,6 +6,7 @@ import { Text } from "react-native";
 export const paragraph = ({
   node,
   renderers,
+  definitions,
   index,
 }: RendererArgs<Paragraph>): ReactNode => {
   return (
@@ -16,6 +17,7 @@ export const paragraph = ({
           index: idx,
           parent: node,
           renderers,
+          definitions,
         }),
       )}
     </Text>

@@ -6,6 +6,7 @@ import { Text } from "react-native";
 export const emphasis = ({
   node,
   renderers,
+  definitions,
   index,
 }: RendererArgs<Emphasis>): ReactNode => {
   return (
@@ -16,6 +17,7 @@ export const emphasis = ({
           index: idx,
           parent: node,
           renderers,
+          definitions,
         }),
       )}
     </Text>
