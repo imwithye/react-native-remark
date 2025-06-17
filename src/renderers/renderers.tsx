@@ -8,6 +8,7 @@ import {
   Delete,
   Emphasis,
   Heading,
+  InlineCode,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -26,6 +27,7 @@ export interface Renderers {
   rootContent: RenderFunc<RootContent>;
   phrasingContent: RenderFunc<PhrasingContent>;
   paragraph: RenderFunc<Paragraph>;
+  inlineCode: RenderFunc<InlineCode>;
   heading: RenderFunc<Heading>;
   text: RenderFunc<Text>;
   strong: RenderFunc<Strong>;

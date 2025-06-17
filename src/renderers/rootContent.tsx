@@ -33,7 +33,7 @@ export const rootContent = ({
     case "imageReference":
       return null;
     case "inlineCode":
-      return null;
+      return renderers.inlineCode({ node, renderers, ...args });
     case "link":
       return null;
     case "linkReference":
