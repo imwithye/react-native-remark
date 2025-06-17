@@ -16,8 +16,8 @@ npm install react-native-remark
 ## Usage
 
 ```jsx
-import React from 'react';
-import { Markdown } from 'react-native-remark';
+import React from "react";
+import { Markdown } from "react-native-remark";
 
 const markdown = `
 # Hello World! 👋

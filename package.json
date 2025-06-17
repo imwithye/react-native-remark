@@ -10,10 +10,11 @@
   },
   "scripts": {
     "build": "tsup",
+    "format": "prettier --write .",
     "lint": "eslint . --no-warn-ignored",
     "lint:fix": "eslint . --fix",
-    "example:reinstall": "pnpm run build && cd example && rm -rf node_modules/react-native-remark && pnpm install",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "example:reinstall": "pnpm run build && cd example && rm -rf node_modules/react-native-remark && pnpm install"
   },
   "files": [
     "dist",
