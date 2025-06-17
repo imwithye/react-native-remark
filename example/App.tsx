@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createStaticNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import { ScrollView } from "react-native";
+import { Linking, ScrollView } from "react-native";
 import { Markdown } from "react-native-remark";
 
 const URL =
@@ -19,7 +19,10 @@ const HomeScreen = () => {
   return (
     <ScrollView style={{ flex: 1, padding: 8, backgroundColor: "white" }}>
       <StatusBar style="auto" />
-      <Markdown markdown={markdown} />
+      <Markdown
+        markdown={markdown}
+        onLinkPress={(url) => Linking.openURL(url)}
+      />
     </ScrollView>
   );
 };

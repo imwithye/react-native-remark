@@ -6,6 +6,7 @@ export type MarkdownContextType = {
   tree: Root;
   renderers: Renderers;
   definitions: Record<string, Definition>;
+  onLinkPress?: (url: string) => void;
 };
 
 export const MarkdownContext = createContext<MarkdownContextType | undefined>(
@@ -26,6 +27,7 @@ export type MarkdownContextProviderProps = {
   tree: Root;
   renderers: Renderers;
   definitions: Record<string, Definition>;
+  onLinkPress?: (url: string) => void;
   children: React.ReactNode;
 };
 
@@ -33,10 +35,13 @@ export const MarkdownContextProvider = ({
   tree,
   renderers,
   definitions,
+  onLinkPress,
   children,
 }: MarkdownContextProviderProps) => {
   return (
-    <MarkdownContext.Provider value={{ tree, renderers, definitions }}>
+    <MarkdownContext.Provider
+      value={{ tree, renderers, definitions, onLinkPress }}
+    >
       {children}
     </MarkdownContext.Provider>
   );

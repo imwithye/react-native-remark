@@ -23,9 +23,14 @@ function extractDefinitions(tree: Root): Record<string, Definition> {
 export type MarkdownProps = {
   markdown: string;
   customRenderers?: Partial<Renderers>;
+  onLinkPress?: (url: string) => void;
 };
 
-export const Markdown = ({ markdown, customRenderers }: MarkdownProps) => {
+export const Markdown = ({
+  markdown,
+  customRenderers,
+  onLinkPress,
+}: MarkdownProps) => {
   const renderers = useMemo(
     () => ({ ...defaultRenderers, ...customRenderers }),
     [customRenderers],
@@ -38,10 +43,16 @@ export const Markdown = ({ markdown, customRenderers }: MarkdownProps) => {
       tree={tree}
       renderers={renderers}
       definitions={definitions}
+      onLinkPress={onLinkPress}
     >
       <View style={{ gap: 10 }}>
         {tree.children.map((node, index) => (
-          <renderers.rootContent key={index} node={node} index={index} parent={tree} />
+          <renderers.rootContent
+            key={index}
+            node={node}
+            index={index}
+            parent={tree}
+          />
         ))}
       </View>
     </MarkdownContextProvider>
