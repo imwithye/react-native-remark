@@ -23,6 +23,7 @@ import {
   Yaml,
   Definition,
   ImageReference,
+  LinkReference,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -49,6 +50,7 @@ export interface Renderers {
   heading: RenderFunc<Heading>;
   html: RenderFunc<Html>;
   inlineCode: RenderFunc<InlineCode>;
+  linkReference: RenderFunc<LinkReference>;
   link: RenderFunc<Link>;
   list: RenderFunc<List>;
   listItem: RenderFunc<ListItem>;

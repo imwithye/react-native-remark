@@ -26,6 +26,9 @@ export const Markdown = ({ markdown }: MarkdownProps) => {
   const tree = useMemo(() => parser.parse(markdown), [markdown]);
   const definitions = useMemo(() => extractDefinitions(tree), [tree]);
 
+  console.log(tree);
+  console.log(definitions);
+
   return (
     <View style={{ gap: 10 }}>
       {tree.children.map((node, index) =>
