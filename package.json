@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "tsup",
-    "lint": "eslint src/**/*.ts --no-warn-ignored",
-    "lint:fix": "eslint src/**/*.ts --fix"
+    "lint": "eslint . --no-warn-ignored",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [
     "react-native",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@types/react": "^19.1.8",
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.0",

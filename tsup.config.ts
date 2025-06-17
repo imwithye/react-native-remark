@@ -3,7 +3,7 @@ import { defineConfig } from "tsup";
 const banner = `// GitHub: https://github.com/imwithye/react-native-remark`;
 
 export default defineConfig({
-  entry: ["src/index.ts"],
+  entry: ["src/index.tsx"],
   splitting: false,
   sourcemap: true,
   clean: true,
