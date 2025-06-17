@@ -18,7 +18,10 @@
   "license": "MIT",
   "dependencies": {
     "react": "^19.1.0",
-    "react-native": "^0.80.0"
+    "react-native": "^0.80.0",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5"
   },
   "peerDependencies": {
     "react": ">=17.0.0",
@@ -26,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@types/mdast": "^4.0.4",
     "@types/react": "^19.1.8",
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
