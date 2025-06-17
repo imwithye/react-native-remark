@@ -1,4 +1,4 @@
-import { PhrasingContent, Node } from "mdast";
+import { PhrasingContent } from "mdast";
 import { RendererArgs } from "./renderers";
 import { ReactNode } from "react";
 
@@ -6,7 +6,7 @@ export const phrasingContent = ({
   node,
   renderers,
   ...args
-}: RendererArgs<PhrasingContent, Node>): ReactNode => {
+}: RendererArgs<PhrasingContent>): ReactNode => {
   switch (node.type) {
     case "break":
       return null;
@@ -29,7 +29,7 @@ export const phrasingContent = ({
     case "linkReference":
       return null;
     case "strong":
-      return null;
+      return renderers.strong({ node, renderers, ...args });
     case "text":
       return renderers.text({ node, renderers, ...args });
     default:

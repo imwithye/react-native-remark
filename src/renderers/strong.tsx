@@ -1,15 +1,15 @@
-import { Paragraph } from "mdast";
+import { Strong } from "mdast";
 import { RendererArgs } from "./renderers";
 import { ReactNode } from "react";
 import { Text } from "react-native";
 
-export const paragraph = ({
+export const strong = ({
   node,
   renderers,
   index,
-}: RendererArgs<Paragraph>): ReactNode => {
+}: RendererArgs<Strong>): ReactNode => {
   return (
-    <Text key={index}>
+    <Text key={index} style={{ fontWeight: "bold" }}>
       {node.children.map((child, idx) =>
         renderers.phrasingContent({
           node: child,
