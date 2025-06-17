@@ -5,6 +5,7 @@ import {
   Paragraph,
   Text,
   Strong,
+  Delete,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -25,4 +26,5 @@ export interface Renderers {
   paragraph: RenderFunc<Paragraph>;
   text: RenderFunc<Text>;
   strong: RenderFunc<Strong>;
+  delete: RenderFunc<Delete>;
 }

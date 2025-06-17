@@ -1,3 +1,4 @@
+import { deleteRenderer } from "./delete";
 import { paragraph } from "./paragraph";
 import { phrasingContent } from "./phrasingContent";
 import { Renderers } from "./renderers";
@@ -11,4 +12,5 @@ export const renderers: Renderers = {
   paragraph,
   text,
   strong,
+  delete: deleteRenderer,
 };
