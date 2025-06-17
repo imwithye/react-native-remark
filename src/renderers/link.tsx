@@ -1,8 +1,9 @@
 import { Link, LinkReference } from "mdast";
-import { RendererArgs } from "./renderers";
 import { ReactNode, useCallback } from "react";
 import { Text } from "react-native";
+
 import { useMarkdownContext } from "../context";
+import { RendererArgs } from "./renderers";
 
 export const linkReference = ({
   node,

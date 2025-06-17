@@ -1,7 +1,8 @@
 import { ThematicBreak } from "mdast";
-import { RendererArgs } from "./renderers";
 import { ReactNode } from "react";
 import { View } from "react-native";
+
+import { RendererArgs } from "./renderers";
 
 export const thematicBreak = ({
   index,

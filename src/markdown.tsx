@@ -1,14 +1,14 @@
-import { unified } from "unified";
-import remarkGfm from "remark-gfm";
-import remarkParse from "remark-parse";
-import { View } from "react-native";
-import { visit } from "unist-util-visit";
-
-import { defaultRenderers } from "./renderers";
 import { Definition, Root } from "mdast";
 import { useMemo } from "react";
-import { Renderers } from "./renderers/renderers";
+import { View } from "react-native";
+import remarkGfm from "remark-gfm";
+import remarkParse from "remark-parse";
+import { unified } from "unified";
+import { visit } from "unist-util-visit";
+
 import { MarkdownContextProvider } from "./context";
+import { defaultRenderers } from "./renderers";
+import { Renderers } from "./renderers/renderers";
 
 const parser = unified().use(remarkParse).use(remarkGfm);
 

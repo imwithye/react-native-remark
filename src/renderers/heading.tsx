@@ -1,8 +1,9 @@
 import { Heading } from "mdast";
-import { RendererArgs } from "./renderers";
 import { ReactNode } from "react";
 import { Text } from "react-native";
+
 import { useMarkdownContext } from "../context";
+import { RendererArgs } from "./renderers";
 
 export const heading = ({ node, index }: RendererArgs<Heading>): ReactNode => {
   const { renderers } = useMarkdownContext();

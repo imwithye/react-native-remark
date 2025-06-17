@@ -1,7 +1,8 @@
 import { Code } from "mdast";
-import { RendererArgs } from "./renderers";
 import { ReactNode } from "react";
 import { Platform, Text, View } from "react-native";
+
+import { RendererArgs } from "./renderers";
 
 export const code = ({ node, index }: RendererArgs<Code>): ReactNode => {
   return (

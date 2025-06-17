@@ -1,8 +1,9 @@
 import { Emphasis } from "mdast";
-import { RendererArgs } from "./renderers";
 import { ReactNode } from "react";
 import { Text } from "react-native";
+
 import { useMarkdownContext } from "../context";
+import { RendererArgs } from "./renderers";
 
 export const emphasis = ({
   node,

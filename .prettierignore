@@ -1,0 +1,6 @@
+# Ignore artifacts:
+.expo
+pnpm-lock.yaml
+build
+coverage
+dist
