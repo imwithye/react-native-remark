@@ -21,7 +21,7 @@ export const phrasingContent = ({
     case "image":
       return null;
     case "imageReference":
-      return null;
+      return renderers.imageReference({ node, renderers, ...args });
     case "inlineCode":
       return renderers.inlineCode({ node, renderers, ...args });
     case "link":

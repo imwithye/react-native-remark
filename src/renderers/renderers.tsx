@@ -21,6 +21,7 @@ import {
   Html,
   Yaml,
   Definition,
+  ImageReference,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -50,6 +51,7 @@ export interface Renderers {
   link: RenderFunc<Link>;
   list: RenderFunc<List>;
   listItem: RenderFunc<ListItem>;
+  imageReference: RenderFunc<ImageReference>;
   paragraph: RenderFunc<Paragraph>;
   phrasingContent: RenderFunc<PhrasingContent>;
   rootContent: RenderFunc<RootContent>;

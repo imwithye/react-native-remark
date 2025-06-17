@@ -7,6 +7,7 @@ import { deleteRenderer } from "./delete";
 import { emphasis } from "./emphasis";
 import { heading } from "./heading";
 import { html } from "./html";
+import { imageReference } from "./imageReference";
 import { inlineCode } from "./inlineCode";
 import { link } from "./link";
 import { list } from "./list";
@@ -34,6 +35,7 @@ export const renderers: Renderers = {
   link,
   list,
   listItem,
+  imageReference,
   paragraph,
   phrasingContent,
   rootContent,
