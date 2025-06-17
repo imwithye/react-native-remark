@@ -13,6 +13,7 @@ import {
   DefinitionContent,
   List,
   ListItem,
+  Link,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -36,6 +37,7 @@ export interface Renderers {
   listItem: RenderFunc<ListItem>;
   paragraph: RenderFunc<Paragraph>;
   inlineCode: RenderFunc<InlineCode>;
+  link: RenderFunc<Link>;
   heading: RenderFunc<Heading>;
   text: RenderFunc<Text>;
   strong: RenderFunc<Strong>;

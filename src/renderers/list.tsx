@@ -1,7 +1,7 @@
 import { List } from "mdast";
 import { RendererArgs } from "./renderers";
 import { ReactNode } from "react";
-import { Text } from "react-native";
+import { View } from "react-native";
 
 export const list = ({
   node,
@@ -9,7 +9,7 @@ export const list = ({
   index,
 }: RendererArgs<List>): ReactNode => {
   return (
-    <Text key={index} style={{ fontWeight: "bold" }}>
+    <View key={index} style={{ gap: 5 }}>
       {node.children.map((child, idx) =>
         renderers.listItem({
           node: child,
@@ -18,6 +18,6 @@ export const list = ({
           renderers,
         }),
       )}
-    </Text>
+    </View>
   );
 };

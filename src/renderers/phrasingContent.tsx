@@ -25,7 +25,7 @@ export const phrasingContent = ({
     case "inlineCode":
       return renderers.inlineCode({ node, renderers, ...args });
     case "link":
-      return null;
+      return renderers.link({ node, renderers, ...args });
     case "linkReference":
       return null;
     case "strong":

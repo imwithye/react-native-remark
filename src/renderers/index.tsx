@@ -4,6 +4,7 @@ import { deleteRenderer } from "./delete";
 import { emphasis } from "./emphasis";
 import { heading } from "./heading";
 import { inlineCode } from "./inlineCode";
+import { link } from "./link";
 import { list } from "./list";
 import { listItem } from "./listItem";
 import { paragraph } from "./paragraph";
@@ -21,6 +22,7 @@ export const renderers: Renderers = {
   paragraph,
   inlineCode,
   list,
+  link,
   listItem,
   heading,
   text,
