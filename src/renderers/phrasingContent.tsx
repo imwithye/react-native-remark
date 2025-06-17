@@ -11,9 +11,9 @@ export const phrasingContent = ({
     case "break":
       return null;
     case "delete":
-      return null;
+      return renderers.delete({ node, renderers, ...args });
     case "emphasis":
-      return null;
+      return renderers.emphasis({ node, renderers, ...args });
     case "footnoteReference":
       return null;
     case "html":
