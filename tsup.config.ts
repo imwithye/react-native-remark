@@ -10,6 +10,7 @@ export default defineConfig({
   dts: true,
   format: ["esm"],
   target: "es2016",
+  external: ["react", "react-native"],
   banner: {
     js: banner,
   },

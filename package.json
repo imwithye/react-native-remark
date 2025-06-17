@@ -16,6 +16,14 @@
   ],
   "author": "Yiwei Gong",
   "license": "MIT",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-native": "^0.80.0"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-native": ">=0.70.0"
+  },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
     "eslint": "^9.29.0",

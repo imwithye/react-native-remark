@@ -14,4 +14,11 @@ export default defineConfig([
   pluginReact.configs.flat.recommended,
   prettierConfig,
   eslintPluginPrettier,
+  {
+    settings: {
+      react: {
+        version: "detect",
+      },
+    }
+  }
 ]);
