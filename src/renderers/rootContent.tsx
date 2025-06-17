@@ -13,7 +13,7 @@ export const rootContent = ({
     case "break":
       return null;
     case "code":
-      return null;
+      return renderers.code({ node, renderers, ...args });
     case "definition":
       return null;
     case "delete":

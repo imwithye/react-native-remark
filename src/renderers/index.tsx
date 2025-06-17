@@ -1,5 +1,6 @@
 import { blockContent } from "./blockContent";
 import { blockquote } from "./blockquote";
+import { code } from "./code";
 import { definitionContent } from "./definitionContent";
 import { deleteRenderer } from "./delete";
 import { emphasis } from "./emphasis";
@@ -33,4 +34,5 @@ export const renderers: Renderers = {
   delete: deleteRenderer,
   emphasis,
   thematicBreak,
+  code,
 };

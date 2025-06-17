@@ -9,9 +9,9 @@ export const blockContent = ({
 }: RendererArgs<BlockContent>): ReactNode => {
   switch (node.type) {
     case "blockquote":
-      return null;
+      return renderers.blockquote({ node, renderers, ...args });
     case "code":
-      return null;
+      return renderers.code({ node, renderers, ...args });
     case "heading":
       return renderers.heading({ node, renderers, ...args });
     case "html":

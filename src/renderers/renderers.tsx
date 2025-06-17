@@ -15,6 +15,8 @@ import {
   ListItem,
   Link,
   ThematicBreak,
+  Blockquote,
+  Code,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -33,6 +35,7 @@ export interface Renderers {
   rootContent: RenderFunc<RootContent>;
   blockContent: RenderFunc<BlockContent>;
   definitionContent: RenderFunc<DefinitionContent>;
+  blockquote: RenderFunc<Blockquote>;
   phrasingContent: RenderFunc<PhrasingContent>;
   list: RenderFunc<List>;
   listItem: RenderFunc<ListItem>;
@@ -45,4 +48,5 @@ export interface Renderers {
   delete: RenderFunc<Delete>;
   emphasis: RenderFunc<Emphasis>;
   thematicBreak: RenderFunc<ThematicBreak>;
+  code: RenderFunc<Code>;
 }
