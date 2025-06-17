@@ -30,7 +30,7 @@ import { ReactNode } from "react";
 export type RendererArgs<This extends Node> = {
   node: This;
   renderers: Renderers;
-  definitions: Map<string, Definition>;
+  definitions: Record<string, Definition>;
   parent?: Node;
   index?: number;
 };

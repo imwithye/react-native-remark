@@ -6,7 +6,7 @@ export const imageReference = ({
   node,
   definitions,
 }: RendererArgs<ImageReference>): ReactNode => {
-  const imageDefinition = definitions.get(node.identifier);
+  const imageDefinition = definitions[node.identifier];
   if (!imageDefinition) {
     return null;
   }
