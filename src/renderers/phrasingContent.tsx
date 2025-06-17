@@ -17,7 +17,7 @@ export const phrasingContent = ({
     case "footnoteReference":
       return null;
     case "html":
-      return null;
+      return renderers.html({ node, renderers, ...args });
     case "image":
       return null;
     case "imageReference":

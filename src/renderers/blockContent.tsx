@@ -15,7 +15,7 @@ export const blockContent = ({
     case "heading":
       return renderers.heading({ node, renderers, ...args });
     case "html":
-      return null;
+      return renderers.html({ node, renderers, ...args });
     case "list":
       return renderers.list({ node, renderers, ...args });
     case "paragraph":

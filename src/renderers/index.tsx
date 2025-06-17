@@ -6,6 +6,7 @@ import { definitionContent } from "./definitionContent";
 import { deleteRenderer } from "./delete";
 import { emphasis } from "./emphasis";
 import { heading } from "./heading";
+import { html } from "./html";
 import { inlineCode } from "./inlineCode";
 import { link } from "./link";
 import { list } from "./list";
@@ -27,6 +28,7 @@ export const renderers: Renderers = {
   delete: deleteRenderer,
   emphasis,
   heading,
+  html,
   inlineCode,
   link,
   list,

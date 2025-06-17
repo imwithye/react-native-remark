@@ -18,6 +18,7 @@ import {
   Blockquote,
   Code,
   Break,
+  Html,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -41,6 +42,7 @@ export interface Renderers {
   delete: RenderFunc<Delete>;
   emphasis: RenderFunc<Emphasis>;
   heading: RenderFunc<Heading>;
+  html: RenderFunc<Html>;
   inlineCode: RenderFunc<InlineCode>;
   link: RenderFunc<Link>;
   list: RenderFunc<List>;

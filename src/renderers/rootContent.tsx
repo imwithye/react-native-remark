@@ -27,7 +27,7 @@ export const rootContent = ({
     case "heading":
       return renderers.heading({ node, renderers, ...args });
     case "html":
-      return null;
+      return renderers.html({ node, renderers, ...args });
     case "image":
       return null;
     case "imageReference":
