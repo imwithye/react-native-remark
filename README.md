@@ -1,11 +1,14 @@
 # react-native-remark
 
-A flexible React Native component for rendering Markdown content, with full support for GitHub Flavored Markdown (GFM).
+**react-native-remark** provides elegant and powerful Markdown rendering capabilities for React Native applications.
+
+<img src="docs/sample.png" alt="Sample Markdown Rendering" width="240" />
 
 ## Features
 
-- 📄 Render Markdown in React Native
-- 🚀 GitHub Flavored Markdown (GFM) Support
+* Render Markdown in React Native applications
+* Supports GitHub Flavored Markdown (GFM)
+* Allows custom renderers for flexible UI customization
 
 ## Installation
 
@@ -29,10 +32,15 @@ This is a **Markdown** example with [a link](https://reactnative.dev).
 `;
 
 export default function App() {
-  return <Markdown markdown={markdown} />;
+  return (
+     <Markdown
+        markdown={markdown}
+        customRenderers={{
+            // Override default renderers for mdast nodes.
+            ...
+        }}
+        onLinkPress={(url) => Linking.openURL(url)}
+      />
+  );
 }
 ```
-
-## License
-
-MIT

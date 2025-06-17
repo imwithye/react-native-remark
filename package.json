@@ -18,6 +18,7 @@
   },
   "files": [
     "dist",
+    "docs",
     "README.md"
   ],
   "keywords": [
