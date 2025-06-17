@@ -39,9 +39,9 @@ export const rootContent = ({
     case "linkReference":
       return null;
     case "list":
-      return null;
+      return renderers.list({ node, renderers, ...args });
     case "listItem":
-      return null;
+      return renderers.listItem({ node, renderers, ...args });
     case "paragraph":
       return renderers.paragraph({ node, renderers, ...args });
     case "strong":

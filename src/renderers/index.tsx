@@ -4,6 +4,8 @@ import { deleteRenderer } from "./delete";
 import { emphasis } from "./emphasis";
 import { heading } from "./heading";
 import { inlineCode } from "./inlineCode";
+import { list } from "./list";
+import { listItem } from "./listItem";
 import { paragraph } from "./paragraph";
 import { phrasingContent } from "./phrasingContent";
 import { Renderers } from "./renderers";
@@ -18,6 +20,8 @@ export const renderers: Renderers = {
   phrasingContent,
   paragraph,
   inlineCode,
+  list,
+  listItem,
   heading,
   text,
   strong,

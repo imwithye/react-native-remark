@@ -11,6 +11,8 @@ import {
   InlineCode,
   BlockContent,
   DefinitionContent,
+  List,
+  ListItem,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -30,6 +32,8 @@ export interface Renderers {
   blockContent: RenderFunc<BlockContent>;
   definitionContent: RenderFunc<DefinitionContent>;
   phrasingContent: RenderFunc<PhrasingContent>;
+  list: RenderFunc<List>;
+  listItem: RenderFunc<ListItem>;
   paragraph: RenderFunc<Paragraph>;
   inlineCode: RenderFunc<InlineCode>;
   heading: RenderFunc<Heading>;
