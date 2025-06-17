@@ -40,13 +40,9 @@ export const Markdown = ({ markdown, customRenderers }: MarkdownProps) => {
       definitions={definitions}
     >
       <View style={{ gap: 10 }}>
-        {tree.children.map((node, index) =>
-          renderers.rootContent({
-            node,
-            index,
-            parent: tree,
-          }),
-        )}
+        {tree.children.map((node, index) => (
+          <renderers.rootContent key={index} node={node} index={index} parent={tree} />
+        ))}
       </View>
     </MarkdownContextProvider>
   );
