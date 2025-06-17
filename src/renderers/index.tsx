@@ -1,4 +1,5 @@
 import { blockContent } from "./blockContent";
+import { blockquote } from "./blockquote";
 import { definitionContent } from "./definitionContent";
 import { deleteRenderer } from "./delete";
 import { emphasis } from "./emphasis";
@@ -13,11 +14,13 @@ import { Renderers } from "./renderers";
 import { rootContent } from "./rootContent";
 import { strong } from "./strong";
 import { text } from "./text";
+import { thematicBreak } from "./thematicBreak";
 
 export const renderers: Renderers = {
   rootContent,
   blockContent,
   definitionContent,
+  blockquote,
   phrasingContent,
   paragraph,
   inlineCode,
@@ -29,4 +32,5 @@ export const renderers: Renderers = {
   strong,
   delete: deleteRenderer,
   emphasis,
+  thematicBreak,
 };

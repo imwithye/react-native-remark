@@ -23,7 +23,7 @@ export const blockContent = ({
     case "table":
       return null;
     case "thematicBreak":
-      return null;
+      return renderers.thematicBreak({ node, renderers, ...args });
     default:
       // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-case-declarations
       const _: never = node;

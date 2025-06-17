@@ -9,7 +9,7 @@ export const rootContent = ({
 }: RendererArgs<RootContent>): ReactNode => {
   switch (node.type) {
     case "blockquote":
-      return null;
+      return renderers.blockquote({ node, renderers, ...args });
     case "break":
       return null;
     case "code":
@@ -55,7 +55,7 @@ export const rootContent = ({
     case "text":
       return renderers.text({ node, renderers, ...args });
     case "thematicBreak":
-      return null;
+      return renderers.thematicBreak({ node, renderers, ...args });
     case "yaml":
       return null;
     default:

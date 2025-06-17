@@ -14,6 +14,7 @@ import {
   List,
   ListItem,
   Link,
+  ThematicBreak,
 } from "mdast";
 import { ReactNode } from "react";
 
@@ -43,4 +44,5 @@ export interface Renderers {
   strong: RenderFunc<Strong>;
   delete: RenderFunc<Delete>;
   emphasis: RenderFunc<Emphasis>;
+  thematicBreak: RenderFunc<ThematicBreak>;
 }
