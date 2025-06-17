@@ -29,7 +29,7 @@ export const rootContent = ({
     case "html":
       return renderers.html({ node, renderers, ...args });
     case "image":
-      return null;
+      return renderers.image({ node, renderers, ...args });
     case "imageReference":
       return renderers.imageReference({ node, renderers, ...args });
     case "inlineCode":

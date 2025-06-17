@@ -14,6 +14,7 @@ import {
   List,
   ListItem,
   Link,
+  Image,
   ThematicBreak,
   Blockquote,
   Code,
@@ -52,6 +53,7 @@ export interface Renderers {
   list: RenderFunc<List>;
   listItem: RenderFunc<ListItem>;
   imageReference: RenderFunc<ImageReference>;
+  image: RenderFunc<Image>;
   paragraph: RenderFunc<Paragraph>;
   phrasingContent: RenderFunc<PhrasingContent>;
   rootContent: RenderFunc<RootContent>;
