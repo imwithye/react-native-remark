@@ -2,7 +2,7 @@
 
 **react-native-remark** provides elegant and powerful Markdown rendering capabilities for React Native applications.
 
-<img src="docs/sample.png" alt="Sample Markdown Rendering" width="240" />
+<img src="docs/sample.png" alt="Sample Markdown Rendering" width="420" />
 
 ## Features
 
