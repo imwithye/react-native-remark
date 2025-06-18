@@ -14,6 +14,9 @@ export interface Styles {
   ListItemMarkerStyle: TextStyle;
   ListItemContainerStyle: ViewStyle;
   ParagraphStyle: TextStyle;
+  StrongStyle: TextStyle;
+  TextStyle: TextStyle;
+  ThematicBreakStyle: ViewStyle;
 }
 
 export interface Theme {

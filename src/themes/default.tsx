@@ -47,7 +47,14 @@ export const defaultTheme: Theme = {
       flex: 1,
       gap: 5,
     },
-    ParagraphStyle: {},
+    StrongStyle: {
+      fontWeight: "bold",
+    },
+    ThematicBreakStyle: {
+      marginVertical: 10,
+      height: 1,
+      backgroundColor: "#eeeeee",
+    },
   },
   light: {},
   dark: {},
