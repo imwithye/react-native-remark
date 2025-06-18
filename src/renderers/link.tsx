@@ -27,6 +27,7 @@ export const linkReference = ({
       {node.children.map((child, index) =>
         renderers.phrasingContent({
           node: child,
+          key: index,
           index,
           parent: node,
         }),
@@ -54,6 +55,7 @@ export const link = ({ node, index }: RendererArgs<Link>): ReactNode => {
       {node.children.map((child, index) =>
         renderers.phrasingContent({
           node: child,
+          key: index,
           index,
           parent: node,
         }),

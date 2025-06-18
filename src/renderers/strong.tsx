@@ -13,6 +13,7 @@ export const strong = ({ node, index }: RendererArgs<Strong>): ReactNode => {
       {node.children.map((child, idx) =>
         renderers.phrasingContent({
           node: child,
+          key: idx,
           index: idx,
           parent: node,
         }),

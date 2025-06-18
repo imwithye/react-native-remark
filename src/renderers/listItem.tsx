@@ -26,11 +26,13 @@ export const listItem = ({
           (child, idx) =>
             renderers.blockContent({
               node: child as BlockContent,
+              key: idx,
               index: idx,
               parent: node,
             }) ||
             renderers.definitionContent({
               node: child as DefinitionContent,
+              key: idx,
               index: idx,
               parent: node,
             }),

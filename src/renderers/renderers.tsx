@@ -24,10 +24,11 @@ import {
   ThematicBreak,
   Yaml,
 } from "mdast";
-import { ReactNode } from "react";
+import { Key, ReactNode } from "react";
 
 export type RendererArgs<This extends Node> = {
   node: This;
+  key: Key;
   parent?: Node;
   index?: number;
 };

@@ -13,6 +13,7 @@ export const list = ({ node, index }: RendererArgs<List>): ReactNode => {
       {node.children.map((child, idx) =>
         renderers.listItem({
           node: child,
+          key: idx,
           index: idx,
           parent: node,
         }),

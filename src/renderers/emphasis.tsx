@@ -16,6 +16,7 @@ export const emphasis = ({
       {node.children.map((child, idx) =>
         renderers.phrasingContent({
           node: child,
+          key: idx,
           index: idx,
           parent: node,
         }),
