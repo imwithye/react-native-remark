@@ -25,7 +25,8 @@ export const defaultTheme: Theme = {
     HeadingStyle: (level: number) => {
       const fontSize = 32 - level * 2;
       const fontWeight = level <= 3 ? "bold" : "semibold";
-      return { fontSize, fontWeight };
+      const marginVertical = level <= 3 ? 4 : 2;
+      return { fontSize, fontWeight, marginVertical };
     },
     InlineCodeStyle: {
       fontFamily: Platform.select({ ios: "Menlo", android: "monospace" }),
@@ -42,10 +43,16 @@ export const defaultTheme: Theme = {
     },
     ListItemMarkerStyle: {
       marginRight: 5,
+      fontSize: 16,
+      lineHeight: 24,
     },
     ListItemContainerStyle: {
       flex: 1,
       gap: 5,
+    },
+    ParagraphStyle: {
+      fontSize: 16,
+      lineHeight: 24,
     },
     StrongStyle: {
       fontWeight: "bold",
