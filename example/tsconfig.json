@@ -3,7 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "react-native-remark": ["../src"]
+      "@react-native-remark": ["../src"]
     }
   }
 }
