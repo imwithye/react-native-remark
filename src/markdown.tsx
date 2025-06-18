@@ -35,6 +35,7 @@ export const Markdown = ({
     () => ({ ...defaultRenderers, ...customRenderers }),
     [customRenderers],
   );
+  const { RootContentRenderer } = renderers;
   const tree = useMemo(() => parser.parse(markdown), [markdown]);
   const definitions = useMemo(() => extractDefinitions(tree), [tree]);
 
@@ -47,7 +48,7 @@ export const Markdown = ({
     >
       <View style={{ gap: 10 }}>
         {tree.children.map((node, index) => (
-          <renderers.rootContent
+          <RootContentRenderer
             key={index}
             node={node}
             index={index}

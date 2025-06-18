@@ -5,22 +5,22 @@ import { Text } from "react-native";
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
 
-export const emphasis = ({
+export const EmphasisRenderer = ({
   node,
-  index,
 }: RendererArgs<Emphasis>): ReactNode => {
   const { renderers } = useMarkdownContext();
+  const { PhrasingContentRenderer } = renderers;
 
   return (
-    <Text key={index} style={{ fontStyle: "italic" }}>
-      {node.children.map((child, idx) =>
-        renderers.phrasingContent({
-          node: child,
-          key: idx,
-          index: idx,
-          parent: node,
-        }),
-      )}
+    <Text style={{ fontStyle: "italic" }}>
+      {node.children.map((child, idx) => (
+        <PhrasingContentRenderer
+          node={child}
+          key={idx}
+          index={idx}
+          parent={node}
+        />
+      ))}
     </Text>
   );
 };

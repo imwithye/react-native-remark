@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export const html = (): ReactNode => {
+export const HtmlRenderer = (): ReactNode => {
   return null;
 };

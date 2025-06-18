@@ -1,48 +1,48 @@
-import { blockContent } from "./blockContent";
-import { blockquote } from "./blockquote";
-import { breakRenderer } from "./break";
-import { code } from "./code";
-import { definitionContent } from "./definitionContent";
-import { deleteRenderer } from "./delete";
-import { emphasis } from "./emphasis";
-import { heading } from "./heading";
-import { html } from "./html";
-import { image, imageReference } from "./image";
-import { inlineCode } from "./inlineCode";
-import { link, linkReference } from "./link";
-import { list } from "./list";
-import { listItem } from "./listItem";
-import { paragraph } from "./paragraph";
-import { phrasingContent } from "./phrasingContent";
+import { BlockContentRenderer } from "./blockContent";
+import { BlockquoteRenderer } from "./blockquote";
+import { BreakRenderer } from "./break";
+import { CodeRenderer } from "./code";
+import { DefinitionContentRenderer } from "./definitionContent";
+import { DeleteRenderer } from "./delete";
+import { EmphasisRenderer } from "./emphasis";
+import { HeadingRenderer } from "./heading";
+import { HtmlRenderer } from "./html";
+import { ImageReferenceRenderer, ImageRenderer } from "./image";
+import { InlineCodeRenderer } from "./inlineCode";
+import { LinkReferenceRenderer, LinkRenderer } from "./link";
+import { ListRenderer } from "./list";
+import { ListItemRenderer } from "./listItem";
+import { ParagraphRenderer } from "./paragraph";
+import { PhrasingContentRenderer } from "./phrasingContent";
 import { Renderers } from "./renderers";
-import { rootContent } from "./rootContent";
-import { strong } from "./strong";
-import { text } from "./text";
-import { thematicBreak } from "./thematicBreak";
-import { yaml } from "./yaml";
+import { RootContentRenderer } from "./rootContent";
+import { StrongRenderer } from "./strong";
+import { TextRenderer } from "./text";
+import { ThematicBreakRenderer } from "./thematicBreak";
+import { YamlRenderer } from "./yaml";
 
 export const defaultRenderers: Renderers = {
-  blockContent,
-  blockquote,
-  break: breakRenderer,
-  code,
-  definitionContent,
-  delete: deleteRenderer,
-  emphasis,
-  heading,
-  html,
-  image,
-  imageReference,
-  inlineCode,
-  link,
-  linkReference,
-  list,
-  listItem,
-  paragraph,
-  phrasingContent,
-  rootContent,
-  strong,
-  text,
-  thematicBreak,
-  yaml,
+  BlockContentRenderer,
+  BlockquoteRenderer,
+  BreakRenderer,
+  CodeRenderer,
+  DefinitionContentRenderer,
+  DeleteRenderer,
+  EmphasisRenderer,
+  HeadingRenderer,
+  HtmlRenderer,
+  ImageRenderer,
+  ImageReferenceRenderer,
+  InlineCodeRenderer,
+  LinkRenderer,
+  LinkReferenceRenderer,
+  ListRenderer,
+  ListItemRenderer,
+  ParagraphRenderer,
+  PhrasingContentRenderer,
+  RootContentRenderer,
+  StrongRenderer,
+  TextRenderer,
+  ThematicBreakRenderer,
+  YamlRenderer,
 };

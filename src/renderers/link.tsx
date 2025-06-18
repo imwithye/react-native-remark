@@ -5,11 +5,11 @@ import { Text } from "react-native";
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
 
-export const linkReference = ({
+export const LinkReferenceRenderer = ({
   node,
-  index,
 }: RendererArgs<LinkReference>): ReactNode => {
   const { renderers, definitions, onLinkPress } = useMarkdownContext();
+  const { PhrasingContentRenderer } = renderers;
   const url = definitions[node.identifier]?.url;
 
   const onPress = useCallback(() => {
@@ -20,24 +20,24 @@ export const linkReference = ({
 
   return (
     <Text
-      key={index}
       style={{ color: "#007AFF" }}
       onPress={onLinkPress ? onPress : undefined}
     >
-      {node.children.map((child, index) =>
-        renderers.phrasingContent({
-          node: child,
-          key: index,
-          index,
-          parent: node,
-        }),
-      )}
+      {node.children.map((child, index) => (
+        <PhrasingContentRenderer
+          node={child}
+          key={index}
+          index={index}
+          parent={node}
+        />
+      ))}
     </Text>
   );
 };
 
-export const link = ({ node, index }: RendererArgs<Link>): ReactNode => {
+export const LinkRenderer = ({ node }: RendererArgs<Link>): ReactNode => {
   const { renderers, onLinkPress } = useMarkdownContext();
+  const { PhrasingContentRenderer } = renderers;
   const { url } = node;
 
   const onPress = useCallback(() => {
@@ -48,18 +48,17 @@ export const link = ({ node, index }: RendererArgs<Link>): ReactNode => {
 
   return (
     <Text
-      key={index}
       style={{ color: "#007AFF" }}
       onPress={onLinkPress ? onPress : undefined}
     >
-      {node.children.map((child, index) =>
-        renderers.phrasingContent({
-          node: child,
-          key: index,
-          index,
-          parent: node,
-        }),
-      )}
+      {node.children.map((child, index) => (
+        <PhrasingContentRenderer
+          node={child}
+          key={index}
+          index={index}
+          parent={node}
+        />
+      ))}
     </Text>
   );
 };

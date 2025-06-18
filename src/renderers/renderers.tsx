@@ -24,11 +24,10 @@ import {
   ThematicBreak,
   Yaml,
 } from "mdast";
-import { Key, ReactNode } from "react";
+import { ReactNode } from "react";
 
 export type RendererArgs<This extends Node> = {
   node: This;
-  key: Key;
   parent?: Node;
   index?: number;
 };
@@ -38,27 +37,27 @@ export type RenderFunc<This extends Node> = (
 ) => ReactNode;
 
 export interface Renderers {
-  blockContent: RenderFunc<BlockContent>;
-  blockquote: RenderFunc<Blockquote>;
-  break: RenderFunc<Break>;
-  code: RenderFunc<Code>;
-  definitionContent: RenderFunc<DefinitionContent>;
-  delete: RenderFunc<Delete>;
-  emphasis: RenderFunc<Emphasis>;
-  heading: RenderFunc<Heading>;
-  html: RenderFunc<Html>;
-  image: RenderFunc<Image>;
-  imageReference: RenderFunc<ImageReference>;
-  inlineCode: RenderFunc<InlineCode>;
-  link: RenderFunc<Link>;
-  linkReference: RenderFunc<LinkReference>;
-  list: RenderFunc<List>;
-  listItem: RenderFunc<ListItem>;
-  paragraph: RenderFunc<Paragraph>;
-  phrasingContent: RenderFunc<PhrasingContent>;
-  rootContent: RenderFunc<RootContent>;
-  strong: RenderFunc<Strong>;
-  text: RenderFunc<Text>;
-  thematicBreak: RenderFunc<ThematicBreak>;
-  yaml: RenderFunc<Yaml>;
+  BlockContentRenderer: RenderFunc<BlockContent>;
+  BlockquoteRenderer: RenderFunc<Blockquote>;
+  BreakRenderer: RenderFunc<Break>;
+  CodeRenderer: RenderFunc<Code>;
+  DefinitionContentRenderer: RenderFunc<DefinitionContent>;
+  DeleteRenderer: RenderFunc<Delete>;
+  EmphasisRenderer: RenderFunc<Emphasis>;
+  HeadingRenderer: RenderFunc<Heading>;
+  HtmlRenderer: RenderFunc<Html>;
+  ImageRenderer: RenderFunc<Image>;
+  ImageReferenceRenderer: RenderFunc<ImageReference>;
+  InlineCodeRenderer: RenderFunc<InlineCode>;
+  LinkRenderer: RenderFunc<Link>;
+  LinkReferenceRenderer: RenderFunc<LinkReference>;
+  ListRenderer: RenderFunc<List>;
+  ListItemRenderer: RenderFunc<ListItem>;
+  ParagraphRenderer: RenderFunc<Paragraph>;
+  PhrasingContentRenderer: RenderFunc<PhrasingContent>;
+  RootContentRenderer: RenderFunc<RootContent>;
+  StrongRenderer: RenderFunc<Strong>;
+  TextRenderer: RenderFunc<Text>;
+  ThematicBreakRenderer: RenderFunc<ThematicBreak>;
+  YamlRenderer: RenderFunc<Yaml>;
 }

@@ -4,37 +4,50 @@ import { ReactNode } from "react";
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
 
-export const phrasingContent = ({
+export const PhrasingContentRenderer = ({
   node,
   ...args
 }: RendererArgs<PhrasingContent>): ReactNode => {
   const { renderers } = useMarkdownContext();
+  const {
+    BreakRenderer,
+    DeleteRenderer,
+    EmphasisRenderer,
+    HtmlRenderer,
+    ImageRenderer,
+    ImageReferenceRenderer,
+    InlineCodeRenderer,
+    LinkRenderer,
+    LinkReferenceRenderer,
+    StrongRenderer,
+    TextRenderer,
+  } = renderers;
 
   switch (node.type) {
     case "break":
-      return renderers.break({ node, ...args });
+      return <BreakRenderer node={node} {...args} />;
     case "delete":
-      return renderers.delete({ node, ...args });
+      return <DeleteRenderer node={node} {...args} />;
     case "emphasis":
-      return renderers.emphasis({ node, ...args });
+      return <EmphasisRenderer node={node} {...args} />;
     case "footnoteReference":
       return null;
     case "html":
-      return renderers.html({ node, ...args });
+      return <HtmlRenderer node={node} {...args} />;
     case "image":
-      return renderers.image({ node, ...args });
+      return <ImageRenderer node={node} {...args} />;
     case "imageReference":
-      return renderers.imageReference({ node, ...args });
+      return <ImageReferenceRenderer node={node} {...args} />;
     case "inlineCode":
-      return renderers.inlineCode({ node, ...args });
+      return <InlineCodeRenderer node={node} {...args} />;
     case "link":
-      return renderers.link({ node, ...args });
+      return <LinkRenderer node={node} {...args} />;
     case "linkReference":
-      return renderers.linkReference({ node, ...args });
+      return <LinkReferenceRenderer node={node} {...args} />;
     case "strong":
-      return renderers.strong({ node, ...args });
+      return <StrongRenderer node={node} {...args} />;
     case "text":
-      return renderers.text({ node, ...args });
+      return <TextRenderer node={node} {...args} />;
     default:
       // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-case-declarations
       const _: never = node;

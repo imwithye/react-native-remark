@@ -5,22 +5,20 @@ import { Text } from "react-native";
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
 
-export const deleteRenderer = ({
-  node,
-  index,
-}: RendererArgs<Delete>): ReactNode => {
+export const DeleteRenderer = ({ node }: RendererArgs<Delete>): ReactNode => {
   const { renderers } = useMarkdownContext();
+  const { PhrasingContentRenderer } = renderers;
 
   return (
-    <Text key={index} style={{ textDecorationLine: "line-through" }}>
-      {node.children.map((child, idx) =>
-        renderers.phrasingContent({
-          node: child,
-          key: idx,
-          index: idx,
-          parent: node,
-        }),
-      )}
+    <Text style={{ textDecorationLine: "line-through" }}>
+      {node.children.map((child, idx) => (
+        <PhrasingContentRenderer
+          node={child}
+          key={idx}
+          index={idx}
+          parent={node}
+        />
+      ))}
     </Text>
   );
 };

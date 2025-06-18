@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export const yaml = (): ReactNode => {
+export const YamlRenderer = (): ReactNode => {
   return null;
 };

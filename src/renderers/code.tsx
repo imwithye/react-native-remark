@@ -4,10 +4,9 @@ import { Platform, Text, View } from "react-native";
 
 import { RendererArgs } from "./renderers";
 
-export const code = ({ node, index }: RendererArgs<Code>): ReactNode => {
+export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
   return (
     <View
-      key={index}
       style={{
         borderWidth: 1,
         borderColor: "#eeeeee",

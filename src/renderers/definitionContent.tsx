@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 
-export const definitionContent = (): ReactNode => {
+export const DefinitionContentRenderer = (): ReactNode => {
   return null;
 };

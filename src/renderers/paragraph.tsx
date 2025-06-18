@@ -5,22 +5,22 @@ import { Text } from "react-native";
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
 
-export const paragraph = ({
+export const ParagraphRenderer = ({
   node,
-  index,
 }: RendererArgs<Paragraph>): ReactNode => {
   const { renderers } = useMarkdownContext();
+  const { PhrasingContentRenderer } = renderers;
 
   return (
-    <Text key={index}>
-      {node.children.map((child, idx) =>
-        renderers.phrasingContent({
-          node: child,
-          key: idx,
-          index: idx,
-          parent: node,
-        }),
-      )}
+    <Text>
+      {node.children.map((child, idx) => (
+        <PhrasingContentRenderer
+          node={child}
+          key={idx}
+          index={idx}
+          parent={node}
+        />
+      ))}
     </Text>
   );
 };

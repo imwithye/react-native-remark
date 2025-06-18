@@ -1,19 +1,18 @@
 import { BlockContent, Blockquote, DefinitionContent } from "mdast";
-import { ReactNode } from "react";
+import { Fragment, ReactNode } from "react";
 import { View } from "react-native";
 
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
 
-export const blockquote = ({
+export const BlockquoteRenderer = ({
   node,
-  index,
 }: RendererArgs<Blockquote>): ReactNode => {
   const { renderers } = useMarkdownContext();
+  const { BlockContentRenderer, DefinitionContentRenderer } = renderers;
 
   return (
     <View
-      key={index}
       style={{
         borderLeftWidth: 3,
         borderLeftColor: "#eeeeee",
@@ -24,21 +23,20 @@ export const blockquote = ({
         gap: 5,
       }}
     >
-      {node.children.map(
-        (child, idx) =>
-          renderers.blockContent({
-            node: child as BlockContent,
-            key: idx,
-            index: idx,
-            parent: node,
-          }) ||
-          renderers.definitionContent({
-            node: child as DefinitionContent,
-            key: idx,
-            index: idx,
-            parent: node,
-          }),
-      )}
+      {node.children.map((child, idx) => (
+        <Fragment key={idx}>
+          <BlockContentRenderer
+            node={child as BlockContent}
+            index={idx}
+            parent={node}
+          />
+          <DefinitionContentRenderer
+            node={child as DefinitionContent}
+            index={idx}
+            parent={node}
+          />
+        </Fragment>
+      ))}
     </View>
   );
 };

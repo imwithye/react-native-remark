@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
 
-export const imageReference = ({
+export const ImageReferenceRenderer = ({
   node,
 }: RendererArgs<ImageReference>): ReactNode => {
   const { definitions } = useMarkdownContext();
@@ -16,6 +16,6 @@ export const imageReference = ({
   return null;
 };
 
-export const image = (): ReactNode => {
+export const ImageRenderer = (): ReactNode => {
   return null;
 };
