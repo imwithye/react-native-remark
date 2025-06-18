@@ -10,7 +10,7 @@ Markdown is a lightweight markup language that allows you to write formatted tex
 - [Link to OpenAI](https://openai.com)
 - Images:
 
-![Sample Image](https://images.unsplash.com/photo-1579353977828-2a4eab540b9a)
+![Sample Image](https://github.com/argoproj/argo-cd/raw/master/docs/assets/argocd-ui.gif)
 
 ## Code Block
 
