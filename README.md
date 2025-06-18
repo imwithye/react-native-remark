@@ -44,3 +44,10 @@ export default function App() {
   );
 }
 ```
+
+## Development
+
+```
+pnpm i
+cd example && pnpm i && pnpm run ios
+```
