@@ -41,7 +41,11 @@ export const Markdown = ({
     [customRenderers],
   );
   const theme = useMemo(
-    () => ({ ...defaultTheme, ...customTheme }),
+    () => ({
+      global: { ...defaultTheme.global, ...customTheme?.global },
+      light: { ...defaultTheme.light, ...customTheme?.light },
+      dark: { ...defaultTheme.dark, ...customTheme?.dark },
+    }),
     [customTheme],
   );
   const { RootContentRenderer } = renderers;

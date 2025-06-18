@@ -39,6 +39,10 @@ export default function App() {
             // Override default renderers for mdast nodes.
             ...
         }}
+        customTheme={{
+            // Override default styles
+            ...
+        }}
         onLinkPress={(url) => Linking.openURL(url)}
       />
   );
