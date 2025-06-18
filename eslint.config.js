@@ -2,6 +2,7 @@ import js from "@eslint/js";
 import prettierConfig from "eslint-config-prettier";
 import eslintPluginPrettier from "eslint-plugin-prettier/recommended";
 import pluginReact from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
 import { defineConfig } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
@@ -18,6 +19,7 @@ export default defineConfig([
   },
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  reactHooks.configs["recommended-latest"],
   prettierConfig,
   eslintPluginPrettier,
   {
@@ -28,6 +30,8 @@ export default defineConfig([
     },
     rules: {
       "react/react-in-jsx-scope": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "error",
     },
   },
   {

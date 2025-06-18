@@ -2,6 +2,7 @@ import {
   ActionSheetProvider,
   useActionSheet,
 } from "@expo/react-native-action-sheet";
+import { Markdown } from "@react-native-remark";
 import {
   createStaticNavigation,
   useNavigation,
@@ -10,7 +11,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { ActivityIndicator, Button, Linking, ScrollView } from "react-native";
-import { Markdown } from "@react-native-remark";
 
 const BASE_URL =
   "https://raw.githubusercontent.com/imwithye/react-native-remark/refs/heads/main/markdown";
