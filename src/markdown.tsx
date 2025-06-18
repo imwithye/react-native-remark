@@ -1,6 +1,6 @@
 import { Definition, Root } from "mdast";
 import { useMemo } from "react";
-import { View } from "react-native";
+import { View, useColorScheme } from "react-native";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
@@ -9,6 +9,8 @@ import { visit } from "unist-util-visit";
 import { MarkdownContextProvider } from "./context";
 import { defaultRenderers } from "./renderers";
 import { Renderers } from "./renderers/renderers";
+import { defaultTheme } from "./themes";
+import { Theme, themedStyle } from "./themes/themes";
 
 const parser = unified().use(remarkParse).use(remarkGfm);
 
@@ -23,17 +25,24 @@ function extractDefinitions(tree: Root): Record<string, Definition> {
 export type MarkdownProps = {
   markdown: string;
   customRenderers?: Partial<Renderers>;
+  customTheme?: Theme;
   onLinkPress?: (url: string) => void;
 };
 
 export const Markdown = ({
   markdown,
   customRenderers,
+  customTheme,
   onLinkPress,
 }: MarkdownProps) => {
+  const colorScheme = useColorScheme();
   const renderers = useMemo(
     () => ({ ...defaultRenderers, ...customRenderers }),
     [customRenderers],
+  );
+  const theme = useMemo(
+    () => ({ ...defaultTheme, ...customTheme }),
+    [customTheme],
   );
   const { RootContentRenderer } = renderers;
   const tree = useMemo(() => parser.parse(markdown), [markdown]);
@@ -44,9 +53,10 @@ export const Markdown = ({
       tree={tree}
       renderers={renderers}
       definitions={definitions}
+      theme={theme}
       onLinkPress={onLinkPress}
     >
-      <View style={{ gap: 10 }}>
+      <View style={themedStyle(theme, colorScheme, "DefaultContainerStyle")}>
         {tree.children.map((node, index) => (
           <RootContentRenderer
             key={index}

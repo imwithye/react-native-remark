@@ -1,20 +1,18 @@
 import { Heading } from "mdast";
 import { ReactNode } from "react";
-import { Text } from "react-native";
+import { Text, useColorScheme } from "react-native";
 
 import { useMarkdownContext } from "../context";
+import { themedStyle } from "../themes/themes";
 import { RendererArgs } from "./renderers";
 
 export const HeadingRenderer = ({ node }: RendererArgs<Heading>): ReactNode => {
-  const { renderers } = useMarkdownContext();
+  const colorScheme = useColorScheme();
+  const { renderers, theme } = useMarkdownContext();
   const { PhrasingContentRenderer } = renderers;
 
-  const depth = node.depth;
-  const fontSize = 32 - depth * 2;
-  const fontWeight = depth <= 3 ? "bold" : "semibold";
-
   return (
-    <Text style={{ fontSize, fontWeight }}>
+    <Text style={themedStyle(theme, colorScheme, "HeadingStyle")(node.depth)}>
       {node.children.map((child, idx) => (
         <PhrasingContentRenderer
           node={child}

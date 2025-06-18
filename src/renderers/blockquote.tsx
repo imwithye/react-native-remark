@@ -1,28 +1,25 @@
 import { BlockContent, Blockquote, DefinitionContent } from "mdast";
 import { Fragment, ReactNode } from "react";
-import { View } from "react-native";
+import { View, useColorScheme } from "react-native";
 
 import { useMarkdownContext } from "../context";
+import { mergeStyles, themedStyle } from "../themes/themes";
 import { RendererArgs } from "./renderers";
 
 export const BlockquoteRenderer = ({
   node,
 }: RendererArgs<Blockquote>): ReactNode => {
-  const { renderers } = useMarkdownContext();
+  const colorScheme = useColorScheme();
+  const { renderers, theme } = useMarkdownContext();
   const { BlockContentRenderer, DefinitionContentRenderer } = renderers;
 
+  const style = mergeStyles(
+    themedStyle(theme, colorScheme, "DefaultContainerStyle"),
+    themedStyle(theme, colorScheme, "BlockquoteStyle"),
+  );
+
   return (
-    <View
-      style={{
-        borderLeftWidth: 3,
-        borderLeftColor: "#eeeeee",
-        backgroundColor: "#f5f5f5",
-        paddingTop: 5,
-        paddingBottom: 5,
-        paddingLeft: 10,
-        gap: 5,
-      }}
-    >
+    <View style={style}>
       {node.children.map((child, idx) => (
         <Fragment key={idx}>
           <BlockContentRenderer
