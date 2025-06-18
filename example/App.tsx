@@ -6,7 +6,7 @@ import { Linking, ScrollView } from "react-native";
 import { Markdown } from "react-native-remark";
 
 const URL =
-  "https://raw.githubusercontent.com/nodejs/node/refs/heads/main/README.md";
+  "https://raw.githubusercontent.com/imwithye/react-native-remark/refs/heads/main/markdown/05_article.md";
 
 const HomeScreen = () => {
   const [markdown, setMarkdown] = useState("");
