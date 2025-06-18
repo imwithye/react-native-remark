@@ -34,17 +34,25 @@ export const ListItemRenderer = ({
   const { renderers, theme } = useMarkdownContext();
   const { BlockContentRenderer, DefinitionContentRenderer } = renderers;
 
+  const markerStyle = mergeStyles(
+    themedStyle(theme, colorScheme, "ListItemMarkerStyle"),
+  );
+  const containerStyle = mergeStyles(
+    themedStyle(theme, colorScheme, "DefaultContainerStyle"),
+    themedStyle(theme, colorScheme, "ListItemContainerStyle"),
+  );
+
   const list = parent?.type === "list" ? (parent as List) : null;
-  const itemId = (list?.start ?? 1) + (index ?? 0);
+  const itemNumber = (list?.start ?? 1) + (index ?? 0);
 
   return (
     <View style={{ flexDirection: "row" }}>
       {list?.ordered ? (
-        <Text style={{ marginRight: 5 }}>{itemId}.</Text>
+        <Text style={markerStyle}>{itemNumber}.</Text>
       ) : (
-        <Text style={{ marginRight: 5 }}>•</Text>
+        <Text style={markerStyle}>•</Text>
       )}
-      <View style={themedStyle(theme, colorScheme, "DefaultContainerStyle")}>
+      <View style={containerStyle}>
         {node.children.map((child, idx) => (
           <Fragment key={idx}>
             <BlockContentRenderer

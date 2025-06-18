@@ -11,6 +11,9 @@ export interface Styles {
   LinkReferenceStyle: TextStyle;
   LinkStyle: TextStyle;
   ListStyle: ViewStyle;
+  ListItemMarkerStyle: TextStyle;
+  ListItemContainerStyle: ViewStyle;
+  ParagraphStyle: TextStyle;
 }
 
 export interface Theme {

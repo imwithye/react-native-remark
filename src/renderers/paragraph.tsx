@@ -1,18 +1,20 @@
 import { Paragraph } from "mdast";
 import { ReactNode } from "react";
-import { Text } from "react-native";
+import { Text, useColorScheme } from "react-native";
 
 import { useMarkdownContext } from "../context";
+import { themedStyle } from "../themes/themes";
 import { RendererArgs } from "./renderers";
 
 export const ParagraphRenderer = ({
   node,
 }: RendererArgs<Paragraph>): ReactNode => {
-  const { renderers } = useMarkdownContext();
+  const colorScheme = useColorScheme();
+  const { renderers, theme } = useMarkdownContext();
   const { PhrasingContentRenderer } = renderers;
 
   return (
-    <Text>
+    <Text style={themedStyle(theme, colorScheme, "ParagraphStyle")}>
       {node.children.map((child, idx) => (
         <PhrasingContentRenderer
           node={child}

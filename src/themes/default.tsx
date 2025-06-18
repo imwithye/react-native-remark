@@ -40,6 +40,14 @@ export const defaultTheme: Theme = {
     ListStyle: {
       gap: 5,
     },
+    ListItemMarkerStyle: {
+      marginRight: 5,
+    },
+    ListItemContainerStyle: {
+      flex: 1,
+      gap: 5,
+    },
+    ParagraphStyle: {},
   },
   light: {},
   dark: {},
