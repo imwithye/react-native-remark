@@ -4,7 +4,7 @@ import { Theme } from "./themes";
 
 export const defaultTheme: Theme = {
   global: {
-    DefaultContainerStyle: {
+    container: {
       gap: 10,
     },
     blockquote: {
@@ -41,12 +41,7 @@ export const defaultTheme: Theme = {
     list: {
       gap: 5,
     },
-    listItemMarker: {
-      marginRight: 5,
-      fontSize: 16,
-      lineHeight: 24,
-    },
-    listItemContainer: {
+    listItem: {
       flex: 1,
       gap: 5,
     },

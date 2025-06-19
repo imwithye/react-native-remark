@@ -11,10 +11,10 @@ export interface Styles {
   linkReference: TextStyle;
   link: TextStyle;
   list: ViewStyle;
-  listItemMarker: TextStyle;
-  listItemContainer: ViewStyle;
+  listItem: ViewStyle;
   paragraph: TextStyle;
   strong: TextStyle;
+  tableCell: TextStyle;
   text: TextStyle;
   thematicBreak: ViewStyle;
 }
