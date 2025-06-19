@@ -35,8 +35,8 @@ export type RendererArgs<This extends Node> = {
   index?: number;
 };
 
-export type RenderFunc<This extends Node, T = object> = (
-  args: RendererArgs<This> & T,
+export type RenderFunc<This extends Node> = (
+  args: RendererArgs<This>,
 ) => ReactNode;
 
 export interface Renderers {
@@ -61,11 +61,8 @@ export interface Renderers {
   RootContentRenderer: RenderFunc<RootContent>;
   StrongRenderer: RenderFunc<Strong>;
   TableRenderer: RenderFunc<Table>;
-  TableCellRenderer: RenderFunc<
-    TableCell,
-    { rowIndex: number; colIndex: number }
-  >;
-  TableRowRenderer: RenderFunc<TableRow, { rowIndex: number }>;
+  TableCellRenderer: RenderFunc<TableCell>;
+  TableRowRenderer: RenderFunc<TableRow>;
   TextRenderer: RenderFunc<Text>;
   ThematicBreakRenderer: RenderFunc<ThematicBreak>;
   YamlRenderer: RenderFunc<Yaml>;

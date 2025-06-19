@@ -13,10 +13,6 @@ export interface Styles {
   list: ViewStyle;
   listItemMarker: TextStyle;
   listItemContainer: ViewStyle;
-  table: ViewStyle;
-  tableRow: (rowIndex: number) => ViewStyle;
-  tableCellContainer: (rowIndex: number, colIndex: number) => ViewStyle;
-  tableCell: (rowIndex: number, colIndex: number) => TextStyle;
   paragraph: TextStyle;
   strong: TextStyle;
   text: TextStyle;
