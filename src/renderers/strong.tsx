@@ -10,7 +10,7 @@ export const StrongRenderer = ({ node }: RendererArgs<Strong>): ReactNode => {
   const { PhrasingContentRenderer } = renderers;
 
   return (
-    <Text style={styles.StrongStyle}>
+    <Text style={styles.strong}>
       {node.children.map((child, idx) => (
         <PhrasingContentRenderer
           node={child}

@@ -10,7 +10,7 @@ export const HeadingRenderer = ({ node }: RendererArgs<Heading>): ReactNode => {
   const { PhrasingContentRenderer } = renderers;
 
   return (
-    <Text style={styles.HeadingStyle?.(node.depth)}>
+    <Text style={styles.heading?.(node.depth)}>
       {node.children.map((child, idx) => (
         <PhrasingContentRenderer
           node={child}

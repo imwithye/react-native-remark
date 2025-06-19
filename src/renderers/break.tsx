@@ -6,5 +6,5 @@ import { useMarkdownContext } from "../context";
 export const BreakRenderer = (): ReactNode => {
   const { styles } = useMarkdownContext();
 
-  return <View style={styles.BreakStyle} />;
+  return <View style={styles.break} />;
 };

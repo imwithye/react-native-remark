@@ -3,18 +3,21 @@ import { ReactNode } from "react";
 import { View } from "react-native";
 
 import { useMarkdownContext } from "../context";
+import { mergeStyles } from "../themes/themes";
 import { RendererArgs } from "./renderers";
 
 export const TableRowRenderer = ({
   node,
 }: RendererArgs<TableRow>): ReactNode => {
-  const { renderers } = useMarkdownContext();
+  const { renderers, styles } = useMarkdownContext();
   const { TableCellRenderer } = renderers;
 
+  const style = mergeStyles(styles.tableRow, {
+    flexDirection: "row",
+  });
+
   return (
-    <View
-      style={{ flexDirection: "row", borderBottomWidth: 1, borderColor: "red" }}
-    >
+    <View style={style}>
       {node.children.map((child, idx) => (
         <TableCellRenderer node={child} key={idx} index={idx} parent={node} />
       ))}

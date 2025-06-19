@@ -10,7 +10,7 @@ export const DeleteRenderer = ({ node }: RendererArgs<Delete>): ReactNode => {
   const { PhrasingContentRenderer } = renderers;
 
   return (
-    <Text style={styles.DeleteStyle}>
+    <Text style={styles.delete}>
       {node.children.map((child, idx) => (
         <PhrasingContentRenderer
           node={child}

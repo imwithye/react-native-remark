@@ -10,5 +10,5 @@ export const TextRenderer = ({ node }: RendererArgs<MdText>): ReactNode => {
 
   const value = (node.value || "").replace(/\n/g, " ");
   if (!value) return null;
-  return <Text style={styles.TextStyle}>{value}</Text>;
+  return <Text style={styles.text}>{value}</Text>;
 };

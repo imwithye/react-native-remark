@@ -12,7 +12,7 @@ export const EmphasisRenderer = ({
   const { PhrasingContentRenderer } = renderers;
 
   return (
-    <Text style={styles.EmphasisStyle}>
+    <Text style={styles.emphasis}>
       {node.children.map((child, idx) => (
         <PhrasingContentRenderer
           node={child}

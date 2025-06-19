@@ -12,10 +12,7 @@ export const BlockquoteRenderer = ({
   const { renderers, styles } = useMarkdownContext();
   const { BlockContentRenderer, DefinitionContentRenderer } = renderers;
 
-  const style = mergeStyles(
-    styles.DefaultContainerStyle,
-    styles.BlockquoteStyle,
-  );
+  const style = mergeStyles(styles.DefaultContainerStyle, styles.blockquote);
 
   return (
     <View style={style}>

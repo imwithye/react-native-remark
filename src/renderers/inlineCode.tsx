@@ -10,5 +10,5 @@ export const InlineCodeRenderer = ({
 }: RendererArgs<InlineCode>): ReactNode => {
   const { styles } = useMarkdownContext();
 
-  return <Text style={styles.InlineCodeStyle}>{node.value}</Text>;
+  return <Text style={styles.inlineCode}>{node.value}</Text>;
 };

@@ -6,5 +6,5 @@ import { useMarkdownContext } from "../context";
 export const ThematicBreakRenderer = (): ReactNode => {
   const { styles } = useMarkdownContext();
 
-  return <View style={styles.ThematicBreakStyle} />;
+  return <View style={styles.thematicBreak} />;
 };

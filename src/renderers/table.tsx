@@ -11,7 +11,7 @@ export const TableRenderer = ({ node }: RendererArgs<Table>): ReactNode => {
 
   return (
     <ScrollView horizontal>
-      <View style={styles.DefaultContainerStyle}>
+      <View style={styles.table}>
         {node.children.map((child, idx) => (
           <TableRowRenderer node={child} key={idx} index={idx} parent={node} />
         ))}

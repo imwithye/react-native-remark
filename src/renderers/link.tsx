@@ -20,7 +20,7 @@ export const LinkReferenceRenderer = ({
 
   return (
     <Text
-      style={styles.LinkReferenceStyle}
+      style={styles.linkReference}
       onPress={onLinkPress ? onPress : undefined}
     >
       {node.children.map((child, index) => (
@@ -47,7 +47,7 @@ export const LinkRenderer = ({ node }: RendererArgs<Link>): ReactNode => {
   }, [url, onLinkPress]);
 
   return (
-    <Text style={styles.LinkStyle} onPress={onLinkPress ? onPress : undefined}>
+    <Text style={styles.link} onPress={onLinkPress ? onPress : undefined}>
       {node.children.map((child, index) => (
         <PhrasingContentRenderer
           node={child}

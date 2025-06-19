@@ -12,7 +12,7 @@ export const ParagraphRenderer = ({
   const { PhrasingContentRenderer } = renderers;
 
   return (
-    <Text style={styles.ParagraphStyle}>
+    <Text style={styles.paragraph}>
       {node.children.map((child, idx) => (
         <PhrasingContentRenderer
           node={child}
