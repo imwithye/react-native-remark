@@ -9,7 +9,7 @@ export const RootRenderer = ({ node }: RendererArgs<Root>) => {
   const { RootContentRenderer } = renderers;
 
   return (
-    <View style={styles.DefaultContainerStyle}>
+    <View style={styles.container}>
       {node.children.map((node, index) => (
         <RootContentRenderer
           key={index}

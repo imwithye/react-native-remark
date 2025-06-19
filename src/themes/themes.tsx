@@ -1,7 +1,7 @@
 import { TextStyle, ViewStyle } from "react-native";
 
 export interface Styles {
-  DefaultContainerStyle: ViewStyle;
+  container: ViewStyle;
   blockquote: ViewStyle;
   break: ViewStyle;
   delete: TextStyle;

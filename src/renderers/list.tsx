@@ -10,7 +10,7 @@ export const ListRenderer = ({ node }: RendererArgs<List>): ReactNode => {
   const { renderers, styles } = useMarkdownContext();
   const { ListItemRenderer } = renderers;
 
-  const style = mergeStyles(styles.DefaultContainerStyle, styles.list);
+  const style = mergeStyles(styles.container, styles.list);
 
   return (
     <View style={style}>
@@ -31,7 +31,7 @@ export const ListItemRenderer = ({
 
   const markerStyle = mergeStyles(styles.listItemMarker);
   const containerStyle = mergeStyles(
-    styles.DefaultContainerStyle,
+    styles.container,
     styles.listItemContainer,
   );
 
