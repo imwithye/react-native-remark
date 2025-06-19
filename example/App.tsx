@@ -92,11 +92,6 @@ const HomeScreen = () => {
       ) : (
         <Markdown
           markdown={markdown}
-          customStyles={{
-            tableCell: () => ({
-              width: 200,
-            }),
-          }}
           onLinkPress={(url) => Linking.openURL(url)}
         />
       )}
