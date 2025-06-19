@@ -20,6 +20,8 @@ import {
   PhrasingContent,
   RootContent,
   Strong,
+  Table,
+  TableRow,
   Text,
   ThematicBreak,
   Yaml,
@@ -57,6 +59,8 @@ export interface Renderers {
   PhrasingContentRenderer: RenderFunc<PhrasingContent>;
   RootContentRenderer: RenderFunc<RootContent>;
   StrongRenderer: RenderFunc<Strong>;
+  TableRenderer: RenderFunc<Table>;
+  TableRowRenderer: RenderFunc<TableRow>;
   TextRenderer: RenderFunc<Text>;
   ThematicBreakRenderer: RenderFunc<ThematicBreak>;
   YamlRenderer: RenderFunc<Yaml>;

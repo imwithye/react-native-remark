@@ -16,6 +16,7 @@ export const BlockContentRenderer = ({
     HtmlRenderer,
     ListRenderer,
     ParagraphRenderer,
+    TableRenderer,
     ThematicBreakRenderer,
   } = renderers;
 
@@ -33,7 +34,7 @@ export const BlockContentRenderer = ({
     case "paragraph":
       return <ParagraphRenderer node={node} {...args} />;
     case "table":
-      return null;
+      return <TableRenderer node={node} {...args} />;
     case "thematicBreak":
       return <ThematicBreakRenderer node={node} {...args} />;
     default:

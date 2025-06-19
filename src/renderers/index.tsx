@@ -16,6 +16,8 @@ import { PhrasingContentRenderer } from "./phrasingContent";
 import { Renderers } from "./renderers";
 import { RootContentRenderer } from "./rootContent";
 import { StrongRenderer } from "./strong";
+import { TableRenderer } from "./table";
+import { TableRowRenderer } from "./tableRow";
 import { TextRenderer } from "./text";
 import { ThematicBreakRenderer } from "./thematicBreak";
 import { YamlRenderer } from "./yaml";
@@ -41,6 +43,8 @@ export const defaultRenderers: Renderers = {
   PhrasingContentRenderer,
   RootContentRenderer,
   StrongRenderer,
+  TableRenderer,
+  TableRowRenderer,
   TextRenderer,
   ThematicBreakRenderer,
   YamlRenderer,
