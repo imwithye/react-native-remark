@@ -15,6 +15,8 @@ export interface Styles {
   listItemContainer: ViewStyle;
   table: ViewStyle;
   tableRow: ViewStyle;
+  tableCellContainer: ViewStyle;
+  tableCell: TextStyle;
   paragraph: TextStyle;
   strong: TextStyle;
   text: TextStyle;

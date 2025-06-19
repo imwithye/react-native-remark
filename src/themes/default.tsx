@@ -55,6 +55,16 @@ export const defaultTheme: Theme = {
       borderBottomWidth: 1,
       borderColor: "#eeeeee",
     },
+    tableCellContainer: {
+      flex: 1,
+      paddingHorizontal: 4,
+      paddingVertical: 2,
+      minWidth: 72,
+    },
+    tableCell: {
+      fontSize: 16,
+      lineHeight: 24,
+    },
     paragraph: {
       fontSize: 16,
       lineHeight: 24,
