@@ -39,7 +39,7 @@ export default function App() {
             // Override default renderers for mdast nodes.
             ...
         }}
-        customTheme={{
+        customStyles={{
             // Override default styles
             ...
         }}

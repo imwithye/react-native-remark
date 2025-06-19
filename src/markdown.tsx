@@ -27,7 +27,7 @@ export type MarkdownProps = {
   markdown: string;
   theme?: Theme;
   customRenderers?: Partial<Renderers>;
-  customStyles?: Styles;
+  customStyles?: Partial<Styles>;
   onLinkPress?: (url: string) => void;
 };
 
