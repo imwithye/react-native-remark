@@ -7,6 +7,7 @@ export const defaultTheme: Theme = {
     container: {
       gap: 10,
     },
+    borderColor: "#eeeeee",
     blockquote: {
       borderLeftWidth: 3,
       borderLeftColor: "#444444",

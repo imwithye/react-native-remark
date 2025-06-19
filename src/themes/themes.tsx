@@ -1,7 +1,8 @@
-import { TextStyle, ViewStyle } from "react-native";
+import { ColorValue, TextStyle, ViewStyle } from "react-native";
 
 export interface Styles {
   container: ViewStyle;
+  borderColor: ColorValue;
   blockquote: ViewStyle;
   break: ViewStyle;
   delete: TextStyle;

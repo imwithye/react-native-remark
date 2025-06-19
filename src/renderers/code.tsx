@@ -3,13 +3,15 @@ import { ReactNode } from "react";
 import { Platform, Text, View } from "react-native";
 
 import { RendererArgs } from "./renderers";
+import { useMarkdownContext } from "../context";
 
 export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
+  const { styles } = useMarkdownContext();
   return (
     <View
       style={{
         borderWidth: 1,
-        borderColor: "#eeeeee",
+        borderColor: styles.borderColor,
         borderRadius: 10,
       }}
     >
@@ -17,7 +19,7 @@ export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
         style={{
           flexDirection: "row",
           borderBottomWidth: 1,
-          borderColor: "#eeeeee",
+          borderColor: styles.borderColor,
           backgroundColor: "#f5f5f5",
           justifyContent: "space-between",
           padding: 10,
