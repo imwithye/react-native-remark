@@ -12,7 +12,9 @@ export const TableRowRenderer = ({
   const { TableCellRenderer } = renderers;
 
   return (
-    <View style={{ flexDirection: "row" }}>
+    <View
+      style={{ flexDirection: "row", borderBottomWidth: 1, borderColor: "red" }}
+    >
       {node.children.map((child, idx) => (
         <TableCellRenderer node={child} key={idx} index={idx} parent={node} />
       ))}

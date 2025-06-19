@@ -12,7 +12,16 @@ export const TableCellRenderer = ({
   const { PhrasingContentRenderer } = renderers;
 
   return (
-    <View>
+    <View
+      style={{
+        flex: 1,
+        paddingHorizontal: 4,
+        paddingVertical: 2,
+        minWidth: 64,
+        maxWidth: 128,
+        alignItems: "flex-start",
+      }}
+    >
       {node.children.map((child, idx) => (
         <PhrasingContentRenderer
           node={child}
