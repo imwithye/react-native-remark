@@ -8,7 +8,8 @@ import { RendererArgs } from "./renderers";
 
 export const TableRowRenderer = ({
   node,
-}: RendererArgs<TableRow>): ReactNode => {
+  rowIndex,
+}: RendererArgs<TableRow> & { rowIndex: number }): ReactNode => {
   const { renderers, styles } = useMarkdownContext();
   const { TableCellRenderer } = renderers;
 
@@ -19,7 +20,14 @@ export const TableRowRenderer = ({
   return (
     <View style={style}>
       {node.children.map((child, idx) => (
-        <TableCellRenderer node={child} key={idx} index={idx} parent={node} />
+        <TableCellRenderer
+          node={child}
+          key={idx}
+          index={idx}
+          parent={node}
+          rowIndex={rowIndex}
+          colIndex={idx}
+        />
       ))}
     </View>
   );

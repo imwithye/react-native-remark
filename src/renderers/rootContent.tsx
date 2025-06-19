@@ -76,9 +76,11 @@ export const RootContentRenderer = ({
     case "table":
       return <TableRenderer node={node} {...args} />;
     case "tableCell":
-      return <TableCellRenderer node={node} {...args} />;
+      return (
+        <TableCellRenderer node={node} {...args} rowIndex={0} colIndex={0} />
+      );
     case "tableRow":
-      return <TableRowRenderer node={node} {...args} />;
+      return <TableRowRenderer node={node} {...args} rowIndex={0} />;
     case "text":
       return <TextRenderer node={node} {...args} />;
     case "thematicBreak":

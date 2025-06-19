@@ -8,7 +8,12 @@ import { RendererArgs } from "./renderers";
 
 export const TableCellRenderer = ({
   node,
-}: RendererArgs<TableCell>): ReactNode => {
+  rowIndex,
+  colIndex,
+}: RendererArgs<TableCell> & {
+  rowIndex: number;
+  colIndex: number;
+}): ReactNode => {
   const { renderers, styles } = useMarkdownContext();
   const { PhrasingContentRenderer } = renderers;
 
