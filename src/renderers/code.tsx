@@ -2,8 +2,8 @@ import { Code } from "mdast";
 import { ReactNode } from "react";
 import { Platform, Text, View } from "react-native";
 
-import { RendererArgs } from "./renderers";
 import { useMarkdownContext } from "../context";
+import { RendererArgs } from "./renderers";
 
 export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
   const { styles } = useMarkdownContext();
