@@ -1,20 +1,14 @@
 import { InlineCode } from "mdast";
 import { ReactNode } from "react";
-import { Text, useColorScheme } from "react-native";
+import { Text } from "react-native";
 
 import { useMarkdownContext } from "../context";
-import { themedStyle } from "../themes/themes";
 import { RendererArgs } from "./renderers";
 
 export const InlineCodeRenderer = ({
   node,
 }: RendererArgs<InlineCode>): ReactNode => {
-  const colorScheme = useColorScheme();
-  const { theme } = useMarkdownContext();
+  const { styles } = useMarkdownContext();
 
-  return (
-    <Text style={themedStyle(theme, colorScheme, "InlineCodeStyle")}>
-      {node.value}
-    </Text>
-  );
+  return <Text style={styles.InlineCodeStyle}>{node.value}</Text>;
 };

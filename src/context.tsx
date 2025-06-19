@@ -2,13 +2,13 @@ import { Definition, Root } from "mdast";
 import { createContext, useContext } from "react";
 
 import { Renderers } from "./renderers/renderers";
-import { Theme } from "./themes/themes";
+import { Styles } from "./themes/themes";
 
 export type MarkdownContextType = {
   tree: Root;
   renderers: Renderers;
   definitions: Record<string, Definition>;
-  theme: Theme;
+  styles: Partial<Styles>;
   onLinkPress?: (url: string) => void;
 };
 
@@ -30,7 +30,7 @@ export type MarkdownContextProviderProps = {
   tree: Root;
   renderers: Renderers;
   definitions: Record<string, Definition>;
-  theme: Theme;
+  styles: Partial<Styles>;
   onLinkPress?: (url: string) => void;
   children: React.ReactNode;
 };
@@ -39,13 +39,19 @@ export const MarkdownContextProvider = ({
   tree,
   renderers,
   definitions,
-  theme,
+  styles,
   onLinkPress,
   children,
 }: MarkdownContextProviderProps) => {
   return (
     <MarkdownContext.Provider
-      value={{ tree, renderers, definitions, theme, onLinkPress }}
+      value={{
+        tree,
+        renderers,
+        definitions,
+        styles,
+        onLinkPress,
+      }}
     >
       {children}
     </MarkdownContext.Provider>

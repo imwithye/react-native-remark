@@ -1,20 +1,16 @@
 import { BlockContent, DefinitionContent, List, ListItem } from "mdast";
 import { Fragment, ReactNode } from "react";
-import { Text, View, useColorScheme } from "react-native";
+import { Text, View } from "react-native";
 
 import { useMarkdownContext } from "../context";
-import { mergeStyles, themedStyle } from "../themes/themes";
+import { mergeStyles } from "../themes/themes";
 import { RendererArgs } from "./renderers";
 
 export const ListRenderer = ({ node }: RendererArgs<List>): ReactNode => {
-  const colorScheme = useColorScheme();
-  const { renderers, theme } = useMarkdownContext();
+  const { renderers, styles } = useMarkdownContext();
   const { ListItemRenderer } = renderers;
 
-  const style = mergeStyles(
-    themedStyle(theme, colorScheme, "DefaultContainerStyle"),
-    themedStyle(theme, colorScheme, "ListStyle"),
-  );
+  const style = mergeStyles(styles.DefaultContainerStyle, styles.ListStyle);
 
   return (
     <View style={style}>
@@ -30,16 +26,13 @@ export const ListItemRenderer = ({
   index,
   parent,
 }: RendererArgs<ListItem>): ReactNode => {
-  const colorScheme = useColorScheme();
-  const { renderers, theme } = useMarkdownContext();
+  const { renderers, styles } = useMarkdownContext();
   const { BlockContentRenderer, DefinitionContentRenderer } = renderers;
 
-  const markerStyle = mergeStyles(
-    themedStyle(theme, colorScheme, "ListItemMarkerStyle"),
-  );
+  const markerStyle = mergeStyles(styles.ListItemMarkerStyle);
   const containerStyle = mergeStyles(
-    themedStyle(theme, colorScheme, "DefaultContainerStyle"),
-    themedStyle(theme, colorScheme, "ListItemContainerStyle"),
+    styles.DefaultContainerStyle,
+    styles.ListItemContainerStyle,
   );
 
   const list = parent?.type === "list" ? (parent as List) : null;

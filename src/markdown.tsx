@@ -1,6 +1,6 @@
 import { Definition, Root } from "mdast";
 import { useMemo } from "react";
-import { View, useColorScheme } from "react-native";
+import { useColorScheme } from "react-native";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
@@ -9,8 +9,9 @@ import { visit } from "unist-util-visit";
 import { MarkdownContextProvider } from "./context";
 import { defaultRenderers } from "./renderers";
 import { Renderers } from "./renderers/renderers";
+import { RootRenderer } from "./renderers/root";
 import { defaultTheme } from "./themes";
-import { Theme, themedStyle } from "./themes/themes";
+import { Styles, Theme } from "./themes/themes";
 
 const parser = unified().use(remarkParse).use(remarkGfm);
 
@@ -24,52 +25,43 @@ function extractDefinitions(tree: Root): Record<string, Definition> {
 
 export type MarkdownProps = {
   markdown: string;
+  theme?: Theme;
   customRenderers?: Partial<Renderers>;
-  customTheme?: Theme;
+  customStyles?: Styles;
   onLinkPress?: (url: string) => void;
 };
 
 export const Markdown = ({
   markdown,
+  theme,
   customRenderers,
-  customTheme,
+  customStyles,
   onLinkPress,
 }: MarkdownProps) => {
-  const colorScheme = useColorScheme();
+  const tree = useMemo(() => parser.parse(markdown), [markdown]);
   const renderers = useMemo(
     () => ({ ...defaultRenderers, ...customRenderers }),
     [customRenderers],
   );
-  const theme = useMemo(
-    () => ({
-      global: { ...defaultTheme.global, ...customTheme?.global },
-      light: { ...defaultTheme.light, ...customTheme?.light },
-      dark: { ...defaultTheme.dark, ...customTheme?.dark },
-    }),
-    [customTheme],
-  );
-  const { RootContentRenderer } = renderers;
-  const tree = useMemo(() => parser.parse(markdown), [markdown]);
   const definitions = useMemo(() => extractDefinitions(tree), [tree]);
+  const colorScheme = useColorScheme();
+  const mode = colorScheme === "dark" ? "dark" : "light";
+  const mergedTheme = theme ?? defaultTheme;
+  const mergedStyles = {
+    ...mergedTheme.global,
+    ...mergedTheme[mode],
+    ...customStyles,
+  };
 
   return (
     <MarkdownContextProvider
       tree={tree}
       renderers={renderers}
       definitions={definitions}
-      theme={theme}
+      styles={mergedStyles}
       onLinkPress={onLinkPress}
     >
-      <View style={themedStyle(theme, colorScheme, "DefaultContainerStyle")}>
-        {tree.children.map((node, index) => (
-          <RootContentRenderer
-            key={index}
-            node={node}
-            index={index}
-            parent={tree}
-          />
-        ))}
-      </View>
+      <RootRenderer node={tree} />
     </MarkdownContextProvider>
   );
 };

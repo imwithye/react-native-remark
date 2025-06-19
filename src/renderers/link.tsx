@@ -1,16 +1,14 @@
 import { Link, LinkReference } from "mdast";
 import { ReactNode, useCallback } from "react";
-import { Text, useColorScheme } from "react-native";
+import { Text } from "react-native";
 
 import { useMarkdownContext } from "../context";
-import { themedStyle } from "../themes/themes";
 import { RendererArgs } from "./renderers";
 
 export const LinkReferenceRenderer = ({
   node,
 }: RendererArgs<LinkReference>): ReactNode => {
-  const colorScheme = useColorScheme();
-  const { renderers, definitions, theme, onLinkPress } = useMarkdownContext();
+  const { renderers, definitions, styles, onLinkPress } = useMarkdownContext();
   const { PhrasingContentRenderer } = renderers;
   const url = definitions[node.identifier]?.url;
 
@@ -22,7 +20,7 @@ export const LinkReferenceRenderer = ({
 
   return (
     <Text
-      style={themedStyle(theme, colorScheme, "LinkReferenceStyle")}
+      style={styles.LinkReferenceStyle}
       onPress={onLinkPress ? onPress : undefined}
     >
       {node.children.map((child, index) => (
@@ -38,8 +36,7 @@ export const LinkReferenceRenderer = ({
 };
 
 export const LinkRenderer = ({ node }: RendererArgs<Link>): ReactNode => {
-  const colorScheme = useColorScheme();
-  const { renderers, theme, onLinkPress } = useMarkdownContext();
+  const { renderers, styles, onLinkPress } = useMarkdownContext();
   const { PhrasingContentRenderer } = renderers;
   const { url } = node;
 
@@ -50,10 +47,7 @@ export const LinkRenderer = ({ node }: RendererArgs<Link>): ReactNode => {
   }, [url, onLinkPress]);
 
   return (
-    <Text
-      style={themedStyle(theme, colorScheme, "LinkStyle")}
-      onPress={onLinkPress ? onPress : undefined}
-    >
+    <Text style={styles.LinkStyle} onPress={onLinkPress ? onPress : undefined}>
       {node.children.map((child, index) => (
         <PhrasingContentRenderer
           node={child}
