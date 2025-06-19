@@ -13,9 +13,12 @@ export const TableRowRenderer = ({
   const { renderers, styles } = useMarkdownContext();
   const { TableCellRenderer } = renderers;
 
-  const style = mergeStyles(styles.tableRow, {
-    flexDirection: "row",
-  });
+  const style = mergeStyles(
+    {
+      flexDirection: "row",
+    },
+    styles.tableRow?.(rowIndex),
+  );
 
   return (
     <View style={style}>

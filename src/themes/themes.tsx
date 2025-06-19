@@ -14,9 +14,9 @@ export interface Styles {
   listItemMarker: TextStyle;
   listItemContainer: ViewStyle;
   table: ViewStyle;
-  tableRow: ViewStyle;
-  tableCellContainer: ViewStyle;
-  tableCell: TextStyle;
+  tableRow: (rowIndex: number) => ViewStyle;
+  tableCellContainer: (rowIndex: number, colIndex: number) => ViewStyle;
+  tableCell: (rowIndex: number, colIndex: number) => TextStyle;
   paragraph: TextStyle;
   strong: TextStyle;
   text: TextStyle;

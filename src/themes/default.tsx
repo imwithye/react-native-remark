@@ -50,21 +50,22 @@ export const defaultTheme: Theme = {
       flex: 1,
       gap: 5,
     },
-    tableRow: {
+    tableRow: () => ({
       height: 32,
       borderBottomWidth: 1,
       borderColor: "#eeeeee",
-    },
-    tableCellContainer: {
+    }),
+    tableCellContainer: () => ({
       flex: 1,
       paddingHorizontal: 4,
       paddingVertical: 2,
-      minWidth: 72,
-    },
-    tableCell: {
+      width: 72,
+    }),
+    tableCell: (rowIndex: number) => ({
+      fontWeight: rowIndex === 0 ? "bold" : "normal",
       fontSize: 16,
       lineHeight: 24,
-    },
+    }),
     paragraph: {
       fontSize: 16,
       lineHeight: 24,

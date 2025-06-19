@@ -22,12 +22,12 @@ export const TableCellRenderer = ({
       height: "100%",
       justifyContent: "center",
     },
-    styles.tableCellContainer,
+    styles.tableCellContainer?.(rowIndex, colIndex),
   );
 
   return (
     <View style={mergedContainerStyle}>
-      <Text style={styles.tableCell}>
+      <Text style={styles.tableCell?.(rowIndex, colIndex)}>
         {node.children.map((child, idx) => (
           <PhrasingContentRenderer
             node={child}

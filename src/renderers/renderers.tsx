@@ -35,8 +35,8 @@ export type RendererArgs<This extends Node> = {
   index?: number;
 };
 
-export type RenderFunc<This extends Node, Opt extends object = {}> = (
-  args: RendererArgs<This> & Opt,
+export type RenderFunc<This extends Node, T = object> = (
+  args: RendererArgs<This> & T,
 ) => ReactNode;
 
 export interface Renderers {
