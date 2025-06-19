@@ -61,7 +61,7 @@ export const TableCellRenderer = ({
   });
 
   return (
-    <View style={{ width: 128, height: 32, justifyContent: "center" }}>
+    <View style={{ width: 144, minHeight: 32, justifyContent: "center" }}>
       <Text style={style}>
         {node.children.map((child, idx) => (
           <PhrasingContentRenderer
