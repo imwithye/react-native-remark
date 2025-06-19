@@ -21,6 +21,7 @@ import {
   RootContent,
   Strong,
   Table,
+  TableCell,
   TableRow,
   Text,
   ThematicBreak,
@@ -60,6 +61,7 @@ export interface Renderers {
   RootContentRenderer: RenderFunc<RootContent>;
   StrongRenderer: RenderFunc<Strong>;
   TableRenderer: RenderFunc<Table>;
+  TableCellRenderer: RenderFunc<TableCell>;
   TableRowRenderer: RenderFunc<TableRow>;
   TextRenderer: RenderFunc<Text>;
   ThematicBreakRenderer: RenderFunc<ThematicBreak>;

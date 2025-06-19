@@ -28,6 +28,7 @@ export const RootContentRenderer = ({
     StrongRenderer,
     TextRenderer,
     TableRenderer,
+    TableCellRenderer,
     TableRowRenderer,
     ThematicBreakRenderer,
     YamlRenderer,
@@ -75,7 +76,7 @@ export const RootContentRenderer = ({
     case "table":
       return <TableRenderer node={node} {...args} />;
     case "tableCell":
-      return null;
+      return <TableCellRenderer node={node} {...args} />;
     case "tableRow":
       return <TableRowRenderer node={node} {...args} />;
     case "text":

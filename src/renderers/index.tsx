@@ -17,6 +17,7 @@ import { Renderers } from "./renderers";
 import { RootContentRenderer } from "./rootContent";
 import { StrongRenderer } from "./strong";
 import { TableRenderer } from "./table";
+import { TableCellRenderer } from "./tableCell";
 import { TableRowRenderer } from "./tableRow";
 import { TextRenderer } from "./text";
 import { ThematicBreakRenderer } from "./thematicBreak";
@@ -44,6 +45,7 @@ export const defaultRenderers: Renderers = {
   RootContentRenderer,
   StrongRenderer,
   TableRenderer,
+  TableCellRenderer,
   TableRowRenderer,
   TextRenderer,
   ThematicBreakRenderer,
