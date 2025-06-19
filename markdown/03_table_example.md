@@ -17,6 +17,15 @@
 |  A3  |  B3  |  C3  |  D3  |  E3  |  F3  |  G3  |  H3  |  I3  |  J3   |
 |  A4  |  B4  |  C4  |  D4  |  E4  |  F4  |  G4  |  H4  |  I4  |  J4   |
 
+## Table With Long Text
+
+| Product Name | Category | Description | Price | Stock | Supplier | Location | Rating | Reviews | Status |
+|--------------|----------|-------------|-------|-------|----------|----------|--------|---------|--------|
+| Wireless Bluetooth Headphones | Electronics | High-quality noise-canceling headphones with 30-hour battery life | $89.99 | 45 | TechCorp Inc | New York | 4.5 | 127 | In Stock |
+| Organic Cotton T-Shirt | Clothing | Comfortable 100% organic cotton t-shirt available in multiple colors | $24.50 | 120 | EcoFashion Ltd | California | 4.2 | 89 | Available |
+| Smartphone Case | Accessories | Durable protective case with built-in kickstand for phones | $15.75 | 67 | MobileGear Co | Texas | 3.8 | 34 | Limited |
+| Coffee Maker | Home & Kitchen | Programmable coffee maker with thermal carafe and auto-shutoff | $129.99 | 23 | HomeEssentials | Illinois | 4.7 | 156 | Backorder |
+
 ## Table Big Data
 
 | Col1 | Col2 | Col3 | Col4 | Col5 | Col6 | Col7 | Col8 | Col9 | Col10 | Col11 | Col12 | Col13 | Col14 | Col15 |
