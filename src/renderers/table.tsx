@@ -1,23 +1,109 @@
 import { Table, TableCell, TableRow } from "mdast";
-import { ReactNode } from "react";
-import { ScrollView, Text, View } from "react-native";
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
+import { LayoutChangeEvent, ScrollView, Text, View } from "react-native";
 
 import { useMarkdownContext } from "../context";
 import { mergeStyles } from "../themes/themes";
 import { RendererArgs } from "./renderers";
+
+type TableContextType = {
+  rowCount: number;
+  columnCount: number;
+  columnWidths: number[];
+  setColumnWidth: (index: number, width: number) => void;
+};
+
+const TableContext = createContext<TableContextType>({
+  rowCount: 0,
+  columnCount: 0,
+  columnWidths: [],
+  setColumnWidth: () => {},
+});
+
+const useTableContext = (): TableContextType => {
+  const context = useContext(TableContext);
+  if (!context) {
+    return {
+      rowCount: 0,
+      columnCount: 0,
+      columnWidths: [],
+      setColumnWidth: () => {},
+    };
+  }
+  return context;
+};
+
+type TableContextProviderProps = {
+  rowCount: number;
+  columnCount: number;
+  children: ReactNode;
+};
+
+const TableContextProvider = ({
+  rowCount,
+  columnCount,
+  children,
+}: TableContextProviderProps) => {
+  const [columnWidths, setColumnWidths] = useState<number[]>(
+    Array(columnCount).fill(0),
+  );
+
+  const setColumnWidth = useCallback(
+    (index: number, width: number) => {
+      setColumnWidths((prev) => {
+        const old = prev[index] ?? 0;
+        const newWidth = Math.min(Math.max(Math.max(old, width), 64), 180);
+        if (newWidth === old) return prev;
+
+        const newColumnWidth = [
+          ...prev.slice(0, index),
+          newWidth,
+          ...prev.slice(index + 1),
+        ];
+        return newColumnWidth;
+      });
+    },
+    [setColumnWidths],
+  );
+
+  return (
+    <TableContext.Provider
+      value={{ rowCount, columnCount, columnWidths, setColumnWidth }}
+    >
+      {children}
+    </TableContext.Provider>
+  );
+};
 
 export const TableRenderer = ({ node }: RendererArgs<Table>): ReactNode => {
   const { renderers } = useMarkdownContext();
   const { TableRowRenderer } = renderers;
 
   return (
-    <ScrollView horizontal>
-      <View>
-        {node.children.map((child, idx) => (
-          <TableRowRenderer node={child} key={idx} index={idx} parent={node} />
-        ))}
-      </View>
-    </ScrollView>
+    <TableContextProvider
+      rowCount={node.children.length ?? 0}
+      columnCount={node.children[0]?.children.length ?? 0}
+    >
+      <ScrollView horizontal>
+        <View>
+          {node.children.map((child, idx) => (
+            <TableRowRenderer
+              node={child}
+              key={idx}
+              index={idx}
+              parent={node}
+            />
+          ))}
+        </View>
+      </ScrollView>
+    </TableContextProvider>
   );
 };
 
@@ -51,26 +137,54 @@ export const TableRowRenderer = ({
 
 export const TableCellRenderer = ({
   node,
+  index,
   rowIndex,
 }: RendererArgs<TableCell> & { rowIndex: number }): ReactNode => {
+  const columnIndex = index ?? 0;
+  const { columnWidths, setColumnWidth } = useTableContext();
   const { renderers, styles } = useMarkdownContext();
   const { PhrasingContentRenderer } = renderers;
 
-  const style = mergeStyles(styles.paragraph, {
+  const width = columnWidths[columnIndex];
+  const style = mergeStyles(styles.tableCell, {
     fontWeight: rowIndex === 0 ? "bold" : "normal",
   });
 
+  const padding = 8;
+  const onTextLayout = useCallback(
+    (e: LayoutChangeEvent) =>
+      setColumnWidth(columnIndex, e.nativeEvent.layout.width + padding * 2),
+    [columnIndex, setColumnWidth],
+  );
+
+  const content = useMemo(
+    () =>
+      node.children.map((child, idx) => (
+        <PhrasingContentRenderer
+          node={child}
+          key={idx}
+          index={idx}
+          parent={node}
+        />
+      )),
+    [node, PhrasingContentRenderer],
+  );
+
   return (
-    <View style={{ width: 144, minHeight: 32, justifyContent: "center" }}>
-      <Text style={style}>
-        {node.children.map((child, idx) => (
-          <PhrasingContentRenderer
-            node={child}
-            key={idx}
-            index={idx}
-            parent={node}
-          />
-        ))}
+    <View
+      style={{
+        width: width,
+        minHeight: 32,
+        padding: padding,
+        justifyContent: "center",
+      }}
+    >
+      <Text style={style}>{content}</Text>
+      <Text
+        style={[style, { position: "absolute", opacity: 0, zIndex: -100 }]}
+        onLayout={onTextLayout}
+      >
+        {content}
       </Text>
     </View>
   );

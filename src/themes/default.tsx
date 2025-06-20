@@ -24,7 +24,7 @@ export const defaultTheme: Theme = {
       fontStyle: "italic",
     },
     heading: (level: number) => {
-      const fontSize = 32 - level * 2;
+      const fontSize = 28 - level * 2;
       const fontWeight = level <= 3 ? "bold" : "semibold";
       const marginVertical = level <= 3 ? 4 : 2;
       return { fontSize, fontWeight, marginVertical };
@@ -49,6 +49,10 @@ export const defaultTheme: Theme = {
     paragraph: {
       fontSize: 16,
       lineHeight: 24,
+    },
+    tableCell: {
+      fontSize: 14,
+      lineHeight: 20,
     },
     strong: {
       fontWeight: "bold",
