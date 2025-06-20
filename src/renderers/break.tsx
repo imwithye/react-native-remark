@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
-import { View } from "react-native";
+import { Text } from "react-native";
 
 import { useMarkdownContext } from "../context";
 
 export const BreakRenderer = (): ReactNode => {
   const { styles } = useMarkdownContext();
 
-  return <View style={styles.break} />;
+  return <Text style={styles.break}>{"\n"}</Text>;
 };
