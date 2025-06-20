@@ -28,6 +28,7 @@ export type MarkdownProps = {
   theme?: Theme;
   customRenderers?: Partial<Renderers>;
   customStyles?: Partial<Styles>;
+  onCodeCopy?: (code: string) => void;
   onLinkPress?: (url: string) => void;
 };
 
@@ -36,6 +37,7 @@ export const Markdown = ({
   theme,
   customRenderers,
   customStyles,
+  onCodeCopy,
   onLinkPress,
 }: MarkdownProps) => {
   const tree = useMemo(() => parser.parse(markdown), [markdown]);
@@ -59,6 +61,7 @@ export const Markdown = ({
       renderers={renderers}
       definitions={definitions}
       styles={mergedStyles}
+      onCodeCopy={onCodeCopy}
       onLinkPress={onLinkPress}
     >
       <RootRenderer node={tree} />

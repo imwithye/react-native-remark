@@ -9,6 +9,7 @@ export type MarkdownContextType = {
   renderers: Renderers;
   definitions: Record<string, Definition>;
   styles: Partial<Styles>;
+  onCodeCopy?: (code: string) => void;
   onLinkPress?: (url: string) => void;
 };
 
@@ -31,6 +32,7 @@ export type MarkdownContextProviderProps = {
   renderers: Renderers;
   definitions: Record<string, Definition>;
   styles: Partial<Styles>;
+  onCodeCopy?: (code: string) => void;
   onLinkPress?: (url: string) => void;
   children: React.ReactNode;
 };
@@ -40,6 +42,7 @@ export const MarkdownContextProvider = ({
   renderers,
   definitions,
   styles,
+  onCodeCopy,
   onLinkPress,
   children,
 }: MarkdownContextProviderProps) => {
@@ -50,6 +53,7 @@ export const MarkdownContextProvider = ({
         renderers,
         definitions,
         styles,
+        onCodeCopy,
         onLinkPress,
       }}
     >

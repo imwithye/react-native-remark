@@ -13,8 +13,10 @@ import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
 
 export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
+  const { onCodeCopy } = useMarkdownContext();
   const [copied, setCopied] = useState(false);
   const { styles } = useMarkdownContext();
+
   return (
     <View
       style={{
@@ -36,6 +38,7 @@ export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
         <Text>{node.lang}</Text>
         <TouchableOpacity
           onPress={() => {
+            onCodeCopy?.(node.value);
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
           }}
