@@ -4,13 +4,88 @@ import { ReactNode, useState } from "react";
 import {
   Platform,
   ScrollView,
+  ScrollViewProps,
   Text,
+  TextStyle,
   TouchableOpacity,
   View,
 } from "react-native";
+import SyntaxHighlighter from "react-syntax-highlighter";
 
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
+
+const fontFamily = Platform.select({
+  ios: "Courier New",
+  android: "monospace",
+});
+
+type NativeRendererProps = {
+  node: rendererNode;
+  style?: TextStyle;
+};
+
+const TextRenderer = ({ node }: NativeRendererProps) => {
+  const value = (node.value?.toString() || "").replace(/\n/g, " ");
+  return <Text style={{ fontFamily, fontSize: 14 }}>{value}</Text>;
+};
+
+const ElementRenderer = ({ node, style }: NativeRendererProps) => {
+  const { children } = node;
+  const child = children?.map((child, idx) => {
+    return <NativeRenderer key={idx} node={child} />;
+  });
+  return <Text style={style}>{child}</Text>;
+};
+
+const NativeRenderer = ({ node, style }: NativeRendererProps) => {
+  const { type } = node;
+  switch (type) {
+    case "text":
+      return <TextRenderer node={node} />;
+    case "element":
+      return <ElementRenderer node={node} style={style} />;
+    default:
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-case-declarations
+      const _: never = type;
+      return null;
+  }
+};
+
+const nativeRenderer = () => {
+  return (props: rendererProps) => {
+    return props.rows.map((row, idx) => {
+      return <NativeRenderer key={idx} node={row} />;
+    });
+  };
+};
+
+const ScrollViewContainer = ({ style, ...props }: ScrollViewProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const _ = style;
+  return <ScrollView horizontal style={{ paddingVertical: 10 }} {...props} />;
+};
+
+type NativeSyntaxHighlighterProps = {
+  language: string;
+  children: string;
+};
+
+const NativeSyntaxHighlighter = ({
+  language,
+  children,
+}: NativeSyntaxHighlighterProps) => {
+  return (
+    <SyntaxHighlighter
+      language={language}
+      renderer={nativeRenderer()}
+      PreTag={ScrollViewContainer}
+      CodeTag={View}
+    >
+      {children}
+    </SyntaxHighlighter>
+  );
+};
 
 export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
   const { onCodeCopy } = useMarkdownContext();
@@ -54,18 +129,9 @@ export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
         </TouchableOpacity>
       </View>
       <View style={{ paddingHorizontal: 10 }}>
-        <ScrollView horizontal style={{ paddingVertical: 10 }}>
-          <Text
-            style={{
-              fontFamily: Platform.select({
-                ios: "Menlo",
-                android: "monospace",
-              }),
-            }}
-          >
-            {node.value}
-          </Text>
-        </ScrollView>
+        <NativeSyntaxHighlighter language={node.lang ?? "hlsl"}>
+          {node.value}
+        </NativeSyntaxHighlighter>
       </View>
     </View>
   );
