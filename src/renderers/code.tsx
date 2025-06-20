@@ -1,11 +1,19 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { Code } from "mdast";
-import { ReactNode } from "react";
-import { Platform, ScrollView, Text, View } from "react-native";
+import { ReactNode, useState } from "react";
+import {
+  Platform,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
 
 export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
+  const [copied, setCopied] = useState(false);
   const { styles } = useMarkdownContext();
   return (
     <View
@@ -26,7 +34,21 @@ export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
         }}
       >
         <Text>{node.lang}</Text>
-        <Text>Copy</Text>
+        <TouchableOpacity
+          onPress={() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
+            {copied ? (
+              <Ionicons name="checkmark" size={16} color="black" />
+            ) : (
+              <Ionicons name="copy-outline" size={16} color="black" />
+            )}
+            <Text>{copied ? "Copied" : "Copy"}</Text>
+          </View>
+        </TouchableOpacity>
       </View>
       <View style={{ paddingHorizontal: 10 }}>
         <ScrollView horizontal style={{ paddingVertical: 10 }}>

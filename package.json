@@ -28,6 +28,7 @@
   "author": "Yiwei Gong",
   "license": "MIT",
   "dependencies": {
+    "@expo/vector-icons": "^14.1.0",
     "react": "^19.1.0",
     "react-native": "^0.80.0",
     "remark-gfm": "^4.0.1",
