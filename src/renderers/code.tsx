@@ -1,6 +1,6 @@
 import { Code } from "mdast";
 import { ReactNode } from "react";
-import { Platform, Text, View } from "react-native";
+import { Platform, ScrollView, Text, View } from "react-native";
 
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
@@ -28,14 +28,19 @@ export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
         <Text>{node.lang}</Text>
         <Text>Copy</Text>
       </View>
-      <View style={{ padding: 10 }}>
-        <Text
-          style={{
-            fontFamily: Platform.select({ ios: "Menlo", android: "monospace" }),
-          }}
-        >
-          {node.value}
-        </Text>
+      <View style={{ paddingHorizontal: 10 }}>
+        <ScrollView horizontal style={{ paddingVertical: 10 }}>
+          <Text
+            style={{
+              fontFamily: Platform.select({
+                ios: "Menlo",
+                android: "monospace",
+              }),
+            }}
+          >
+            {node.value}
+          </Text>
+        </ScrollView>
       </View>
     </View>
   );
