@@ -10,7 +10,13 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useLayoutEffect, useState } from "react";
-import { ActivityIndicator, Button, Linking, ScrollView } from "react-native";
+import {
+  ActivityIndicator,
+  Alert,
+  Button,
+  Linking,
+  ScrollView,
+} from "react-native";
 
 const BASE_URL =
   "https://raw.githubusercontent.com/imwithye/react-native-remark/refs/heads/main/markdown";
@@ -58,6 +64,10 @@ const HomeScreen = () => {
                 title: "6. PyTorch Tutorial",
                 url: `${BASE_URL}/06_pytorch.md`,
               },
+              {
+                title: "7. Load from URL",
+                url: "",
+              },
             ];
             const cancelButtonIndex = 0;
             showActionSheetWithOptions(
@@ -67,6 +77,12 @@ const HomeScreen = () => {
               },
               (idx?: number) => {
                 if (!idx || idx === cancelButtonIndex) return;
+                if (idx === options.length - 1) {
+                  Alert.prompt("Load Markdown from URL", "", (url) => {
+                    setUrl(url);
+                  });
+                  return;
+                }
                 setUrl(options[idx].url);
               },
             );
