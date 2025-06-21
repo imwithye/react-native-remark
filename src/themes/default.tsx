@@ -23,6 +23,11 @@ export const defaultTheme: Theme = {
     emphasis: {
       fontStyle: "italic",
     },
+    footnoteReference: {
+      fontStyle: "italic",
+      fontSize: 10,
+      color: "#444444",
+    },
     heading: (level: number) => {
       const fontSize = 28 - level * 2;
       const fontWeight = level <= 3 ? "bold" : "semibold";
