@@ -65,7 +65,11 @@ const HomeScreen = () => {
                 url: `${BASE_URL}/06_pytorch.md`,
               },
               {
-                title: "7. Load from URL",
+                title: "7. Image",
+                url: `${BASE_URL}/07_image.md`,
+              },
+              {
+                title: "8. Load from URL",
                 url: "",
               },
             ];
