@@ -45,8 +45,15 @@ export const defaultTheme: Theme = {
       borderRadius: 5,
     },
     codeBlock: {
-      fontFamily: Platform.select({ ios: "Menlo", android: "monospace" }),
-      fontSize: 14,
+      headerBackgroundColor: "#f5f5f5",
+      contentBackgroundColor: "#fcfcfc",
+      headerTextStyle: {
+        fontSize: 14,
+      },
+      contentTextStyle: {
+        fontFamily: Platform.select({ ios: "Menlo", android: "monospace" }),
+        fontSize: 14,
+      },
     },
     linkReference: {
       color: "#007AFF",

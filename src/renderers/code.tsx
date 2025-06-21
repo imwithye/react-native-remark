@@ -58,11 +58,11 @@ const TextRenderer = ({ node }: NativeRendererProps) => {
 const ElementRenderer = ({ node }: NativeRendererProps) => {
   const { styles } = useMarkdownContext();
   const { children } = node;
-  const style = generateNativeStyles(node, styles.codeBlock);
+  const style = generateNativeStyles(node, styles.codeBlock?.contentTextStyle);
   const child = children?.map((child, idx) => {
     return <NativeRenderer key={idx} node={child} />;
   });
-  return <Text style={{ ...style }}>{child}</Text>;
+  return <Text style={style}>{child}</Text>;
 };
 
 const NativeRenderer = ({ node }: NativeRendererProps) => {
@@ -121,16 +121,15 @@ const NativeSyntaxHighlighter = ({
 };
 
 export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
-  const { onCodeCopy } = useMarkdownContext();
+  const { styles, onCodeCopy } = useMarkdownContext();
   const [copied, setCopied] = useState(false);
-  const { styles } = useMarkdownContext();
 
   return (
     <View
       style={{
         borderWidth: 1,
         borderColor: styles.borderColor,
-        borderRadius: 10,
+        borderRadius: 5,
       }}
     >
       <View
@@ -138,12 +137,12 @@ export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
           flexDirection: "row",
           borderBottomWidth: 1,
           borderColor: styles.borderColor,
-          backgroundColor: "#f5f5f5",
+          backgroundColor: styles.codeBlock?.headerBackgroundColor,
           justifyContent: "space-between",
           padding: 10,
         }}
       >
-        <Text>{node.lang}</Text>
+        <Text style={styles.codeBlock?.headerTextStyle}>{node.lang}</Text>
         <TouchableOpacity
           onPress={() => {
             onCodeCopy?.(node.value);
@@ -153,15 +152,30 @@ export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
         >
           <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
             {copied ? (
-              <Ionicons name="checkmark" size={16} color="black" />
+              <Ionicons
+                name="checkmark"
+                size={16}
+                color={styles.codeBlock?.headerTextStyle?.color}
+              />
             ) : (
-              <Ionicons name="copy-outline" size={16} color="black" />
+              <Ionicons
+                name="copy-outline"
+                size={16}
+                color={styles.codeBlock?.headerTextStyle?.color}
+              />
             )}
-            <Text>{copied ? "Copied" : "Copy"}</Text>
+            <Text style={styles.codeBlock?.headerTextStyle}>
+              {copied ? "Copied" : "Copy"}
+            </Text>
           </View>
         </TouchableOpacity>
       </View>
-      <View style={{ paddingHorizontal: 10 }}>
+      <View
+        style={{
+          paddingHorizontal: 10,
+          backgroundColor: styles.codeBlock?.contentBackgroundColor,
+        }}
+      >
         <NativeSyntaxHighlighter language={node.lang ?? "hlsl"}>
           {node.value}
         </NativeSyntaxHighlighter>
