@@ -11,6 +11,14 @@ const light = {
   bgColor0: "#f9f9f9",
   bgColor1: "#f5f5f5",
 };
+const dark = {
+  primaryColor: "#ffffff",
+  darkColor: "#aaaaaa",
+  linkColor: "#007AFF",
+  bgColor: "#111111",
+  bgColor0: "#111111",
+  bgColor1: "#111111",
+};
 
 export const defaultTheme: Theme = {
   global: {
@@ -81,6 +89,7 @@ export const defaultTheme: Theme = {
     paragraph: {
       fontSize: 16,
       lineHeight: 24,
+      color: light.primaryColor,
     },
     tableCell: {
       fontSize: 14,
@@ -89,6 +98,9 @@ export const defaultTheme: Theme = {
     strong: {
       fontWeight: "bold",
     },
+    text: {
+      color: light.primaryColor,
+    },
     thematicBreak: {
       marginVertical: 10,
       height: 1,
@@ -96,5 +108,39 @@ export const defaultTheme: Theme = {
     },
   },
   light: {},
-  dark: {},
+  dark: {
+    borderColor: dark.bgColor,
+    blockquote: {
+      borderLeftColor: dark.darkColor,
+      backgroundColor: dark.bgColor1,
+    },
+    footnoteDefinition: {
+      color: dark.darkColor,
+    },
+    footnoteReference: {
+      color: dark.darkColor,
+    },
+    inlineCode: {
+      backgroundColor: dark.bgColor0,
+    },
+    codeBlock: {
+      headerBackgroundColor: dark.bgColor1,
+      contentBackgroundColor: dark.bgColor0,
+    },
+    linkReference: {
+      color: dark.linkColor,
+    },
+    link: {
+      color: dark.linkColor,
+    },
+    paragraph: {
+      color: dark.primaryColor,
+    },
+    text: {
+      color: dark.primaryColor,
+    },
+    thematicBreak: {
+      backgroundColor: dark.bgColor,
+    },
+  },
 };
