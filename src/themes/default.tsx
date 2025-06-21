@@ -23,6 +23,9 @@ export const defaultTheme: Theme = {
     emphasis: {
       fontStyle: "italic",
     },
+    footnoteDefinition: {
+      color: "#444444",
+    },
     footnoteReference: {
       fontStyle: "italic",
       fontSize: 10,
