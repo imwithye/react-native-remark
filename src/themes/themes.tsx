@@ -54,9 +54,13 @@ export function deepMerge<T>(target: T, source: T): T {
 }
 
 export const mergeStyles = <T extends ViewStyle | TextStyle | CodeBlockStyle>(
-  ...styles: T[]
+  ...styles: (T | undefined)[]
 ): T => {
-  return styles.reduce((acc, style) => {
-    return deepMerge(acc, style);
-  }, {} as T);
+  let result: T = {} as T;
+  for (const style of styles) {
+    if (style) {
+      result = deepMerge(result, style);
+    }
+  }
+  return result;
 };

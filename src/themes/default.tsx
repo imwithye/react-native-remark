@@ -128,10 +128,10 @@ export const defaultTheme: Theme = {
       headerBackgroundColor: dark.bgColor1,
       contentBackgroundColor: dark.bgColor0,
       headerTextStyle: {
-        color: dark.darkColor,
+        color: dark.primaryColor,
       },
       contentTextStyle: {
-        color: dark.darkColor,
+        color: dark.primaryColor,
       },
     },
     linkReference: {

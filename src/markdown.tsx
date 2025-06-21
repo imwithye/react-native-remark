@@ -61,9 +61,9 @@ export const Markdown = ({
   const mode = colorScheme === "dark" ? "dark" : "light";
   const mergedTheme = theme ?? defaultTheme;
   const mergedStyles = mergeStyles(
-    mergedTheme.global ?? {},
-    mergedTheme[mode] ?? {},
-    customStyles ?? {},
+    mergedTheme.global,
+    mergedTheme[mode],
+    customStyles,
   );
 
   return (
