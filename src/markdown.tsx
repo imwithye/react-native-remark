@@ -1,6 +1,6 @@
 import { Definition, Root } from "mdast";
-import { useMemo } from "react";
-import { useColorScheme } from "react-native";
+import { useMemo, useState } from "react";
+import { LayoutChangeEvent, View, useColorScheme } from "react-native";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import { unified } from "unified";
@@ -41,11 +41,22 @@ export const Markdown = ({
   onLinkPress,
 }: MarkdownProps) => {
   const tree = useMemo(() => parser.parse(markdown), [markdown]);
+
   const renderers = useMemo(
     () => ({ ...defaultRenderers, ...customRenderers }),
     [customRenderers],
   );
   const definitions = useMemo(() => extractDefinitions(tree), [tree]);
+
+  const [contentSize, setContentSize] = useState<{
+    width: number;
+    height: number;
+  }>({ width: 0, height: 0 });
+  const onLayout = (e: LayoutChangeEvent) => {
+    const { width, height } = e.nativeEvent.layout;
+    setContentSize({ width, height });
+  };
+
   const colorScheme = useColorScheme();
   const mode = colorScheme === "dark" ? "dark" : "light";
   const mergedTheme = theme ?? defaultTheme;
@@ -56,15 +67,18 @@ export const Markdown = ({
   };
 
   return (
-    <MarkdownContextProvider
-      tree={tree}
-      renderers={renderers}
-      definitions={definitions}
-      styles={mergedStyles}
-      onCodeCopy={onCodeCopy}
-      onLinkPress={onLinkPress}
-    >
-      <RootRenderer node={tree} />
-    </MarkdownContextProvider>
+    <View onLayout={onLayout} style={{ flex: 1 }}>
+      <MarkdownContextProvider
+        tree={tree}
+        renderers={renderers}
+        definitions={definitions}
+        contentSize={contentSize}
+        styles={mergedStyles}
+        onCodeCopy={onCodeCopy}
+        onLinkPress={onLinkPress}
+      >
+        <RootRenderer node={tree} />
+      </MarkdownContextProvider>
+    </View>
   );
 };

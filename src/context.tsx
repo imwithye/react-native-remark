@@ -8,6 +8,7 @@ export type MarkdownContextType = {
   tree: Root;
   renderers: Renderers;
   definitions: Record<string, Definition>;
+  contentSize: { width: number; height: number };
   styles: Partial<Styles>;
   onCodeCopy?: (code: string) => void;
   onLinkPress?: (url: string) => void;
@@ -31,6 +32,7 @@ export type MarkdownContextProviderProps = {
   tree: Root;
   renderers: Renderers;
   definitions: Record<string, Definition>;
+  contentSize: { width: number; height: number };
   styles: Partial<Styles>;
   onCodeCopy?: (code: string) => void;
   onLinkPress?: (url: string) => void;
@@ -41,6 +43,7 @@ export const MarkdownContextProvider = ({
   tree,
   renderers,
   definitions,
+  contentSize,
   styles,
   onCodeCopy,
   onLinkPress,
@@ -52,6 +55,7 @@ export const MarkdownContextProvider = ({
         tree,
         renderers,
         definitions,
+        contentSize,
         styles,
         onCodeCopy,
         onLinkPress,

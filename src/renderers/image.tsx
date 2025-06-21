@@ -1,6 +1,6 @@
 import { ImageReference, Image as MdImage } from "mdast";
 import { ReactNode, useState } from "react";
-import { Dimensions, Image } from "react-native";
+import { Image } from "react-native";
 
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
@@ -18,21 +18,23 @@ export const ImageReferenceRenderer = ({
 };
 
 export const ImageRenderer = ({ node }: RendererArgs<MdImage>): ReactNode => {
-  const [width, setWidth] = useState<number | null>(0);
-  const [height, setHeight] = useState<number | null>(0);
+  const { contentSize } = useMarkdownContext();
+  const [size, setSize] = useState<{ width: number; height: number }>({
+    width: 0,
+    height: 0,
+  });
 
   return (
     <Image
       onLoad={(e) => {
         const { width, height } = e.nativeEvent.source;
         const ratio = height / width;
-        const contentWidth = Dimensions.get("window").width;
-        const contentHeight = contentWidth * ratio;
-        setWidth(contentWidth);
-        setHeight(contentHeight);
+        const newWidth = Math.min(width, contentSize.width);
+        const newHeight = newWidth * ratio;
+        setSize({ width: newWidth, height: newHeight });
       }}
       source={{ uri: node.url }}
-      style={{ width: width, height: height, borderRadius: 5 }}
+      style={{ width: size.width, height: size.height, borderRadius: 5 }}
     />
   );
 };
