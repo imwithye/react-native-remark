@@ -5,19 +5,11 @@ import { Image } from "react-native";
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
 
-export const ImageReferenceRenderer = ({
-  node,
-}: RendererArgs<ImageReference>): ReactNode => {
-  const { definitions } = useMarkdownContext();
-
-  const imageDefinition = definitions[node.identifier];
-  if (!imageDefinition) {
-    return null;
-  }
-  return null;
+type AutoSizedImageProps = {
+  uri: string;
 };
 
-export const ImageRenderer = ({ node }: RendererArgs<MdImage>): ReactNode => {
+const AutoSizedImage = ({ uri }: AutoSizedImageProps) => {
   const { contentSize } = useMarkdownContext();
   const [size, setSize] = useState<{ width: number; height: number }>({
     width: 0,
@@ -33,8 +25,29 @@ export const ImageRenderer = ({ node }: RendererArgs<MdImage>): ReactNode => {
         const newHeight = newWidth * ratio;
         setSize({ width: newWidth, height: newHeight });
       }}
-      source={{ uri: node.url }}
+      source={{ uri }}
       style={{ width: size.width, height: size.height, borderRadius: 5 }}
     />
   );
+};
+
+export const ImageReferenceRenderer = ({
+  node,
+}: RendererArgs<ImageReference>): ReactNode => {
+  const { definitions } = useMarkdownContext();
+
+  const imageDefinition = definitions[node.identifier];
+  if (!imageDefinition || !imageDefinition.url) {
+    return null;
+  }
+
+  return <AutoSizedImage uri={imageDefinition.url} />;
+};
+
+export const ImageRenderer = ({ node }: RendererArgs<MdImage>): ReactNode => {
+  if (!node.url) {
+    return null;
+  }
+
+  return <AutoSizedImage uri={node.url} />;
 };
