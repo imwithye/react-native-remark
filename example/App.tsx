@@ -16,22 +16,22 @@ import {
   Button,
   Linking,
   ScrollView,
+  useColorScheme,
 } from "react-native";
-import { Appearance } from "react-native";
 
 const BASE_URL =
   "https://raw.githubusercontent.com/imwithye/react-native-remark/refs/heads/main/markdown";
 const URL = `${BASE_URL}/01_markdown_basics.md`;
 
 const HomeScreen = () => {
-  const colorScheme = Appearance.getColorScheme();
+  const colorScheme = useColorScheme();
   const navigation = useNavigation();
   const { showActionSheetWithOptions } = useActionSheet();
   const [url, setUrl] = useState(URL);
   const [markdown, setMarkdown] = useState("");
   const [loading, setLoading] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     navigation.setOptions({
       headerTintColor: colorScheme === "dark" ? "white" : "black",
       headerStyle: {
