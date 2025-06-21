@@ -38,6 +38,7 @@ const generateNativeStyles = (
         style.fontWeight = "bold";
         break;
       default:
+        style.fontWeight = themedStyle?.fontWeight;
         break;
     }
   }

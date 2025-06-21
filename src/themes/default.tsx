@@ -2,16 +2,26 @@ import { Platform } from "react-native";
 
 import { Theme } from "./themes";
 
+const fontFamily = Platform.select({ ios: "Menlo", android: "monospace" });
+const light = {
+  primaryColor: "#000000",
+  darkColor: "#444444",
+  linkColor: "#007AFF",
+  bgColor: "#eeeeee",
+  bgColor0: "#f9f9f9",
+  bgColor1: "#f5f5f5",
+};
+
 export const defaultTheme: Theme = {
   global: {
     container: {
       gap: 10,
     },
-    borderColor: "#eeeeee",
+    borderColor: light.bgColor,
     blockquote: {
       borderLeftWidth: 3,
-      borderLeftColor: "#444444",
-      backgroundColor: "#f5f5f5",
+      borderLeftColor: light.darkColor,
+      backgroundColor: light.bgColor1,
       paddingTop: 5,
       paddingBottom: 5,
       paddingLeft: 10,
@@ -24,42 +34,42 @@ export const defaultTheme: Theme = {
       fontStyle: "italic",
     },
     footnoteDefinition: {
-      color: "#444444",
+      color: light.darkColor,
     },
     footnoteReference: {
       fontStyle: "italic",
       fontSize: 10,
-      color: "#444444",
+      color: light.darkColor,
     },
     heading: (level: number) => {
       const fontSize = 28 - level * 2;
-      const fontWeight = level <= 3 ? "bold" : "semibold";
+      const fontWeight = level <= 3 ? "bold" : "500";
       const marginVertical = level <= 3 ? 4 : 2;
       return { fontSize, fontWeight, marginVertical };
     },
     inlineCode: {
-      fontFamily: Platform.select({ ios: "Menlo", android: "monospace" }),
-      backgroundColor: "#f5f5f5",
+      fontFamily: fontFamily,
+      backgroundColor: light.bgColor0,
     },
     image: {
       borderRadius: 5,
     },
     codeBlock: {
-      headerBackgroundColor: "#f5f5f5",
-      contentBackgroundColor: "#fcfcfc",
+      headerBackgroundColor: light.bgColor1,
+      contentBackgroundColor: light.bgColor0,
       headerTextStyle: {
         fontSize: 14,
       },
       contentTextStyle: {
-        fontFamily: Platform.select({ ios: "Menlo", android: "monospace" }),
+        fontFamily: fontFamily,
         fontSize: 14,
       },
     },
     linkReference: {
-      color: "#007AFF",
+      color: light.linkColor,
     },
     link: {
-      color: "#007AFF",
+      color: light.linkColor,
     },
     list: {
       gap: 5,
@@ -82,7 +92,7 @@ export const defaultTheme: Theme = {
     thematicBreak: {
       marginVertical: 10,
       height: 1,
-      backgroundColor: "#eeeeee",
+      backgroundColor: light.bgColor,
     },
   },
   light: {},
