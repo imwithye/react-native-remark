@@ -37,10 +37,26 @@ export interface Theme {
   dark?: Partial<Styles>;
 }
 
-export const mergeStyles = <T extends ViewStyle | TextStyle | undefined>(
+function isObject<T>(obj: T): obj is T & object {
+  return obj && typeof obj === "object" && !Array.isArray(obj);
+}
+
+export function deepMerge<T>(target: T, source: T): T {
+  const result = { ...target };
+  for (const key in source) {
+    if (isObject(source[key]) && isObject(result[key])) {
+      result[key] = deepMerge(result[key], source[key]);
+    } else {
+      result[key] = source[key];
+    }
+  }
+  return result;
+}
+
+export const mergeStyles = <T extends ViewStyle | TextStyle | CodeBlockStyle>(
   ...styles: T[]
 ): T => {
   return styles.reduce((acc, style) => {
-    return { ...acc, ...style };
+    return deepMerge(acc, style);
   }, {} as T);
 };

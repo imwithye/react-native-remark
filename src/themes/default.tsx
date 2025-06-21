@@ -13,11 +13,11 @@ const light = {
 };
 const dark = {
   primaryColor: "#ffffff",
-  darkColor: "#aaaaaa",
+  darkColor: "#bbbbbb",
   linkColor: "#007AFF",
-  bgColor: "#111111",
-  bgColor0: "#111111",
-  bgColor1: "#111111",
+  bgColor: "#222222",
+  bgColor0: "#070707",
+  bgColor1: "#0b0b0b",
 };
 
 export const defaultTheme: Theme = {
@@ -33,6 +33,7 @@ export const defaultTheme: Theme = {
       paddingTop: 5,
       paddingBottom: 5,
       paddingLeft: 10,
+      paddingRight: 5,
       gap: 5,
     },
     delete: {
@@ -126,6 +127,12 @@ export const defaultTheme: Theme = {
     codeBlock: {
       headerBackgroundColor: dark.bgColor1,
       contentBackgroundColor: dark.bgColor0,
+      headerTextStyle: {
+        color: dark.darkColor,
+      },
+      contentTextStyle: {
+        color: dark.darkColor,
+      },
     },
     linkReference: {
       color: dark.linkColor,

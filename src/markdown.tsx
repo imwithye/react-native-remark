@@ -11,7 +11,7 @@ import { defaultRenderers } from "./renderers";
 import { Renderers } from "./renderers/renderers";
 import { RootRenderer } from "./renderers/root";
 import { defaultTheme } from "./themes";
-import { Styles, Theme } from "./themes/themes";
+import { Styles, Theme, mergeStyles } from "./themes/themes";
 
 const parser = unified().use(remarkParse).use(remarkGfm);
 
@@ -60,11 +60,11 @@ export const Markdown = ({
   const colorScheme = useColorScheme();
   const mode = colorScheme === "dark" ? "dark" : "light";
   const mergedTheme = theme ?? defaultTheme;
-  const mergedStyles = {
-    ...mergedTheme.global,
-    ...mergedTheme[mode],
-    ...customStyles,
-  };
+  const mergedStyles = mergeStyles(
+    mergedTheme.global ?? {},
+    mergedTheme[mode] ?? {},
+    customStyles ?? {},
+  );
 
   return (
     <View onLayout={onLayout} style={{ flex: 1 }}>
