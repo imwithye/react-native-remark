@@ -13,8 +13,11 @@ export const RootContentRenderer = ({
     BlockquoteRenderer,
     BreakRenderer,
     CodeRenderer,
+    DefinitionRenderer,
     DeleteRenderer,
     EmphasisRenderer,
+    FootnoteDefinitionRenderer,
+    FootnoteReferenceRenderer,
     HeadingRenderer,
     HtmlRenderer,
     ImageRenderer,
@@ -42,15 +45,15 @@ export const RootContentRenderer = ({
     case "code":
       return <CodeRenderer node={node} {...args} />;
     case "definition":
-      return null;
+      return <DefinitionRenderer node={node} {...args} />;
     case "delete":
       return <DeleteRenderer node={node} {...args} />;
     case "emphasis":
       return <EmphasisRenderer node={node} {...args} />;
     case "footnoteDefinition":
-      return null;
+      return <FootnoteDefinitionRenderer node={node} {...args} />;
     case "footnoteReference":
-      return null;
+      return <FootnoteReferenceRenderer node={node} {...args} />;
     case "heading":
       return <HeadingRenderer node={node} {...args} />;
     case "html":

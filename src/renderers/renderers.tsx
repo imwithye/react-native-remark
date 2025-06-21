@@ -3,9 +3,12 @@ import {
   Blockquote,
   Break,
   Code,
+  Definition,
   DefinitionContent,
   Delete,
   Emphasis,
+  FootnoteDefinition,
+  FootnoteReference,
   Heading,
   Html,
   Image,
@@ -44,9 +47,12 @@ export interface Renderers {
   BlockquoteRenderer: RenderFunc<Blockquote>;
   BreakRenderer: RenderFunc<Break>;
   CodeRenderer: RenderFunc<Code>;
+  DefinitionRenderer: RenderFunc<Definition>;
   DefinitionContentRenderer: RenderFunc<DefinitionContent>;
   DeleteRenderer: RenderFunc<Delete>;
   EmphasisRenderer: RenderFunc<Emphasis>;
+  FootnoteDefinitionRenderer: RenderFunc<FootnoteDefinition>;
+  FootnoteReferenceRenderer: RenderFunc<FootnoteReference>;
   HeadingRenderer: RenderFunc<Heading>;
   HtmlRenderer: RenderFunc<Html>;
   ImageRenderer: RenderFunc<Image>;

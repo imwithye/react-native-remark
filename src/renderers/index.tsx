@@ -2,9 +2,12 @@ import { BlockContentRenderer } from "./blockContent";
 import { BlockquoteRenderer } from "./blockquote";
 import { BreakRenderer } from "./break";
 import { CodeRenderer } from "./code";
+import { DefinitionRenderer } from "./definition";
 import { DefinitionContentRenderer } from "./definitionContent";
 import { DeleteRenderer } from "./delete";
 import { EmphasisRenderer } from "./emphasis";
+import { FootnoteDefinitionRenderer } from "./footnoteDefinition";
+import { FootnoteReferenceRenderer } from "./footnoteReference";
 import { HeadingRenderer } from "./heading";
 import { HtmlRenderer } from "./html";
 import { ImageReferenceRenderer, ImageRenderer } from "./image";
@@ -26,9 +29,12 @@ export const defaultRenderers: Renderers = {
   BlockquoteRenderer,
   BreakRenderer,
   CodeRenderer,
+  DefinitionRenderer,
   DefinitionContentRenderer,
   DeleteRenderer,
   EmphasisRenderer,
+  FootnoteDefinitionRenderer,
+  FootnoteReferenceRenderer,
   HeadingRenderer,
   HtmlRenderer,
   ImageRenderer,

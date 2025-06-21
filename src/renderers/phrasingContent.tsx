@@ -13,6 +13,7 @@ export const PhrasingContentRenderer = ({
     BreakRenderer,
     DeleteRenderer,
     EmphasisRenderer,
+    FootnoteReferenceRenderer,
     HtmlRenderer,
     ImageRenderer,
     ImageReferenceRenderer,
@@ -31,7 +32,7 @@ export const PhrasingContentRenderer = ({
     case "emphasis":
       return <EmphasisRenderer node={node} {...args} />;
     case "footnoteReference":
-      return null;
+      return <FootnoteReferenceRenderer node={node} {...args} />;
     case "html":
       return <HtmlRenderer node={node} {...args} />;
     case "image":
