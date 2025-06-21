@@ -35,7 +35,7 @@ const AutoSizedImage = ({ uri }: AutoSizedImageProps) => {
     return null;
   }
 
-  return <Image source={{ uri }} style={mergedStyles} />;
+  return <Image key={uri} source={{ uri }} style={mergedStyles} />;
 };
 
 export const ImageReferenceRenderer = ({
