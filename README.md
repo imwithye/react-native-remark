@@ -55,8 +55,8 @@ export default function App() {
 
 ### Heading
 
-<img src="docs/heading-light.png" alt="Sample Markdown Rendering" width="320" />
-<img src="docs/heading-dark.png" alt="Sample Markdown Rendering" width="320" />
+<img src="docs/heading-light.png" alt="Sample Markdown Rendering" width="280" />
+<img src="docs/heading-dark.png" alt="Sample Markdown Rendering" width="280" />
 
 ### List
 
