@@ -39,12 +39,17 @@ export default function App() {
         markdown={markdown}
         customRenderers={{
             // Override default renderers for mdast nodes.
+            // Checkout https://github.com/imwithye/react-native-remark/blob/main/src/renderers/index.tsx
+            // for the default renderers.
             ...
         }}
         customStyles={{
             // Override default styles
+            // Checkout https://github.com/imwithye/react-native-remark/blob/main/src/themes/default.tsx
+            // for the default styles.
             ...
         }}
+        onCodeCopy={(code) => Clipboard.setStringAsync(code)}
         onLinkPress={(url) => Linking.openURL(url)}
       />
   );
