@@ -17,7 +17,17 @@
 |  A3  |  B3  |  C3  |  D3  |  E3  |  F3  |  G3  |  H3  |  I3  |  J3   |
 |  A4  |  B4  |  C4  |  D4  |  E4  |  F4  |  G4  |  H4  |  I4  |  J4   |
 
-## Table With Long Text
+## Table With Long Text 1
+
+| Task | Priority | Deadline |
+|------|----------|----------|
+| Complete project documentation | High priority | End of week |
+| Review team performance metrics | Medium priority | Next Monday |
+| Schedule client meeting | Urgent priority | Tomorrow morning |
+| Update software dependencies | Low priority | End of month |
+| Prepare quarterly report | High priority | Friday afternoon |
+
+## Table With Long Text 2
 
 | Product Name | Category | Description | Price | Stock | Supplier | Location | Rating | Reviews | Status |
 |--------------|----------|-------------|-------|-------|----------|----------|--------|---------|--------|
