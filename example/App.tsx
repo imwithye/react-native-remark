@@ -47,39 +47,23 @@ const HomeScreen = () => {
                 url: "",
               },
               {
-                title: "1. Markdown Basics",
-                url: `${BASE_URL}/01_markdown_basics.md`,
+                title: "1. Markdown Sample",
+                url: `${BASE_URL}/01_markdown_sample.md`,
               },
               {
-                title: "2. Task List and Nested",
-                url: `${BASE_URL}/02_task_list_and_nested.md`,
+                title: "2. Table",
+                url: `${BASE_URL}/02_table.md`,
               },
               {
-                title: "3. Table",
-                url: `${BASE_URL}/03_table_example.md`,
+                title: "3. Article",
+                url: `${BASE_URL}/03_article.md`,
               },
               {
-                title: "4. Math and Code",
-                url: `${BASE_URL}/04_math_and_code.md`,
+                title: "4. PyTorch",
+                url: `${BASE_URL}/04_pytorch.md`,
               },
               {
-                title: "5. Sample Article",
-                url: `${BASE_URL}/05_article.md`,
-              },
-              {
-                title: "6. PyTorch Tutorial",
-                url: `${BASE_URL}/06_pytorch.md`,
-              },
-              {
-                title: "7. Image",
-                url: `${BASE_URL}/07_image.md`,
-              },
-              {
-                title: "8. GFM",
-                url: `${BASE_URL}/08_gfm.md`,
-              },
-              {
-                title: "9. Load from URL",
+                title: "5. Load from URL",
                 url: "",
               },
             ];

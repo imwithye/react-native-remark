@@ -2,13 +2,15 @@
 
 **react-native-remark** provides elegant and powerful Markdown rendering capabilities for React Native applications.
 
-<img src="docs/sample.png" alt="Sample Markdown Rendering" width="420" />
-
 ## Features
 
-* Render Markdown in React Native applications
-* Supports GitHub Flavored Markdown (GFM)
-* Allows custom renderers for flexible UI customization
+- 📱 Render Markdown in React Native applications
+- 🎯 Supports GitHub Flavored Markdown (GFM)
+- 🌈 Syntax highlighting for code blocks
+- 📊 Table rendering with horizontal scroll view
+- 🖼️ Inline and block image rendering
+- 🌙 Dark Mode support
+- ⚙️ Custom renderers and styles for flexible UI customization
 
 ## Installation
 
@@ -48,6 +50,28 @@ export default function App() {
   );
 }
 ```
+
+## Quick Look
+
+### Heading
+
+<img src="docs/heading-light.png" alt="Sample Markdown Rendering" width="320" />
+<img src="docs/heading-dark.png" alt="Sample Markdown Rendering" width="320" />
+
+### List
+
+<img src="docs/list-light.png" alt="Sample Markdown Rendering" width="320" />
+<img src="docs/list-dark.png" alt="Sample Markdown Rendering" width="320" />
+
+### Code Block
+
+<img src="docs/code-light.png" alt="Sample Markdown Rendering" width="320" />
+<img src="docs/code-dark.png" alt="Sample Markdown Rendering" width="320" />
+
+### Table Block
+
+<img src="docs/table-light.png" alt="Sample Markdown Rendering" width="320" />
+<img src="docs/table-dark.png" alt="Sample Markdown Rendering" width="320" />
 
 ## Development
 
