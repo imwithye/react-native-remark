@@ -7,17 +7,17 @@ const light = {
   primaryColor: "#000000",
   darkColor: "#444444",
   linkColor: "#007AFF",
-  bgColor: "#eeeeee",
-  bgColor0: "#f9f9f9",
-  bgColor1: "#f5f5f5",
+  borderColor: "#eeeeee",
+  bgColorLight: "#f9f9f9",
+  bgColorHeavy: "#f5f5f5",
 };
 const dark = {
   primaryColor: "#ffffff",
   darkColor: "#bbbbbb",
   linkColor: "#007AFF",
-  bgColor: "#222222",
-  bgColor0: "#070707",
-  bgColor1: "#0b0b0b",
+  borderColor: "#222222",
+  bgColorLight: "#070707",
+  bgColorHeavy: "#0b0b0b",
 };
 const headingHandler = (color: ColorValue) => {
   return (level: number): TextStyle => {
@@ -33,18 +33,18 @@ export const defaultTheme: Theme = {
     blockquote: {
       borderLeftWidth: 3,
       borderLeftColor: light.darkColor,
-      backgroundColor: light.bgColor1,
+      backgroundColor: light.bgColorHeavy,
       paddingTop: 5,
       paddingBottom: 5,
       paddingLeft: 10,
       paddingRight: 5,
       gap: 5,
     },
-    borderColor: light.bgColor,
+    borderColor: light.borderColor,
     break: {},
     codeBlock: {
-      headerBackgroundColor: light.bgColor1,
-      contentBackgroundColor: light.bgColor0,
+      headerBackgroundColor: light.bgColorHeavy,
+      contentBackgroundColor: light.bgColorLight,
       headerTextStyle: {
         fontSize: 14,
       },
@@ -76,7 +76,7 @@ export const defaultTheme: Theme = {
     },
     inlineCode: {
       fontFamily: fontFamily,
-      backgroundColor: light.bgColor0,
+      backgroundColor: light.bgColorLight,
     },
     link: {
       color: light.linkColor,
@@ -107,19 +107,19 @@ export const defaultTheme: Theme = {
     thematicBreak: {
       marginVertical: 10,
       height: 1,
-      backgroundColor: light.bgColor,
+      backgroundColor: light.borderColor,
     },
   },
   light: {},
   dark: {
     blockquote: {
       borderLeftColor: dark.darkColor,
-      backgroundColor: dark.bgColor1,
+      backgroundColor: dark.bgColorHeavy,
     },
-    borderColor: dark.bgColor,
+    borderColor: dark.borderColor,
     codeBlock: {
-      headerBackgroundColor: dark.bgColor1,
-      contentBackgroundColor: dark.bgColor0,
+      headerBackgroundColor: dark.bgColorHeavy,
+      contentBackgroundColor: dark.bgColorLight,
       headerTextStyle: {
         color: dark.primaryColor,
       },
@@ -135,7 +135,7 @@ export const defaultTheme: Theme = {
     },
     heading: headingHandler(dark.primaryColor),
     inlineCode: {
-      backgroundColor: dark.bgColor0,
+      backgroundColor: dark.bgColorLight,
     },
     link: {
       color: dark.linkColor,
@@ -150,7 +150,7 @@ export const defaultTheme: Theme = {
       color: dark.primaryColor,
     },
     thematicBreak: {
-      backgroundColor: dark.bgColor,
+      backgroundColor: dark.borderColor,
     },
   },
 };
