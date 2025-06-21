@@ -2,7 +2,7 @@ import {
   ActionSheetProvider,
   useActionSheet,
 } from "@expo/react-native-action-sheet";
-import { Markdown } from "@react-native-remark";
+import { Markdown } from "react-native-remark";
 import {
   createStaticNavigation,
   useNavigation,
@@ -21,7 +21,7 @@ import {
 
 const BASE_URL =
   "https://raw.githubusercontent.com/imwithye/react-native-remark/refs/heads/main/markdown";
-const URL = `${BASE_URL}/01_markdown_basics.md`;
+const URL = `${BASE_URL}/01_markdown_sample.md`;
 
 const HomeScreen = () => {
   const colorScheme = useColorScheme();
@@ -47,12 +47,12 @@ const HomeScreen = () => {
                 url: "",
               },
               {
-                title: "1. Markdown Sample",
+                title: "1. Markdown",
                 url: `${BASE_URL}/01_markdown_sample.md`,
               },
               {
                 title: "2. Table",
-                url: `${BASE_URL}/02_table.md`,
+                url: `${BASE_URL}/02_table_example.md`,
               },
               {
                 title: "3. Article",
