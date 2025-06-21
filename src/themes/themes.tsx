@@ -7,6 +7,8 @@ export interface Styles {
   break: ViewStyle;
   delete: TextStyle;
   emphasis: TextStyle;
+  footnoteDefinition: TextStyle;
+  footnoteReference: TextStyle;
   heading: (level: number) => TextStyle;
   inlineCode: TextStyle;
   image: ImageStyle;
