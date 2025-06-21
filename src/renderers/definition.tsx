@@ -1,10 +1,6 @@
-import { Definition } from "mdast";
 import { ReactNode } from "react";
 
-import { RendererArgs } from "./renderers";
-
-export const DefinitionRenderer = ({
-  node,
-}: RendererArgs<Definition>): ReactNode => {
+export const DefinitionRenderer = (): ReactNode => {
+  // Ignore definition by default
   return null;
 };
