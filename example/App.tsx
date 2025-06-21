@@ -69,7 +69,11 @@ const HomeScreen = () => {
                 url: `${BASE_URL}/07_image.md`,
               },
               {
-                title: "8. Load from URL",
+                title: "8. GFM",
+                url: `${BASE_URL}/08_gfm.md`,
+              },
+              {
+                title: "9. Load from URL",
                 url: "",
               },
             ];
