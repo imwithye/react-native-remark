@@ -1,4 +1,4 @@
-import { ColorValue, TextStyle, ViewStyle } from "react-native";
+import { ColorValue, ImageStyle, TextStyle, ViewStyle } from "react-native";
 
 export interface Styles {
   container: ViewStyle;
@@ -9,6 +9,7 @@ export interface Styles {
   emphasis: TextStyle;
   heading: (level: number) => TextStyle;
   inlineCode: TextStyle;
+  image: ImageStyle;
   codeBlock: TextStyle;
   linkReference: TextStyle;
   link: TextStyle;

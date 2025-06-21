@@ -33,6 +33,9 @@ export const defaultTheme: Theme = {
       fontFamily: Platform.select({ ios: "Menlo", android: "monospace" }),
       backgroundColor: "#f5f5f5",
     },
+    image: {
+      borderRadius: 5,
+    },
     codeBlock: {
       fontFamily: Platform.select({ ios: "Menlo", android: "monospace" }),
       fontSize: 14,

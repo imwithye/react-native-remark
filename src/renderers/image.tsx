@@ -3,6 +3,7 @@ import { ReactNode, useEffect, useState } from "react";
 import { Image } from "react-native";
 
 import { useMarkdownContext } from "../context";
+import { mergeStyles } from "../themes/themes";
 import { RendererArgs } from "./renderers";
 
 type AutoSizedImageProps = {
@@ -10,10 +11,15 @@ type AutoSizedImageProps = {
 };
 
 const AutoSizedImage = ({ uri }: AutoSizedImageProps) => {
-  const { contentSize } = useMarkdownContext();
+  const { contentSize, styles } = useMarkdownContext();
   const [size, setSize] = useState<{ width: number; height: number }>({
     width: 0,
     height: 0,
+  });
+
+  const mergedStyles = mergeStyles(styles.image, {
+    width: size.width,
+    height: size.height,
   });
 
   useEffect(() => {
@@ -25,16 +31,11 @@ const AutoSizedImage = ({ uri }: AutoSizedImageProps) => {
     });
   }, [contentSize, uri]);
 
-  if(size.width === 0 || size.height === 0) {
+  if (size.width === 0 || size.height === 0) {
     return null;
   }
 
-  return (
-    <Image
-      source={{ uri }}
-      style={{ width: size.width, height: size.height, borderRadius: 5 }}
-    />
-  );
+  return <Image source={{ uri }} style={mergedStyles} />;
 };
 
 export const ImageReferenceRenderer = ({
