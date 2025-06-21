@@ -6,4 +6,4 @@
 
 ## Inline Image
 
-Here is an inline image ![100x50](https://placehold.co/100x50), ![100x50](https://placehold.co/100x24).
+Here is an inline image ![100x50](https://placehold.co/100x50/png), ![100x50](https://placehold.co/100x24/png).
