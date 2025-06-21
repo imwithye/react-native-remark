@@ -1,7 +1,3 @@
----
-title: GFM Demo
----
-
 # GFM
 
 ## Autolink literals
@@ -10,9 +6,10 @@ www.example.com, https://example.com, and contact@example.com.
 
 ## Footnote
 
-A note[^1]
+A note[^1][^note]
 
 [^1]: Big note.
+[^note]: Second note.
 
 ## Strikethrough
 
