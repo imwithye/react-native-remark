@@ -17,12 +17,14 @@ import {
   Linking,
   ScrollView,
 } from "react-native";
+import { Appearance } from "react-native";
 
 const BASE_URL =
   "https://raw.githubusercontent.com/imwithye/react-native-remark/refs/heads/main/markdown";
 const URL = `${BASE_URL}/01_markdown_basics.md`;
 
 const HomeScreen = () => {
+  const colorScheme = Appearance.getColorScheme();
   const navigation = useNavigation();
   const { showActionSheetWithOptions } = useActionSheet();
   const [url, setUrl] = useState(URL);
@@ -31,6 +33,10 @@ const HomeScreen = () => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
+      headerTintColor: colorScheme === "dark" ? "white" : "black",
+      headerStyle: {
+        backgroundColor: colorScheme === "dark" ? "black" : "white",
+      },
       headerRight: () => (
         <Button
           title="Load"
@@ -98,7 +104,7 @@ const HomeScreen = () => {
         />
       ),
     });
-  }, [navigation, showActionSheetWithOptions, setUrl]);
+  }, [colorScheme, navigation, showActionSheetWithOptions, setUrl]);
 
   useEffect(() => {
     setLoading(true);
@@ -109,7 +115,13 @@ const HomeScreen = () => {
   }, [url]);
 
   return (
-    <ScrollView style={{ flex: 1, padding: 8, backgroundColor: "white" }}>
+    <ScrollView
+      style={{
+        flex: 1,
+        padding: 8,
+        backgroundColor: colorScheme === "dark" ? "black" : "white",
+      }}
+    >
       <StatusBar style="auto" />
       {loading ? (
         <ActivityIndicator />
