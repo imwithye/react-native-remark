@@ -12,10 +12,10 @@ importers:
         specifier: ^14.1.0
         version: 14.1.0(expo-font@13.3.1(expo@53.0.12(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
       react:
-        specifier: ^19.1.0
+        specifier: '>=17.0.0'
         version: 19.1.0
       react-native:
-        specifier: ^0.80.0
+        specifier: '>=0.70.0'
         version: 0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
       react-syntax-highlighter:
         specifier: ^15.6.1

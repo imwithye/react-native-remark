@@ -13,7 +13,7 @@
     "format": "prettier --write .",
     "lint": "eslint . --no-warn-ignored",
     "lint:fix": "eslint . --fix",
-    "prepare": "npm run build"
+    "prepare": "tsup"
   },
   "files": [
     "dist",
@@ -29,8 +29,6 @@
   "license": "MIT",
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
-    "react": "^19.1.0",
-    "react-native": "^0.80.0",
     "react-syntax-highlighter": "^15.6.1",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
