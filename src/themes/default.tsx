@@ -1,4 +1,4 @@
-import { Platform } from "react-native";
+import { ColorValue, Platform, TextStyle } from "react-native";
 
 import { Theme } from "./themes";
 
@@ -19,6 +19,14 @@ const dark = {
   bgColor0: "#070707",
   bgColor1: "#0b0b0b",
 };
+const headingHandler = (color: ColorValue) => {
+  return (level: number): TextStyle => {
+    const fontSize = 28 - level * 2;
+    const fontWeight = level <= 3 ? "bold" : "500";
+    const marginVertical = level <= 3 ? 4 : 2;
+    return { fontSize, fontWeight, marginVertical, color };
+  };
+};
 
 export const defaultTheme: Theme = {
   global: {
@@ -36,6 +44,7 @@ export const defaultTheme: Theme = {
       paddingRight: 5,
       gap: 5,
     },
+    heading: headingHandler(light.primaryColor),
     delete: {
       textDecorationLine: "line-through",
     },
@@ -49,12 +58,6 @@ export const defaultTheme: Theme = {
       fontStyle: "italic",
       fontSize: 10,
       color: light.darkColor,
-    },
-    heading: (level: number) => {
-      const fontSize = 28 - level * 2;
-      const fontWeight = level <= 3 ? "bold" : "500";
-      const marginVertical = level <= 3 ? 4 : 2;
-      return { fontSize, fontWeight, marginVertical };
     },
     inlineCode: {
       fontFamily: fontFamily,
@@ -99,9 +102,6 @@ export const defaultTheme: Theme = {
     strong: {
       fontWeight: "bold",
     },
-    text: {
-      color: light.primaryColor,
-    },
     thematicBreak: {
       marginVertical: 10,
       height: 1,
@@ -115,6 +115,7 @@ export const defaultTheme: Theme = {
       borderLeftColor: dark.darkColor,
       backgroundColor: dark.bgColor1,
     },
+    heading: headingHandler(dark.primaryColor),
     footnoteDefinition: {
       color: dark.darkColor,
     },
@@ -143,7 +144,7 @@ export const defaultTheme: Theme = {
     paragraph: {
       color: dark.primaryColor,
     },
-    text: {
+    tableCell: {
       color: dark.primaryColor,
     },
     thematicBreak: {

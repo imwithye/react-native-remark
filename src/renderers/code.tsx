@@ -7,16 +7,19 @@ import {
   Text,
   TextStyle,
   TouchableOpacity,
-  useColorScheme,
   View,
   ViewProps,
+  useColorScheme,
 } from "react-native";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { atomOneLight, atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import {
+  atomOneDark,
+  atomOneLight,
+} from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import { useMarkdownContext } from "../context";
-import { RendererArgs } from "./renderers";
 import { mergeStyles } from "../themes/themes";
+import { RendererArgs } from "./renderers";
 
 const generateNativeStyles = (
   theme: typeof atomOneLight | typeof atomOneDark,
@@ -58,7 +61,11 @@ const ElementRenderer = ({ node }: NativeRendererProps) => {
   const theme = colorScheme === "dark" ? atomOneDark : atomOneLight;
   const { styles } = useMarkdownContext();
   const { children } = node;
-  const style = generateNativeStyles(theme, node, styles.codeBlock?.contentTextStyle);
+  const style = generateNativeStyles(
+    theme,
+    node,
+    styles.codeBlock?.contentTextStyle,
+  );
   const child = children?.map((child, idx) => {
     return <NativeRenderer key={idx} node={child} />;
   });
