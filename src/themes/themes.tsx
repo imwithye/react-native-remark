@@ -8,20 +8,20 @@ export type CodeBlockStyle = {
 };
 
 export interface Styles {
-  container: ViewStyle;
-  borderColor: ColorValue;
   blockquote: ViewStyle;
+  borderColor: ColorValue;
   break: ViewStyle;
+  codeBlock: CodeBlockStyle;
+  container: ViewStyle;
   delete: TextStyle;
   emphasis: TextStyle;
   footnoteDefinition: TextStyle;
   footnoteReference: TextStyle;
   heading: (level: number) => TextStyle;
-  inlineCode: TextStyle;
   image: ImageStyle;
-  codeBlock: CodeBlockStyle;
-  linkReference: TextStyle;
+  inlineCode: TextStyle;
   link: TextStyle;
+  linkReference: TextStyle;
   list: ViewStyle;
   listItem: ViewStyle;
   paragraph: TextStyle;

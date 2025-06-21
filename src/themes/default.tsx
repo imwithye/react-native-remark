@@ -30,10 +30,6 @@ const headingHandler = (color: ColorValue) => {
 
 export const defaultTheme: Theme = {
   global: {
-    container: {
-      gap: 10,
-    },
-    borderColor: light.bgColor,
     blockquote: {
       borderLeftWidth: 3,
       borderLeftColor: light.darkColor,
@@ -44,7 +40,22 @@ export const defaultTheme: Theme = {
       paddingRight: 5,
       gap: 5,
     },
-    heading: headingHandler(light.primaryColor),
+    borderColor: light.bgColor,
+    break: {},
+    codeBlock: {
+      headerBackgroundColor: light.bgColor1,
+      contentBackgroundColor: light.bgColor0,
+      headerTextStyle: {
+        fontSize: 14,
+      },
+      contentTextStyle: {
+        fontFamily: fontFamily,
+        fontSize: 14,
+      },
+    },
+    container: {
+      gap: 10,
+    },
     delete: {
       textDecorationLine: "line-through",
     },
@@ -59,28 +70,18 @@ export const defaultTheme: Theme = {
       fontSize: 10,
       color: light.darkColor,
     },
+    heading: headingHandler(light.primaryColor),
+    image: {
+      borderRadius: 5,
+    },
     inlineCode: {
       fontFamily: fontFamily,
       backgroundColor: light.bgColor0,
     },
-    image: {
-      borderRadius: 5,
-    },
-    codeBlock: {
-      headerBackgroundColor: light.bgColor1,
-      contentBackgroundColor: light.bgColor0,
-      headerTextStyle: {
-        fontSize: 14,
-      },
-      contentTextStyle: {
-        fontFamily: fontFamily,
-        fontSize: 14,
-      },
-    },
-    linkReference: {
+    link: {
       color: light.linkColor,
     },
-    link: {
+    linkReference: {
       color: light.linkColor,
     },
     list: {
@@ -95,13 +96,14 @@ export const defaultTheme: Theme = {
       lineHeight: 24,
       color: light.primaryColor,
     },
+    strong: {
+      fontWeight: "bold",
+    },
     tableCell: {
       fontSize: 14,
       lineHeight: 20,
     },
-    strong: {
-      fontWeight: "bold",
-    },
+    text: {},
     thematicBreak: {
       marginVertical: 10,
       height: 1,
@@ -110,21 +112,11 @@ export const defaultTheme: Theme = {
   },
   light: {},
   dark: {
-    borderColor: dark.bgColor,
     blockquote: {
       borderLeftColor: dark.darkColor,
       backgroundColor: dark.bgColor1,
     },
-    heading: headingHandler(dark.primaryColor),
-    footnoteDefinition: {
-      color: dark.darkColor,
-    },
-    footnoteReference: {
-      color: dark.darkColor,
-    },
-    inlineCode: {
-      backgroundColor: dark.bgColor0,
-    },
+    borderColor: dark.bgColor,
     codeBlock: {
       headerBackgroundColor: dark.bgColor1,
       contentBackgroundColor: dark.bgColor0,
@@ -135,10 +127,20 @@ export const defaultTheme: Theme = {
         color: dark.primaryColor,
       },
     },
-    linkReference: {
-      color: dark.linkColor,
+    footnoteDefinition: {
+      color: dark.darkColor,
+    },
+    footnoteReference: {
+      color: dark.darkColor,
+    },
+    heading: headingHandler(dark.primaryColor),
+    inlineCode: {
+      backgroundColor: dark.bgColor0,
     },
     link: {
+      color: dark.linkColor,
+    },
+    linkReference: {
       color: dark.linkColor,
     },
     paragraph: {
