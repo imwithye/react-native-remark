@@ -136,6 +136,8 @@ export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
         style={{
           flexDirection: "row",
           borderBottomWidth: 1,
+          borderTopLeftRadius: 5,
+          borderTopRightRadius: 5,
           borderColor: styles.borderColor,
           backgroundColor: styles.codeBlock?.headerBackgroundColor,
           justifyContent: "space-between",
@@ -173,6 +175,8 @@ export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
       <View
         style={{
           paddingHorizontal: 10,
+          borderBottomLeftRadius: 5,
+          borderBottomRightRadius: 5,
           backgroundColor: styles.codeBlock?.contentBackgroundColor,
         }}
       >
