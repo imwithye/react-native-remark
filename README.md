@@ -55,7 +55,7 @@ export default function App() {
 
 ### Heading
 
-<img src="docs/heading-light.png" alt="Sample Markdown Rendering" width="280" /> <img src="docs/heading-dark.png" alt="Sample Markdown Rendering" width="280" />
+<img src="docs/heading-light.png" alt="Sample Markdown Rendering" width="320" /> <img src="docs/heading-dark.png" alt="Sample Markdown Rendering" width="320" />
 
 ### List
 
@@ -63,13 +63,11 @@ export default function App() {
 
 ### Code Block
 
-<img src="docs/code-light.png" alt="Sample Markdown Rendering" width="320" />
-<img src="docs/code-dark.png" alt="Sample Markdown Rendering" width="320" />
+<img src="docs/code-light.png" alt="Sample Markdown Rendering" width="320" /> <img src="docs/code-dark.png" alt="Sample Markdown Rendering" width="320" />
 
 ### Table Block
 
-<img src="docs/table-light.png" alt="Sample Markdown Rendering" width="320" />
-<img src="docs/table-dark.png" alt="Sample Markdown Rendering" width="320" />
+<img src="docs/table-light.png" alt="Sample Markdown Rendering" width="320" /> <img src="docs/table-dark.png" alt="Sample Markdown Rendering" width="320" />
 
 ## Development
 
