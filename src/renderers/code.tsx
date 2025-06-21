@@ -9,16 +9,47 @@ import {
   TextStyle,
   TouchableOpacity,
   View,
+  ViewProps,
 } from "react-native";
 import SyntaxHighlighter from "react-syntax-highlighter";
+import { atomOneLight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 import { useMarkdownContext } from "../context";
 import { RendererArgs } from "./renderers";
+
+const theme = atomOneLight;
 
 const fontFamily = Platform.select({
   ios: "Courier New",
   android: "monospace",
 });
+
+const fontSize = 14;
+
+const generateNativeStyles = (node: rendererNode): TextStyle => {
+  const classNames = node.properties?.className || [];
+  const style: TextStyle = {
+    fontFamily,
+    fontSize,
+  };
+  for (const className of classNames) {
+    if (!className || typeof className !== "string") {
+      continue;
+    }
+    style.color = theme[className]?.color;
+    const fontWeight = theme[className]?.fontWeight;
+    switch (fontWeight) {
+      case "bold":
+        style.fontWeight = "bold";
+        break;
+      default:
+        style.fontWeight = 500;
+        break;
+    }
+  }
+
+  return style;
+};
 
 type NativeRendererProps = {
   node: rendererNode;
@@ -27,24 +58,25 @@ type NativeRendererProps = {
 
 const TextRenderer = ({ node }: NativeRendererProps) => {
   const value = (node.value?.toString() || "").replace(/\n/g, " ");
-  return <Text style={{ fontFamily, fontSize: 14 }}>{value}</Text>;
+  return <Text>{value}</Text>;
 };
 
-const ElementRenderer = ({ node, style }: NativeRendererProps) => {
+const ElementRenderer = ({ node }: NativeRendererProps) => {
   const { children } = node;
+  const style = generateNativeStyles(node);
   const child = children?.map((child, idx) => {
     return <NativeRenderer key={idx} node={child} />;
   });
-  return <Text style={style}>{child}</Text>;
+  return <Text style={{ ...style }}>{child}</Text>;
 };
 
-const NativeRenderer = ({ node, style }: NativeRendererProps) => {
+const NativeRenderer = ({ node }: NativeRendererProps) => {
   const { type } = node;
   switch (type) {
     case "text":
       return <TextRenderer node={node} />;
     case "element":
-      return <ElementRenderer node={node} style={style} />;
+      return <ElementRenderer node={node} />;
     default:
       // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-case-declarations
       const _: never = type;
@@ -60,10 +92,16 @@ const nativeRenderer = () => {
   };
 };
 
-const ScrollViewContainer = ({ style, ...props }: ScrollViewProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const _ = style;
-  return <ScrollView horizontal style={{ paddingVertical: 10 }} {...props} />;
+const ScrollViewContainer = ({ children }: ScrollViewProps) => {
+  return (
+    <ScrollView horizontal style={{ paddingVertical: 10 }}>
+      {children}
+    </ScrollView>
+  );
+};
+
+const ViewContainer = ({ children }: ViewProps) => {
+  return <View>{children}</View>;
 };
 
 type NativeSyntaxHighlighterProps = {
@@ -80,7 +118,7 @@ const NativeSyntaxHighlighter = ({
       language={language}
       renderer={nativeRenderer()}
       PreTag={ScrollViewContainer}
-      CodeTag={View}
+      CodeTag={ViewContainer}
     >
       {children}
     </SyntaxHighlighter>
