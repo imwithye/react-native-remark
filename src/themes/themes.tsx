@@ -9,6 +9,7 @@ export interface Styles {
   emphasis: TextStyle;
   heading: (level: number) => TextStyle;
   inlineCode: TextStyle;
+  codeBlock: TextStyle;
   linkReference: TextStyle;
   link: TextStyle;
   list: ViewStyle;

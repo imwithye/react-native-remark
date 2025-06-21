@@ -2,7 +2,6 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Code } from "mdast";
 import { ReactNode, useState } from "react";
 import {
-  Platform,
   ScrollView,
   ScrollViewProps,
   Text,
@@ -19,18 +18,14 @@ import { RendererArgs } from "./renderers";
 
 const theme = atomOneLight;
 
-const fontFamily = Platform.select({
-  ios: "Courier New",
-  android: "monospace",
-});
-
-const fontSize = 14;
-
-const generateNativeStyles = (node: rendererNode): TextStyle => {
+const generateNativeStyles = (
+  node: rendererNode,
+  themedStyle?: TextStyle,
+): TextStyle => {
   const classNames = node.properties?.className || [];
   const style: TextStyle = {
-    fontFamily,
-    fontSize,
+    fontFamily: themedStyle?.fontFamily,
+    fontSize: themedStyle?.fontSize,
   };
   for (const className of classNames) {
     if (!className || typeof className !== "string") {
@@ -43,7 +38,6 @@ const generateNativeStyles = (node: rendererNode): TextStyle => {
         style.fontWeight = "bold";
         break;
       default:
-        style.fontWeight = 500;
         break;
     }
   }
@@ -62,8 +56,9 @@ const TextRenderer = ({ node }: NativeRendererProps) => {
 };
 
 const ElementRenderer = ({ node }: NativeRendererProps) => {
+  const { styles } = useMarkdownContext();
   const { children } = node;
-  const style = generateNativeStyles(node);
+  const style = generateNativeStyles(node, styles.codeBlock);
   const child = children?.map((child, idx) => {
     return <NativeRenderer key={idx} node={child} />;
   });

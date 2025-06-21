@@ -33,6 +33,10 @@ export const defaultTheme: Theme = {
       fontFamily: Platform.select({ ios: "Menlo", android: "monospace" }),
       backgroundColor: "#f5f5f5",
     },
+    codeBlock: {
+      fontFamily: Platform.select({ ios: "Menlo", android: "monospace" }),
+      fontSize: 14,
+    },
     linkReference: {
       color: "#007AFF",
     },
