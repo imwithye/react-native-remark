@@ -30,8 +30,8 @@ importers:
         specifier: 0.79.4
         version: 0.79.4(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0)
       react-native-remark:
-        specifier: 0.0.5-alpha
-        version: 0.0.5-alpha(expo-font@13.3.1(expo@53.0.12(@babel/core@7.27.4)(react-native@0.79.4(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react@19.0.0))(react-native@0.79.4(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+        specifier: file:../
+        version: file:..(expo-font@13.3.1(expo@53.0.12(@babel/core@7.27.4)(react-native@0.79.4(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react@19.0.0))(react-native@0.79.4(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
     devDependencies:
       '@babel/core':
         specifier: ^7.25.2
@@ -2352,8 +2352,8 @@ packages:
       react: '*'
       react-native: '*'
 
-  react-native-remark@0.0.5-alpha:
-    resolution: {integrity: sha512-VAaMgABhfCqxZxLR3p4EQLg8cA9sQPypsxR3hFDnjsuRhgqPmPyp6xoTfvBRixfiZfXRFEdM3AAfN4raK9zaKg==}
+  react-native-remark@file:..:
+    resolution: {directory: .., type: directory}
     peerDependencies:
       react: '>=17.0.0'
       react-native: '>=0.70.0'
@@ -5882,7 +5882,7 @@ snapshots:
       react: 19.0.0
       react-native: 0.79.4(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0)
 
-  react-native-remark@0.0.5-alpha(expo-font@13.3.1(expo@53.0.12(@babel/core@7.27.4)(react-native@0.79.4(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react@19.0.0))(react-native@0.79.4(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0):
+  react-native-remark@file:..(expo-font@13.3.1(expo@53.0.12(@babel/core@7.27.4)(react-native@0.79.4(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react@19.0.0))(react-native@0.79.4(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0):
     dependencies:
       '@expo/vector-icons': 14.1.0(expo-font@13.3.1(expo@53.0.12(@babel/core@7.27.4)(react-native@0.79.4(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react@19.0.0))(react-native@0.79.4(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
       react: 19.0.0

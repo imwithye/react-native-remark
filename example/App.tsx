@@ -2,7 +2,7 @@ import {
   ActionSheetProvider,
   useActionSheet,
 } from "@expo/react-native-action-sheet";
-import { Markdown } from "react-native-remark";
+import { Markdown } from "@react-native-remark";
 import {
   createStaticNavigation,
   useNavigation,
