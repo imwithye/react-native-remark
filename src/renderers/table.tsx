@@ -4,7 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
 } from "react";
@@ -80,7 +80,7 @@ const TableContextProvider = ({
     [contentSize, columnCount, setColumnWidths],
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     for (let i = 0; i < columnWidths.length; i++) {
       setColumnWidth(i, columnWidths[i] ?? 0);
     }
