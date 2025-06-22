@@ -51,15 +51,22 @@ const TableContextProvider = ({
   columnCount,
   children,
 }: TableContextProviderProps) => {
+  const { contentSize } = useMarkdownContext();
   const [columnWidths, setColumnWidths] = useState<number[]>(
     Array(columnCount).fill(0),
   );
 
   const setColumnWidth = useCallback(
     (index: number, width: number) => {
+      console.log("setColumnWidth", index, width);
       setColumnWidths((prev) => {
+        const minWidth = Math.max(contentSize.width / columnCount, 64);
+        const maxWidth = Math.min(contentSize.width, 180);
         const old = prev[index] ?? 0;
-        const newWidth = Math.min(Math.max(Math.max(old, width), 64), 180);
+        const newWidth = Math.min(
+          Math.max(Math.max(old, width), minWidth),
+          maxWidth,
+        );
         if (newWidth === old) return prev;
 
         const newColumnWidth = [
@@ -70,7 +77,7 @@ const TableContextProvider = ({
         return newColumnWidth;
       });
     },
-    [setColumnWidths],
+    [contentSize, columnCount, setColumnWidths],
   );
 
   return (
@@ -149,6 +156,11 @@ export const TableCellRenderer = ({
   const style = mergeStyles(styles.tableCell, {
     fontWeight: rowIndex === 0 ? "bold" : "normal",
   });
+  const measuredStyle = mergeStyles(style, {
+    width: undefined,
+    minWidth: undefined,
+    maxWidth: undefined,
+  });
 
   const padding = 8;
   const onTextLayout = useCallback(
@@ -171,21 +183,31 @@ export const TableCellRenderer = ({
   );
 
   return (
-    <View
-      style={{
-        width: width,
-        minHeight: 32,
-        padding: padding,
-        justifyContent: "center",
-      }}
-    >
-      <Text style={style}>{content}</Text>
+    <>
+      <View
+        style={{
+          width: width,
+          minHeight: 32,
+          padding: padding,
+          justifyContent: "center",
+        }}
+      >
+        <Text style={style}>{content}</Text>
+      </View>
       <Text
-        style={[style, { position: "absolute", opacity: 0, zIndex: -100 }]}
+        style={[
+          measuredStyle,
+          {
+            position: "absolute",
+            opacity: 0,
+            zIndex: -1000,
+          },
+        ]}
         onLayout={onTextLayout}
+        numberOfLines={1}
       >
         {content}
       </Text>
-    </View>
+    </>
   );
 };
