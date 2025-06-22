@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -60,7 +61,7 @@ const TableContextProvider = ({
     (index: number, width: number) => {
       setColumnWidths((prev) => {
         const minWidth = Math.max(contentSize.width / columnCount, 64);
-        const maxWidth = Math.min(contentSize.width, 180);
+        const maxWidth = 180;
         const old = prev[index] ?? 0;
         const newWidth = Math.min(
           Math.max(Math.max(old, width), minWidth),
@@ -78,6 +79,12 @@ const TableContextProvider = ({
     },
     [contentSize, columnCount, setColumnWidths],
   );
+
+  useEffect(() => {
+    for (let i = 0; i < columnWidths.length; i++) {
+      setColumnWidth(i, columnWidths[i] ?? 0);
+    }
+  }, [columnWidths, setColumnWidth]);
 
   return (
     <TableContext.Provider
