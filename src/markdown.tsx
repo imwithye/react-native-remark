@@ -11,7 +11,7 @@ import { defaultRenderers } from "./renderers";
 import { Renderers } from "./renderers/renderers";
 import { RootRenderer } from "./renderers/root";
 import { defaultTheme } from "./themes";
-import { Styles, Theme, mergeStyles } from "./themes/themes";
+import { Styles, mergeStyles } from "./themes/themes";
 
 const parser = unified().use(remarkParse).use(remarkGfm);
 
@@ -25,7 +25,6 @@ function extractDefinitions(tree: Root): Record<string, Definition> {
 
 export type MarkdownProps = {
   markdown: string;
-  theme?: Theme;
   customRenderers?: Partial<Renderers>;
   customStyles?: Partial<Styles>;
   onCodeCopy?: (code: string) => void;
@@ -34,7 +33,6 @@ export type MarkdownProps = {
 
 export const Markdown = ({
   markdown,
-  theme,
   customRenderers,
   customStyles,
   onCodeCopy,
@@ -59,10 +57,9 @@ export const Markdown = ({
 
   const colorScheme = useColorScheme();
   const mode = colorScheme === "dark" ? "dark" : "light";
-  const mergedTheme = theme ?? defaultTheme;
   const mergedStyles = mergeStyles(
-    mergedTheme.global,
-    mergedTheme[mode],
+    defaultTheme.global,
+    defaultTheme[mode],
     customStyles,
   );
 
