@@ -158,6 +158,10 @@ export const CodeRenderer = ({ node }: RendererArgs<Code>): ReactNode => {
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
           }}
+          disabled={!onCodeCopy}
+          style={{
+            opacity: onCodeCopy ? 1 : 0,
+          }}
         >
           <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
             {copied ? (
