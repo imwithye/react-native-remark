@@ -58,7 +58,6 @@ const TableContextProvider = ({
 
   const setColumnWidth = useCallback(
     (index: number, width: number) => {
-      console.log("setColumnWidth", index, width);
       setColumnWidths((prev) => {
         const minWidth = Math.max(contentSize.width / columnCount, 64);
         const maxWidth = Math.min(contentSize.width, 180);
