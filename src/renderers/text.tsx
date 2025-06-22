@@ -8,7 +8,7 @@ import { RendererArgs } from "./renderers";
 export const TextRenderer = ({ node }: RendererArgs<MdText>): ReactNode => {
   const { styles } = useMarkdownContext();
 
-  const value = node.value || "";
+  const value = (node.value || "").replace(/\n/g, " ");
   if (!value) return null;
   return <Text style={styles.text}>{value}</Text>;
 };
