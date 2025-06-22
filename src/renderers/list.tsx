@@ -29,20 +29,18 @@ export const ListItemRenderer = ({
   const { renderers, styles } = useMarkdownContext();
   const { BlockContentRenderer, DefinitionContentRenderer } = renderers;
 
-  const markerStyle = mergeStyles(styles.paragraph, {
-    marginRight: 5,
-  });
-
   const list = parent?.type === "list" ? (parent as List) : null;
   const itemNumber = (list?.start ?? 1) + (index ?? 0);
 
   return (
     <View style={{ flexDirection: "row" }}>
-      {list?.ordered ? (
-        <Text style={markerStyle}>{itemNumber}.</Text>
-      ) : (
-        <Text style={markerStyle}>•</Text>
-      )}
+      <View style={{ marginRight: 5 }}>
+        {list?.ordered ? (
+          <Text style={styles.paragraph}>{itemNumber}.</Text>
+        ) : (
+          <Text style={styles.paragraph}>•</Text>
+        )}
+      </View>
       <View style={styles.listItem}>
         {node.children.map((child, idx) => (
           <Fragment key={idx}>

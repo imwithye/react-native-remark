@@ -15,7 +15,6 @@ export interface Styles {
   container: ViewStyle;
   delete: TextStyle;
   emphasis: TextStyle;
-  footnoteDefinition: TextStyle;
   footnoteReference: TextStyle;
   heading: (level: number) => TextStyle;
   image: ImageStyle;
