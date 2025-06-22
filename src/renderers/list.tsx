@@ -36,13 +36,13 @@ export const ListItemRenderer = ({
     const defaultStyle = mergeStyles(styles.paragraph, {
       fontWeight: "500",
     });
-    const firstItem = list?.children?.[0].children?.[0];
+    const firstItem = node.children[0];
     if (!firstItem) return defaultStyle;
     if (firstItem.type === "heading") {
       return styles.heading?.(firstItem.depth);
     }
     return defaultStyle;
-  }, [styles, list]);
+  }, [styles, node]);
 
   return (
     <View style={{ flexDirection: "row" }}>
