@@ -1,6 +1,6 @@
 # React Native Remark
 
-# h1 Heading 8-)
+# h1 Heading
 ## h2 Heading
 ### h3 Heading
 #### h4 Heading
@@ -77,6 +77,13 @@ Start numbering with offset:
 
 57. foo
 1. bar
+
+List with heading
+
+- # Title
+- ## Sub title
+- ### Test
+- body
 
 
 ## Code

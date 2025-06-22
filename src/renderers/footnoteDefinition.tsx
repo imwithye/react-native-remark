@@ -3,6 +3,7 @@ import { Fragment, ReactNode } from "react";
 import { Text, View } from "react-native";
 
 import { useMarkdownContext } from "../context";
+import { mergeStyles } from "../themes/themes";
 import { RendererArgs } from "./renderers";
 
 export const FootnoteDefinitionRenderer = ({
@@ -11,12 +12,15 @@ export const FootnoteDefinitionRenderer = ({
   const { renderers, styles } = useMarkdownContext();
   const { BlockContentRenderer, DefinitionContentRenderer } = renderers;
 
+  const mergedStyles = mergeStyles(styles.paragraph, {
+    fontWeight: "500",
+    textDecorationLine: "underline",
+  });
+
   return (
     <View style={{ flexDirection: "row" }}>
       <View>
-        <Text style={[styles.paragraph, { textDecorationLine: "underline" }]}>
-          [{node.identifier}]:{" "}
-        </Text>
+        <Text style={mergedStyles}>[{node.identifier}]: </Text>
       </View>
       <View style={{ flex: 1 }}>
         {node.children.map((child, idx) => (
