@@ -11,6 +11,9 @@ importers:
       '@expo/vector-icons':
         specifier: ^14.1.0
         version: 14.1.0(expo-font@13.3.1(expo@53.0.12(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+      '@types/mdast':
+        specifier: ^4.0.4
+        version: 4.0.4
       react:
         specifier: '>=17.0.0'
         version: 19.1.0
@@ -39,9 +42,6 @@ importers:
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^5.2.2
         version: 5.2.2(prettier@3.5.3)
-      '@types/mdast':
-        specifier: ^4.0.4
-        version: 4.0.4
       '@types/react':
         specifier: ^19.1.8
         version: 19.1.8
