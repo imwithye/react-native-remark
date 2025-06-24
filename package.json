@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "Remark for React Native",
   "main": "dist/index.js",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/imwithye/react-native-remark.git"
