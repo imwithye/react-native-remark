@@ -93,7 +93,7 @@ export default function App() {
 }
 ```
 
-## Supported Custom Renders
+## Supported Custom Renderers
 
 All `mdast` node types have corresponding renderers, and each renderer can be fully customized. A renderer receives the following props:
 
