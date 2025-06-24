@@ -83,4 +83,13 @@ cd example && pnpm i && pnpm run ios
 
 ## Star History
 
-<img src="https://api.star-history.com/svg?repos=imwithye/react-native-remark&type=Date" alt="Star History" width="100%" />
+## Star History
+
+<a href="https://www.star-history.com/#imwithye/react-native-remark&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=imwithye/react-native-remark&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=imwithye/react-native-remark&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=imwithye/react-native-remark&type=Date" width="100%" />
+ </picture>
+</a>
+
