@@ -49,7 +49,6 @@ npm install react-native-remark
 ## Usage
 
 ```jsx
-import React from "react";
 import { Markdown } from "react-native-remark";
 
 const markdown = `
@@ -69,7 +68,12 @@ export default function App() {
             // Override default renderers for mdast nodes.
             // Checkout https://github.com/imwithye/react-native-remark/blob/main/src/renderers/index.tsx
             // for the default renderers.
-            ...
+            InlineCodeRenderer: ({ node }) => (
+              <Text style={{ color: "blue" }}>{node.value}</Text>
+            ),
+            ThematicBreakRenderer: () => (
+              <View style={{ height: 5, backgroundColor: "red" }} />
+            ),
         }}
         customStyles={{
             // Override default styles
@@ -88,6 +92,23 @@ export default function App() {
   );
 }
 ```
+
+## Supported Custom Renders
+
+All `mdast` node types have corresponding renderers, and each renderer can be fully customized. A renderer receives the following props:
+
+```javascript
+// The current mdast node
+node: any;
+
+// The parent node, if it exists
+parent?: Node;
+
+// The index of this node within the parent's children
+index?: number;
+```
+
+Checkout [renderers](./src/renderers/) for the default implementations. To ensure type safety when creating custom renderers, you can use the `RendererArgs<MdastType>` props interface.
 
 ## Supported Custom Styles
 
