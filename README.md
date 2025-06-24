@@ -111,8 +111,6 @@ cd example && pnpm i && pnpm run ios
 
 ## Star History
 
-## Star History
-
 <a href="https://www.star-history.com/#imwithye/react-native-remark&Date">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=imwithye/react-native-remark&type=Date&theme=dark" />
