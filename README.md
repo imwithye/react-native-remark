@@ -139,21 +139,7 @@ Checkout [default.tsx](./src/themes/default.tsx) for default styles.
 
 ## Quick Look
 
-### Heading
-
-<img src="docs/heading-light.png" alt="Sample Markdown Rendering" width="320" /> <img src="docs/heading-dark.png" alt="Sample Markdown Rendering" width="320" />
-
-### List
-
-<img src="docs/list-light.png" alt="Sample Markdown Rendering" width="320" /> <img src="docs/list-dark.png" alt="Sample Markdown Rendering" width="320" />
-
-### Code Block
-
-<img src="docs/code-light.png" alt="Sample Markdown Rendering" width="320" /> <img src="docs/code-dark.png" alt="Sample Markdown Rendering" width="320" />
-
-### Table Block
-
-<img src="docs/table-light.png" alt="Sample Markdown Rendering" width="320" /> <img src="docs/table-dark.png" alt="Sample Markdown Rendering" width="320" />
+<img alt="Quick Look" src="./docs/quick-look.png" width="100%" />
 
 ## Contribute
 
