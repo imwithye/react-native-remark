@@ -112,7 +112,6 @@ const HomeScreen = () => {
       ) : (
         <Markdown
           markdown={markdown}
-          onCodeCopy={(code) => console.log(code)}
           onLinkPress={(url) => Linking.openURL(url)}
         />
       )}
