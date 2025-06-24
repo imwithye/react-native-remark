@@ -75,7 +75,12 @@ export default function App() {
             // Override default styles
             // Checkout https://github.com/imwithye/react-native-remark/blob/main/src/themes/default.tsx
             // for the default styles.
-            ...
+            inlineCode: {
+              color: "red",
+            },
+            text: {
+              color: "red",
+            },
         }}
         onCodeCopy={(code) => Clipboard.setStringAsync(code)}
         onLinkPress={(url) => Linking.openURL(url)}
@@ -83,6 +88,33 @@ export default function App() {
   );
 }
 ```
+
+## Supported Custom Styles
+
+Checkout [default.tsx](./src/themes/default.tsx) for default styles.
+
+| Style Key         | Description                           | Example Markdown Element      |
+|-------------------|---------------------------------------|-------------------------------|
+| `blockquote`      | Styles for blockquotes                | `> This is a blockquote`      |
+| `borderColor`     | Default border color used globally    | Borders, thematic breaks      |
+| `break`           | Line break styling (empty by default) | Line breaks                   |
+| `codeBlock`       | Styles for code blocks                | ```code``` blocks             |
+| `container`       | Container layout spacing              | Root container layout         |
+| `delete`          | Deleted text style                    | ~~strikethrough~~ text        |
+| `emphasis`        | Italic text style                     | *italic* or _italic_          |
+| `footnoteReference` | Style for footnote references       | Footnote markers              |
+| `heading`         | Heading styles (h1, h2, h3...)        | # Heading                     |
+| `image`           | Image styling                         | Inline or block images        |
+| `inlineCode`      | Inline code styling                   | `inline code`                 |
+| `link`            | Link styling                          | [link](url)                   |
+| `linkReference`   | Reference-style links                 | [reference][id]               |
+| `list`            | List container styling                | Lists (`- item` or `1. item`) |
+| `listItem`        | List item styling                     | Each list item                |
+| `paragraph`       | Paragraph text styling                | Normal paragraphs             |
+| `strong`          | Bold text style                       | **bold**                      |
+| `tableCell`       | Table cell text styling               | Table cell contents           |
+| `text`            | General text style                    | Plain text                    |
+| `thematicBreak`   | Horizontal rule styling               | ---                           |
 
 ## Quick Look
 
