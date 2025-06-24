@@ -102,12 +102,9 @@ export default function App() {
 
 <img src="docs/table-light.png" alt="Sample Markdown Rendering" width="320" /> <img src="docs/table-dark.png" alt="Sample Markdown Rendering" width="320" />
 
-## Development
+## Development and Contributing
 
-```
-pnpm i
-cd example && pnpm i && pnpm run ios
-```
+[CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## Star History
 
