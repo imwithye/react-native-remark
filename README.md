@@ -33,7 +33,7 @@
 ## Features
 
 - 📱 Render Markdown in React Native applications
-- 🎯 Supports GitHub Flavored Markdown (GFM)
+- 🎯 Supports **GitHub Flavored Markdown (GFM)**
 - 🌈 Syntax highlighting for code blocks
 - 📊 Table rendering with horizontal scroll view
 - 🖼️ Inline and block image rendering
