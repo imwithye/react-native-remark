@@ -1,4 +1,4 @@
-# react-native-remark
+![](./docs/hero-banner.png)
 
 **react-native-remark** provides elegant and powerful Markdown rendering capabilities for React Native applications.
 
