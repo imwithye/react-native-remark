@@ -102,9 +102,12 @@ export default function App() {
 
 <img src="docs/table-light.png" alt="Sample Markdown Rendering" width="320" /> <img src="docs/table-dark.png" alt="Sample Markdown Rendering" width="320" />
 
-## Development and Contributing
+## Contribute
 
-[CONTRIBUTING.md](./CONTRIBUTING.md)
+See [`CONTRIBUTING.md`][./CONTRIBUTING.md] for ways to get started.
+
+This project has a [CODE OF CONDUCT][./CODE_OF_CONDUCT.md].
+By interacting with this repository, organization, or community you agree to abide by its terms.
 
 ## Star History
 
