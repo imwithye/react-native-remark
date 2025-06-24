@@ -26,6 +26,7 @@ You can drag and drop it in the comment section after you create the PR.
 
 ## ✅ Checklist
 
+- [ ] My PR title follows the Conventional Commit format (e.g. `feat:`, `fix:`, `chore:`)
 - [ ] This PR addresses the related issue (if applicable)
 - [ ] I have attached a sample Markdown file (`.md`) used for testing
 - [ ] I have attached at least one screenshot of the rendered output (light and/or dark mode preferred)
