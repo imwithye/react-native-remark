@@ -1,7 +1,31 @@
 ![](./docs/hero-banner.png)
 
 <p align="center">
-  <img src="https://github.com/imwithye/react-native-remark/actions/workflows/build.yml/badge.svg?branch=main" />
+  <a href="https://github.com/imwithye/react-native-remark/actions/workflows/build.yml">
+    <picture>
+      <img src="https://github.com/imwithye/react-native-remark/actions/workflows/build.yml/badge.svg?branch=main" />
+    </picture>
+  </a>
+  <a href="https://www.npmjs.com/package/react-native-remark">
+    <picture>
+      <img src="https://img.shields.io/npm/v/react-native-remark" />
+    </picture>
+  </a>
+  <a href="https://www.npmjs.com/package/react-native-remark">
+    <picture>
+      <img src="https://img.shields.io/npm/dw/react-native-remark" />
+    </picture>
+  </a>
+  <a href="https://www.npmjs.com/package/react-native-remark">
+    <picture>
+      <img src="https://img.shields.io/npm/types/react-native-remark" />
+    </picture>
+  </a>
+  <a href="https://github.com/imwithye/react-native-remark/blob/main/LICENSE">
+    <picture>
+      <img src="https://img.shields.io/github/license/imwithye/react-native-remark" />
+    </picture>
+  </a>
 </p>
 
 **react-native-remark** provides elegant and powerful Markdown rendering capabilities for React Native applications.
