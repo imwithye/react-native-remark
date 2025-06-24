@@ -1,5 +1,7 @@
 ![](./docs/hero-banner.png)
 
+[![Build Package](https://github.com/imwithye/react-native-remark/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/imwithye/react-native-remark/actions/workflows/build.yml)
+
 **react-native-remark** provides elegant and powerful Markdown rendering capabilities for React Native applications.
 
 ## Features
