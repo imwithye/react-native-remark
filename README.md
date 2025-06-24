@@ -104,9 +104,9 @@ export default function App() {
 
 ## Contribute
 
-See [`CONTRIBUTING.md`][./CONTRIBUTING.md] for ways to get started.
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for ways to get started.
 
-This project has a [CODE OF CONDUCT][./CODE_OF_CONDUCT.md].
+This project has a [CODE OF CONDUCT](./CODE_OF_CONDUCT.md).
 By interacting with this repository, organization, or community you agree to abide by its terms.
 
 ## Star History
