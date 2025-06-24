@@ -83,4 +83,4 @@ cd example && pnpm i && pnpm run ios
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=imwithye/react-native-remark&type=Date)](https://www.star-history.com/#imwithye/react-native-remark&Date)
+<img src="https://api.star-history.com/svg?repos=imwithye/react-native-remark&type=Date" alt="Star History" width="100%" />
