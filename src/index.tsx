@@ -11,8 +11,8 @@ export const themes = {
 export {
   Markdown,
   useMarkdownContext,
-  Renderers,
-  RenderFunc,
-  RendererArgs,
-  Theme,
+  type Renderers,
+  type RenderFunc,
+  type RendererArgs,
+  type Theme,
 };
