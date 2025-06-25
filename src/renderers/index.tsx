@@ -16,13 +16,15 @@ import { LinkReferenceRenderer, LinkRenderer } from "./link";
 import { ListItemRenderer, ListRenderer } from "./list";
 import { ParagraphRenderer } from "./paragraph";
 import { PhrasingContentRenderer } from "./phrasingContent";
-import { Renderers } from "./renderers";
+import { RenderFunc, RendererArgs, Renderers } from "./renderers";
 import { RootContentRenderer } from "./rootContent";
 import { StrongRenderer } from "./strong";
 import { TableCellRenderer, TableRenderer, TableRowRenderer } from "./table";
 import { TextRenderer } from "./text";
 import { ThematicBreakRenderer } from "./thematicBreak";
 import { YamlRenderer } from "./yaml";
+
+export { Renderers, RenderFunc, RendererArgs };
 
 export const defaultRenderers: Renderers = {
   BlockContentRenderer,

@@ -1,3 +1,4 @@
 import { defaultTheme } from "./default";
+import { typewritter } from "./typewriter";
 
-export { defaultTheme };
+export { defaultTheme, typewritter };
