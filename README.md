@@ -110,6 +110,20 @@ index?: number;
 
 Checkout [renderers](./src/renderers/) for the default implementations. To ensure type safety when creating custom renderers, you can use the `RendererArgs<MdastType>` props interface.
 
+## Supported Themes
+
+Themes are pre-defined style collections that provide consistent visual styling for markdown content. Currently, we support two built-in themes: 1. default, and 2. serif. To use a theme, you can follow this pattern:
+
+```js
+import { themes } from "react-native-remark"
+const { serifTheme } = themes;
+
+// Thene you can use it with
+<Markdown theme={serifTheme} ... />
+```
+
+Custom styles will override the selected theme's default styles.
+
 ## Supported Custom Styles
 
 Checkout [default.tsx](./src/themes/default.tsx) for default styles.
