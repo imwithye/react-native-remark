@@ -20,7 +20,7 @@ import {
   useColorScheme,
 } from "react-native";
 
-const { typewriterTheme, defaultTheme } = themes;
+const { defaultTheme } = themes;
 
 const BASE_URL =
   "https://raw.githubusercontent.com/imwithye/react-native-remark/refs/heads/main/markdown";
@@ -115,7 +115,7 @@ const HomeScreen = () => {
       ) : (
         <Markdown
           markdown={markdown}
-          theme={typewriterTheme}
+          theme={defaultTheme}
           onLinkPress={(url) => Linking.openURL(url)}
         />
       )}

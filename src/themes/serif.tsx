@@ -2,6 +2,10 @@ import { ColorValue, Platform, TextStyle } from "react-native";
 
 import { Theme } from "./themes";
 
+const fontFamily = Platform.select({
+  ios: "Georgia",
+  android: "serif",
+});
 const monospaceFontFamily = Platform.select({
   ios: "Menlo",
   android: "monospace",
@@ -29,11 +33,11 @@ const headingHandler = (color: ColorValue) => {
     const fontSize = 28 - level * 2;
     const fontWeight = level <= 3 ? "bold" : "500";
     const marginVertical = level <= 3 ? 4 : 2;
-    return { fontSize, fontWeight, marginVertical, color };
+    return { fontFamily, fontSize, fontWeight, marginVertical, color };
   };
 };
 
-export const defaultTheme: Theme = {
+export const serifTheme: Theme = {
   global: {
     blockquote: {
       borderLeftWidth: 3,
@@ -51,6 +55,7 @@ export const defaultTheme: Theme = {
       headerBackgroundColor: light.bgColorHeavy,
       contentBackgroundColor: light.bgColorLight,
       headerTextStyle: {
+        fontFamily,
         fontSize: 14,
       },
       contentTextStyle: {
@@ -62,12 +67,15 @@ export const defaultTheme: Theme = {
       gap: 10,
     },
     delete: {
+      fontFamily,
       textDecorationLine: "line-through",
     },
     emphasis: {
+      fontFamily,
       fontStyle: "italic",
     },
     footnoteReference: {
+      fontFamily,
       fontStyle: "italic",
       fontSize: 10,
       color: light.darkColor,
@@ -81,6 +89,7 @@ export const defaultTheme: Theme = {
       backgroundColor: light.bgColorLight,
     },
     link: {
+      fontFamily,
       color: light.linkColor,
     },
     linkReference: {
@@ -94,14 +103,17 @@ export const defaultTheme: Theme = {
       gap: 5,
     },
     paragraph: {
+      fontFamily,
       fontSize: 16,
       lineHeight: 24,
       color: light.primaryColor,
     },
     strong: {
+      fontFamily,
       fontWeight: "bold",
     },
     tableCell: {
+      fontFamily,
       fontSize: 14,
       lineHeight: 20,
     },

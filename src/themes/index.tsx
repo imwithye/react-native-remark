@@ -1,5 +1,5 @@
 import { defaultTheme } from "./default";
+import { serifTheme } from "./serif";
 import { Theme } from "./themes";
-import { typewriterTheme } from "./typewriter";
 
-export { Theme, defaultTheme, typewriterTheme };
+export { Theme, defaultTheme, serifTheme };
