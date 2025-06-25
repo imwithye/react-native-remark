@@ -1,5 +1,5 @@
 import { Theme } from "./themes";
 
-export const typewritter: Theme = {
+export const typewriterTheme: Theme = {
   global: {},
 };

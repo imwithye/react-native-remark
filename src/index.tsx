@@ -1,11 +1,18 @@
 import { useMarkdownContext } from "./context";
 import { Markdown } from "./markdown";
 import { RenderFunc, RendererArgs, Renderers } from "./renderers";
-import { defaultTheme, typewritter } from "./themes";
+import { Theme, defaultTheme, typewriterTheme } from "./themes";
 
 export const themes = {
   defaultTheme,
-  typewritter,
+  typewriterTheme,
 };
 
-export { Markdown, useMarkdownContext, Renderers, RenderFunc, RendererArgs };
+export {
+  Markdown,
+  useMarkdownContext,
+  Renderers,
+  RenderFunc,
+  RendererArgs,
+  Theme,
+};
