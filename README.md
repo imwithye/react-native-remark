@@ -112,7 +112,13 @@ Checkout [renderers](./src/renderers/) for the default implementations. To ensur
 
 ## Supported Themes
 
-Themes are pre-defined style collections that provide consistent visual styling for markdown content. Currently, we support two built-in themes: 1. default, and 2. serif. To use a theme, you can follow this pattern:
+Themes are pre-defined style collections that provide consistent visual styling for markdown content. Currently, we support two built-in themes: 
+
+1. default
+2. serif
+3. github
+
+To use a theme, you can follow this pattern:
 
 ```js
 import { themes } from "react-native-remark"
