@@ -11,7 +11,7 @@ const monospaceFontFamily = Platform.select({
 
 const light = {
   primaryColor: "#000000",
-  darkColor: "#444444",
+  darkColor: "#d1d9e0",
   linkColor: "#007AFF",
   borderColor: "#eeeeee",
   bgColorLight: "#f9f9f9",
@@ -21,8 +21,8 @@ const dark = {
   primaryColor: "#ffffff",
   darkColor: "#bbbbbb",
   linkColor: "#007AFF",
-  borderColor: "#222222",
-  bgColorLight: "#070707",
+  borderColor: "#3d444d",
+  bgColorLight: "#151b23",
   bgColorHeavy: "#0b0b0b",
 };
 
@@ -40,7 +40,6 @@ export const githubTheme: Theme = {
     blockquote: {
       borderLeftWidth: 3,
       borderLeftColor: light.darkColor,
-      backgroundColor: light.bgColorHeavy,
       paddingTop: 5,
       paddingBottom: 5,
       paddingLeft: 10,
@@ -150,6 +149,7 @@ export const githubTheme: Theme = {
     },
     tableCell: {
       color: dark.primaryColor,
+      backgroundColor: dark.bgColorLight,
     },
     thematicBreak: {
       backgroundColor: dark.borderColor,
