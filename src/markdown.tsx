@@ -42,9 +42,14 @@ export const Markdown = ({
 }: MarkdownProps) => {
   const tree = useMemo(() => parser.parse(markdown), [markdown]);
 
+  const activeTheme = theme ?? defaultTheme;
   const renderers = useMemo(
-    () => ({ ...defaultRenderers, ...customRenderers }),
-    [customRenderers],
+    () => ({
+      ...defaultRenderers,
+      ...activeTheme.renderers,
+      ...customRenderers,
+    }),
+    [activeTheme.renderers, customRenderers],
   );
   const definitions = useMemo(() => extractDefinitions(tree), [tree]);
 
@@ -59,7 +64,7 @@ export const Markdown = ({
 
   const colorScheme = useColorScheme();
   const mode = colorScheme === "dark" ? "dark" : "light";
-  const activeTheme = theme ?? defaultTheme;
+
   const mergedStyles = mergeStyles(
     activeTheme.global,
     activeTheme[mode],

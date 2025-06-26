@@ -1,5 +1,7 @@
 import { ColorValue, ImageStyle, TextStyle, ViewStyle } from "react-native";
 
+import { Renderers } from "../renderers";
+
 export type CodeBlockStyle = {
   headerBackgroundColor?: ColorValue;
   contentBackgroundColor?: ColorValue;
@@ -34,6 +36,7 @@ export interface Theme {
   global?: Partial<Styles>;
   light?: Partial<Styles>;
   dark?: Partial<Styles>;
+  renderers?: Partial<Renderers>;
 }
 
 function isObject<T>(obj: T): obj is T & object {
