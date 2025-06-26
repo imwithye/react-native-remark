@@ -1,6 +1,6 @@
 import { ColorValue, Platform, TextStyle } from "react-native";
 
-import { Theme } from "./themes";
+import { Theme } from "../themes";
 
 const monospaceFontFamily = Platform.select({
   ios: "Menlo",
