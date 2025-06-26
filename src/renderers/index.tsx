@@ -24,7 +24,7 @@ import { TextRenderer } from "./text";
 import { ThematicBreakRenderer } from "./thematicBreak";
 import { YamlRenderer } from "./yaml";
 
-export { type Renderers, type RenderFunc, type RendererArgs };
+export { Renderers, RenderFunc, RendererArgs };
 
 export const defaultRenderers: Renderers = {
   BlockContentRenderer,
