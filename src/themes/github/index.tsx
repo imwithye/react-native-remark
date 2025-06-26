@@ -1,6 +1,7 @@
 import { ColorValue, Platform, TextStyle } from "react-native";
 
 import { Theme } from "../themes";
+import { HeadingRenderer } from "./heading";
 
 const monospaceFontFamily = Platform.select({
   ios: "Menlo",
@@ -108,7 +109,7 @@ export const githubTheme: Theme = {
     text: {},
     thematicBreak: {
       marginVertical: 10,
-      height: 1,
+      height: 5,
       backgroundColor: light.borderColor,
     },
   },
@@ -151,5 +152,8 @@ export const githubTheme: Theme = {
     thematicBreak: {
       backgroundColor: dark.borderColor,
     },
+  },
+  renderers: {
+    HeadingRenderer,
   },
 };
