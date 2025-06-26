@@ -20,7 +20,7 @@ import {
   useColorScheme,
 } from "react-native";
 
-const { defaultTheme } = themes;
+const { defaultTheme, serifTheme } = themes;
 
 const BASE_URL =
   "https://raw.githubusercontent.com/imwithye/react-native-remark/refs/heads/main/markdown";
@@ -32,6 +32,7 @@ const HomeScreen = () => {
   const { showActionSheetWithOptions } = useActionSheet();
   const [url, setUrl] = useState(URL);
   const [markdown, setMarkdown] = useState("");
+  const [theme, setTheme] = useState(defaultTheme);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -40,6 +41,38 @@ const HomeScreen = () => {
       headerStyle: {
         backgroundColor: colorScheme === "dark" ? "black" : "white",
       },
+      headerLeft: () => (
+        <Button
+          title="Theme"
+          onPress={() => {
+            const options = [
+              {
+                title: "Cancel",
+                theme: null,
+              },
+              {
+                title: "Default",
+                theme: defaultTheme,
+              },
+              {
+                title: "Serif",
+                theme: serifTheme,
+              },
+            ];
+            const cancelButtonIndex = 0;
+            showActionSheetWithOptions(
+              {
+                options: options.map((option) => option.title),
+                cancelButtonIndex,
+              },
+              (idx?: number) => {
+                if (!idx || idx === cancelButtonIndex) return;
+                setTheme(options[idx].theme ?? defaultTheme);
+              },
+            );
+          }}
+        />
+      ),
       headerRight: () => (
         <Button
           title="Load"
@@ -91,7 +124,7 @@ const HomeScreen = () => {
         />
       ),
     });
-  }, [colorScheme, navigation, showActionSheetWithOptions, setUrl]);
+  }, [colorScheme, navigation, showActionSheetWithOptions, setTheme, setUrl]);
 
   useEffect(() => {
     setLoading(true);
@@ -115,7 +148,7 @@ const HomeScreen = () => {
       ) : (
         <Markdown
           markdown={markdown}
-          theme={defaultTheme}
+          theme={theme}
           onLinkPress={(url) => Linking.openURL(url)}
         />
       )}
