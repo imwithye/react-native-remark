@@ -20,7 +20,7 @@ import {
   useColorScheme,
 } from "react-native";
 
-const { defaultTheme, serifTheme } = themes;
+const { defaultTheme, githubTheme, serifTheme } = themes;
 
 const BASE_URL =
   "https://raw.githubusercontent.com/imwithye/react-native-remark/refs/heads/main/markdown";
@@ -53,6 +53,10 @@ const HomeScreen = () => {
               {
                 title: "Default",
                 theme: defaultTheme,
+              },
+              {
+                title: "GitHub",
+                theme: githubTheme,
               },
               {
                 title: "Serif",
