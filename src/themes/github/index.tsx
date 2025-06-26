@@ -2,6 +2,7 @@ import { ColorValue, Platform, TextStyle } from "react-native";
 
 import { Theme } from "../themes";
 import { HeadingRenderer } from "./heading";
+import { TableCellRenderer, TableRenderer, TableRowRenderer } from "./table";
 
 const monospaceFontFamily = Platform.select({
   ios: "Menlo",
@@ -27,7 +28,7 @@ const dark = {
 
 const headingHandler = (color: ColorValue) => {
   return (level: number): TextStyle => {
-    const fontSize = 28 - level * 2;
+    const fontSize = 32 - level * 2;
     const fontWeight = level <= 3 ? "bold" : "500";
     const marginVertical = level <= 3 ? 4 : 2;
     return { fontSize, fontWeight, marginVertical, color };
@@ -105,6 +106,7 @@ export const githubTheme: Theme = {
     tableCell: {
       fontSize: 14,
       lineHeight: 20,
+      backgroundColor: light.bgColorLight,
     },
     text: {},
     thematicBreak: {
@@ -155,5 +157,8 @@ export const githubTheme: Theme = {
   },
   renderers: {
     HeadingRenderer,
+    TableRenderer,
+    TableRowRenderer,
+    TableCellRenderer,
   },
 };
