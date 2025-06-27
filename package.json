@@ -2,7 +2,7 @@
   "name": "react-native-remark",
   "version": "0.0.0",
   "description": "Remark for React Native",
-  "main": "dist/index.js",
+  "main": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
