@@ -5,7 +5,6 @@ const banner = `// GitHub: https://github.com/imwithye/react-native-remark`;
 export default defineConfig({
   entry: ["src/index.tsx"],
   splitting: false,
-  sourcemap: true,
   clean: true,
   dts: true,
   format: ["esm"],
