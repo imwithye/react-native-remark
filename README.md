@@ -77,7 +77,7 @@ export default function App() {
         }}
         customStyles={{
             // Override default styles
-            // Checkout https://github.com/imwithye/react-native-remark/blob/main/src/themes/default.tsx
+            // Checkout https://github.com/imwithye/react-native-remark/blob/main/src/themes/default/index.tsx
             // for the default styles.
             inlineCode: {
               color: "red",
@@ -132,7 +132,7 @@ Custom styles will override the selected theme's default styles.
 
 ## Supported Custom Styles
 
-Checkout [default.tsx](./src/themes/default.tsx) for default styles.
+Checkout [themes/default](./src/themes/default/index.tsx) for default styles.
 
 | Style Key         | Description                           | Example Markdown Element      |
 |-------------------|---------------------------------------|-------------------------------|
