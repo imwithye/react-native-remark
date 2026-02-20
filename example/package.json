@@ -16,9 +16,7 @@
     "expo-status-bar": "~2.2.3",
     "react": "19.0.0",
     "react-native": "0.79.4",
-    "react-native-remark": "file:../",
-    "rehype-parse": "^9.0.1",
-    "rehype-remark": "^10.0.1"
+    "react-native-remark": "file:../"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

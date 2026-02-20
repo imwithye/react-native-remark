@@ -13,7 +13,7 @@ import { RootRenderer } from "./renderers/root";
 import { Theme, defaultTheme } from "./themes";
 import { Styles, mergeStyles } from "./themes/themes";
 
-const defaultRemarkPlugins: PluggableList = [remarkParse, remarkGfm];
+const defaultRemarkPlugins: PluggableList = [remarkGfm];
 
 function extractDefinitions(tree: Root): Record<string, Definition> {
   const definitions: Record<string, Definition> = {};
@@ -42,9 +42,10 @@ export const Markdown = ({
   onLinkPress,
   remarkPlugins = defaultRemarkPlugins,
 }: MarkdownProps) => {
-  const processor = useMemo(() => {
-    return unified().use(remarkPlugins);
-  }, [remarkPlugins]);
+  const processor = useMemo(
+    () => unified().use(remarkParse).use(remarkPlugins),
+    [remarkPlugins],
+  );
 
   const tree: Root = useMemo(() => {
     return processor.runSync(processor.parse(markdown)) as Root;

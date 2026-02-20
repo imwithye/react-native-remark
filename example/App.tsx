@@ -18,11 +18,6 @@ import {
   ScrollView,
   useColorScheme,
 } from "react-native";
-import rehypeParse from "rehype-parse";
-import rehypeRemark from "rehype-remark";
-import { PluggableList } from "unified";
-
-import { sampleHTML } from "./samples/html";
 
 const { defaultTheme, githubTheme, serifTheme } = themes;
 
@@ -37,7 +32,6 @@ const HomeScreen = () => {
   const [markdown, setMarkdown] = useState("");
   const [theme, setTheme] = useState(defaultTheme);
   const [loading, setLoading] = useState(false);
-  const [plugins, setPlugins] = useState<PluggableList>();
 
   const loadMarkdown = useCallback((url: string) => {
     setLoading(true);
@@ -120,11 +114,7 @@ const HomeScreen = () => {
                 url: `${BASE_URL}/04_pytorch.md`,
               },
               {
-                title: "5. HTML",
-                url: "html-sample",
-              },
-              {
-                title: "6. Load from URL",
+                title: "5. Load from URL",
                 url: "",
               },
             ];
@@ -137,12 +127,6 @@ const HomeScreen = () => {
               (idx?: number) => {
                 if (!idx || idx === cancelButtonIndex) return;
 
-                if (options[idx].url === "html-sample") {
-                  setMarkdown(sampleHTML);
-                  setPlugins([rehypeParse, rehypeRemark]);
-                  return;
-                }
-
                 if (idx === options.length - 1) {
                   Alert.prompt("Load Markdown from URL", "", (url) => {
                     loadMarkdown(url);
@@ -150,7 +134,6 @@ const HomeScreen = () => {
                   return;
                 }
 
-                setPlugins(undefined);
                 loadMarkdown(options[idx].url);
               },
             );
@@ -187,7 +170,6 @@ const HomeScreen = () => {
         <Markdown
           markdown={markdown}
           theme={theme}
-          remarkPlugins={plugins}
           onLinkPress={(url) => Linking.openURL(url)}
         />
       )}
