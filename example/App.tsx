@@ -18,6 +18,7 @@ import {
   ScrollView,
   useColorScheme,
 } from "react-native";
+import remarkCjkFriendly from "remark-cjk-friendly";
 
 const { defaultTheme, githubTheme, serifTheme } = themes;
 
@@ -114,7 +115,11 @@ const HomeScreen = () => {
                 url: `${BASE_URL}/04_pytorch.md`,
               },
               {
-                title: "5. Load from URL",
+                title: "5. Bug fixing with CJK plugin",
+                url: `${BASE_URL}/05_cjk_plugin_example.md`,
+              },
+              {
+                title: "6. Load from URL",
                 url: "",
               },
             ];
@@ -170,6 +175,7 @@ const HomeScreen = () => {
         <Markdown
           markdown={markdown}
           theme={theme}
+          remarkPlugins={[remarkCjkFriendly]}
           onLinkPress={(url) => Linking.openURL(url)}
         />
       )}
