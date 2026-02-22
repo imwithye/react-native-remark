@@ -19,6 +19,7 @@ import {
   useColorScheme,
 } from "react-native";
 import remarkCjkFriendly from "remark-cjk-friendly";
+import remarkGfm from "remark-gfm";
 
 const { defaultTheme, githubTheme, serifTheme } = themes;
 
@@ -175,7 +176,7 @@ const HomeScreen = () => {
         <Markdown
           markdown={markdown}
           theme={theme}
-          remarkPlugins={[remarkCjkFriendly]}
+          remarkPlugins={[remarkGfm, remarkCjkFriendly]}
           onLinkPress={(url) => Linking.openURL(url)}
         />
       )}
