@@ -143,7 +143,7 @@ Checkout [default.tsx](./src/themes/default.tsx) for default styles.
 | `codeBlock`         | Styles for code blocks                | `code` blocks                 |
 | `container`         | Container layout spacing              | Root container layout         |
 | `delete`            | Deleted text style                    | ~~strikethrough~~ text        |
-| `emphasis`          | Italic text style                     | _italic_ or _italic_          |
+| `emphasis`          | Italic text style                     | *italic* or _italic_          |
 | `footnoteReference` | Style for footnote references         | Footnote markers              |
 | `heading`           | Heading styles (h1, h2, h3...)        | # Heading                     |
 | `image`             | Image styling                         | Inline or block images        |
