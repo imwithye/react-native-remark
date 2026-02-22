@@ -157,7 +157,7 @@ const HomeScreen = () => {
   useEffect(() => {
     const controller = loadMarkdown(URL);
 
-    return controller.abort;
+    return () => controller.abort();
   }, [loadMarkdown]);
 
   return (
