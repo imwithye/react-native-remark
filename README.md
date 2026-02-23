@@ -111,6 +111,8 @@ index?: number;
 
 Checkout [renderers](./src/renderers/) for the default implementations. To ensure type safety when creating custom renderers, you can use the `RendererArgs<MdastType>` props interface.
 
+Note that the library ships with renderers for the `remark-gfm` plugin since we think it is often used. You don't need to pass custom renderers (though you can!) for this plugin.
+
 ## Supported Themes
 
 Themes are pre-defined style collections that provide consistent visual styling for markdown content. Currently, we support two built-in themes:
@@ -173,6 +175,7 @@ Note that:
 
 - though `remark-gfm` is supported out of the box, you'll need to add the plugin manually when injecting other Remark plugins
 - when using plugins that add support for additional nodes, you'll need to inject the required renderers using the `customRenderers` prop
+- ⚠️ asynchronous plugins aren't supported yet; passing any asynchronous plugin will result in a crash ⚠️
 
 ## Quick Look
 
