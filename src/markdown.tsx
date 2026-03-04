@@ -48,6 +48,8 @@ export const Markdown = ({
   );
 
   const tree: Root = useMemo(() => {
+    // We use runSync to synchronously apply plugins. If a user tries to use an async plugin, it will throw an error.
+    // This is intended to avoid silently failing since we can't render async react components on the client.
     return processor.runSync(processor.parse(markdown)) as Root;
   }, [markdown, processor]);
 
