@@ -39,6 +39,7 @@
 - 🖼️ Inline and block image rendering
 - 🌙 Dark Mode support
 - ⚙️ Custom renderers and styles for flexible UI customization
+- 🧩 Supports Remark plugins to enhance capabilities
 
 ## Installation
 
@@ -62,33 +63,33 @@ This is a **Markdown** example with [a link](https://reactnative.dev).
 
 export default function App() {
   return (
-     <Markdown
-        markdown={markdown}
-        customRenderers={{
-            // Override default renderers for mdast nodes.
-            // Checkout https://github.com/imwithye/react-native-remark/blob/main/src/renderers/index.tsx
-            // for the default renderers.
-            InlineCodeRenderer: ({ node }) => (
-              <Text style={{ color: "blue" }}>{node.value}</Text>
-            ),
-            ThematicBreakRenderer: () => (
-              <View style={{ height: 5, backgroundColor: "red" }} />
-            ),
-        }}
-        customStyles={{
-            // Override default styles
-            // Checkout https://github.com/imwithye/react-native-remark/blob/main/src/themes/default.tsx
-            // for the default styles.
-            inlineCode: {
-              color: "red",
-            },
-            text: {
-              color: "red",
-            },
-        }}
-        onCodeCopy={(code) => Clipboard.setStringAsync(code)}
-        onLinkPress={(url) => Linking.openURL(url)}
-      />
+    <Markdown
+      markdown={markdown}
+      customRenderers={{
+        // Override default renderers for mdast nodes.
+        // Checkout https://github.com/imwithye/react-native-remark/blob/main/src/renderers/index.tsx
+        // for the default renderers.
+        InlineCodeRenderer: ({ node }) => (
+          <Text style={{ color: "blue" }}>{node.value}</Text>
+        ),
+        ThematicBreakRenderer: () => (
+          <View style={{ height: 5, backgroundColor: "red" }} />
+        ),
+      }}
+      customStyles={{
+        // Override default styles
+        // Checkout https://github.com/imwithye/react-native-remark/blob/main/src/themes/default.tsx
+        // for the default styles.
+        inlineCode: {
+          color: "red",
+        },
+        text: {
+          color: "red",
+        },
+      }}
+      onCodeCopy={(code) => Clipboard.setStringAsync(code)}
+      onLinkPress={(url) => Linking.openURL(url)}
+    />
   );
 }
 ```
@@ -110,9 +111,11 @@ index?: number;
 
 Checkout [renderers](./src/renderers/) for the default implementations. To ensure type safety when creating custom renderers, you can use the `RendererArgs<MdastType>` props interface.
 
+Note that the library ships with renderers for the `remark-gfm` plugin since we think it is often used. You don't need to pass custom renderers (though you can!) for this plugin.
+
 ## Supported Themes
 
-Themes are pre-defined style collections that provide consistent visual styling for markdown content. Currently, we support two built-in themes: 
+Themes are pre-defined style collections that provide consistent visual styling for markdown content. Currently, we support two built-in themes:
 
 1. default
 2. serif
@@ -124,7 +127,7 @@ To use a theme, you can follow this pattern:
 import { themes } from "react-native-remark"
 const { serifTheme } = themes;
 
-// Thene you can use it with
+// Then you can use it with
 <Markdown theme={serifTheme} ... />
 ```
 
@@ -134,28 +137,45 @@ Custom styles will override the selected theme's default styles.
 
 Checkout [default.tsx](./src/themes/default.tsx) for default styles.
 
-| Style Key         | Description                           | Example Markdown Element      |
-|-------------------|---------------------------------------|-------------------------------|
-| `blockquote`      | Styles for blockquotes                | `> This is a blockquote`      |
-| `borderColor`     | Default border color used globally    | Borders, thematic breaks      |
-| `break`           | Line break styling (empty by default) | Line breaks                   |
-| `codeBlock`       | Styles for code blocks                | ```code``` blocks             |
-| `container`       | Container layout spacing              | Root container layout         |
-| `delete`          | Deleted text style                    | ~~strikethrough~~ text        |
-| `emphasis`        | Italic text style                     | *italic* or _italic_          |
-| `footnoteReference` | Style for footnote references       | Footnote markers              |
-| `heading`         | Heading styles (h1, h2, h3...)        | # Heading                     |
-| `image`           | Image styling                         | Inline or block images        |
-| `inlineCode`      | Inline code styling                   | `inline code`                 |
-| `link`            | Link styling                          | [link](url)                   |
-| `linkReference`   | Reference-style links                 | [reference][id]               |
-| `list`            | List container styling                | Lists (`- item` or `1. item`) |
-| `listItem`        | List item styling                     | Each list item                |
-| `paragraph`       | Paragraph text styling                | Normal paragraphs             |
-| `strong`          | Bold text style                       | **bold**                      |
-| `tableCell`       | Table cell text styling               | Table cell contents           |
-| `text`            | General text style                    | Plain text                    |
-| `thematicBreak`   | Horizontal rule styling               | ---                           |
+| Style Key           | Description                           | Example Markdown Element      |
+| ------------------- | ------------------------------------- | ----------------------------- |
+| `blockquote`        | Styles for blockquotes                | `> This is a blockquote`      |
+| `borderColor`       | Default border color used globally    | Borders, thematic breaks      |
+| `break`             | Line break styling (empty by default) | Line breaks                   |
+| `codeBlock`         | Styles for code blocks                | `code` blocks                 |
+| `container`         | Container layout spacing              | Root container layout         |
+| `delete`            | Deleted text style                    | ~~strikethrough~~ text        |
+| `emphasis`          | Italic text style                     | *italic* or _italic_          |
+| `footnoteReference` | Style for footnote references         | Footnote markers              |
+| `heading`           | Heading styles (h1, h2, h3...)        | # Heading                     |
+| `image`             | Image styling                         | Inline or block images        |
+| `inlineCode`        | Inline code styling                   | `inline code`                 |
+| `link`              | Link styling                          | [link](url)                   |
+| `linkReference`     | Reference-style links                 | [reference][id]               |
+| `list`              | List container styling                | Lists (`- item` or `1. item`) |
+| `listItem`          | List item styling                     | Each list item                |
+| `paragraph`         | Paragraph text styling                | Normal paragraphs             |
+| `strong`            | Bold text style                       | **bold**                      |
+| `tableCell`         | Table cell text styling               | Table cell contents           |
+| `text`              | General text style                    | Plain text                    |
+| `thematicBreak`     | Horizontal rule styling               | ---                           |
+
+## Remark plugins usage
+
+You can inject Remark plugins _via_ the `remarkPlugins` prop. For example, you can use `remark-cjk-friendly` to add support for bold (`**`) with Chinese, Japanese and Korean alphabets by doing the following:
+
+```jsx
+import remarkCjkFriendly from "remark-cjk-friendly";
+import remarkGfm from "remark-gfm";
+
+<Markdown remarkPlugins={[remarkGfm, remarkCjkFriendly]} /* ... */ />;
+```
+
+Note that:
+
+- though `remark-gfm` is supported out of the box, you'll need to add the plugin manually when injecting other Remark plugins
+- when using plugins that add support for additional nodes, you'll need to inject the required renderers using the `customRenderers` prop
+- ⚠️ asynchronous plugins aren't supported yet; passing any asynchronous plugin will result in a crash ⚠️
 
 ## Quick Look
 
@@ -177,4 +197,3 @@ By interacting with this repository, organization, or community you agree to abi
    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=imwithye/react-native-remark&type=Date" width="100%" />
  </picture>
 </a>
-

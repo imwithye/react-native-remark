@@ -2,15 +2,14 @@ import {
   ActionSheetProvider,
   useActionSheet,
 } from "@expo/react-native-action-sheet";
-import { Markdown } from "@react-native-remark";
-import { themes } from "@react-native-remark";
+import { Markdown, themes } from "@react-native-remark";
 import {
   createStaticNavigation,
   useNavigation,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
@@ -19,6 +18,8 @@ import {
   ScrollView,
   useColorScheme,
 } from "react-native";
+import remarkCjkFriendly from "remark-cjk-friendly";
+import remarkGfm from "remark-gfm";
 
 const { defaultTheme, githubTheme, serifTheme } = themes;
 
@@ -30,10 +31,22 @@ const HomeScreen = () => {
   const colorScheme = useColorScheme();
   const navigation = useNavigation();
   const { showActionSheetWithOptions } = useActionSheet();
-  const [url, setUrl] = useState(URL);
   const [markdown, setMarkdown] = useState("");
   const [theme, setTheme] = useState(defaultTheme);
   const [loading, setLoading] = useState(false);
+
+  const loadMarkdown = useCallback((url: string) => {
+    setLoading(true);
+
+    const controller = new AbortController();
+
+    fetch(url, { signal: controller.signal })
+      .then((res) => res.text())
+      .then((text) => setMarkdown(text))
+      .finally(() => setTimeout(() => setLoading(false), 1000));
+
+    return controller;
+  }, []);
 
   useEffect(() => {
     navigation.setOptions({
@@ -103,7 +116,11 @@ const HomeScreen = () => {
                 url: `${BASE_URL}/04_pytorch.md`,
               },
               {
-                title: "5. Load from URL",
+                title: "5. Bug fixing with CJK plugin",
+                url: `${BASE_URL}/05_cjk_plugin_example.md`,
+              },
+              {
+                title: "6. Load from URL",
                 url: "",
               },
             ];
@@ -115,28 +132,34 @@ const HomeScreen = () => {
               },
               (idx?: number) => {
                 if (!idx || idx === cancelButtonIndex) return;
+
                 if (idx === options.length - 1) {
                   Alert.prompt("Load Markdown from URL", "", (url) => {
-                    setUrl(url);
+                    loadMarkdown(url);
                   });
                   return;
                 }
-                setUrl(options[idx].url);
+
+                loadMarkdown(options[idx].url);
               },
             );
           }}
         />
       ),
     });
-  }, [colorScheme, navigation, showActionSheetWithOptions, setTheme, setUrl]);
+  }, [
+    colorScheme,
+    navigation,
+    showActionSheetWithOptions,
+    setTheme,
+    loadMarkdown,
+  ]);
 
   useEffect(() => {
-    setLoading(true);
-    fetch(url)
-      .then((res) => res.text())
-      .then((text) => setMarkdown(text))
-      .finally(() => setTimeout(() => setLoading(false), 1000));
-  }, [url]);
+    const controller = loadMarkdown(URL);
+
+    return () => controller.abort();
+  }, [loadMarkdown]);
 
   return (
     <ScrollView
@@ -153,6 +176,7 @@ const HomeScreen = () => {
         <Markdown
           markdown={markdown}
           theme={theme}
+          remarkPlugins={[remarkGfm, remarkCjkFriendly]}
           onLinkPress={(url) => Linking.openURL(url)}
         />
       )}

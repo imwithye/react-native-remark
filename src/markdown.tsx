@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { LayoutChangeEvent, View, useColorScheme } from "react-native";
 import remarkGfm from "remark-gfm";
 import remarkParse from "remark-parse";
-import { unified } from "unified";
+import { type PluggableList, unified } from "unified";
 import { visit } from "unist-util-visit";
 
 import { MarkdownContextProvider } from "./context";
@@ -13,7 +13,7 @@ import { RootRenderer } from "./renderers/root";
 import { Theme, defaultTheme } from "./themes";
 import { Styles, mergeStyles } from "./themes/themes";
 
-const parser = unified().use(remarkParse).use(remarkGfm);
+const defaultRemarkPlugins: PluggableList = [remarkGfm];
 
 function extractDefinitions(tree: Root): Record<string, Definition> {
   const definitions: Record<string, Definition> = {};
@@ -30,6 +30,7 @@ export type MarkdownProps = {
   customStyles?: Partial<Styles>;
   onCodeCopy?: (code: string) => void;
   onLinkPress?: (url: string) => void;
+  remarkPlugins?: PluggableList;
 };
 
 export const Markdown = ({
@@ -39,8 +40,18 @@ export const Markdown = ({
   customStyles,
   onCodeCopy,
   onLinkPress,
+  remarkPlugins = defaultRemarkPlugins,
 }: MarkdownProps) => {
-  const tree = useMemo(() => parser.parse(markdown), [markdown]);
+  const processor = useMemo(
+    () => unified().use(remarkParse).use(remarkPlugins),
+    [remarkPlugins],
+  );
+
+  const tree: Root = useMemo(() => {
+    // We use runSync to synchronously apply plugins. If a user tries to use an async plugin, it will throw an error.
+    // This is intended to avoid silently failing since we can't render async react components on the client.
+    return processor.runSync(processor.parse(markdown)) as Root;
+  }, [markdown, processor]);
 
   const activeTheme = theme ?? defaultTheme;
   const renderers = useMemo(
