@@ -46,7 +46,7 @@ export const ListItemRenderer = ({
 
   return (
     <View style={{ flexDirection: "row" }}>
-      <View style={{ marginRight: 5 }}>
+      <View style={{ marginHorizontal: 8 }}>
         {list?.ordered ? (
           <Text style={markerStyle}>{itemNumber}.</Text>
         ) : (
